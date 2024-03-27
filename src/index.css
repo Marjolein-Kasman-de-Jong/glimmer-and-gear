@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+/* CSS reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Colors */
+
+:root {
+  --black: #000;
+  --blue: #00A8E1;
+  --green: #C6C72E;
+  --orange: #F89200;
+  --white: #FFF;
+}
+
+/* Typography */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  color: var(--black);
+}
+
+/* -- Headings */
+
+/* ---- Shop name */
+h1 {
+  font-family: 'Luckiest Guy', sans-serif;
+  font-size: 2.25rem;
+  line-height: 100%;
+  color: var(--white);
+}
+
+/* ---- Page titles */
+h2 {
+  font-size: 2.25rem;
+}
+
+/* ---- Product titles, tab titles, FAQs */
+h3 {
+  font-size: 1.5rem;
+  text-align: center;
+}
