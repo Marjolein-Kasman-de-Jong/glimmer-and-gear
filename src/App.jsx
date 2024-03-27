@@ -11,13 +11,16 @@ import ShoppingCart from './pages/shopping-cart/ShoppingCart'
 import Checkout from './pages/checkout/Checkout'  
 import PageNotFound from './pages/page-not-found/PageNotFound'
 
+// Components
+import Header from './components/header/Header'
+
 // Style
 import './App.css'
 
 function App() {
   return (
     <>
-      {/* Hier komt de header */}
+      <Header />
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/category" element={<Category />}/>
