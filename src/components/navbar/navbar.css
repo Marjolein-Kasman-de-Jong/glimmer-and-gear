@@ -1,0 +1,45 @@
+.navbar {
+    padding: 5px 9%;
+    background-color: var(--green);
+}
+
+.navbar nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar nav ul {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+nav li {
+    list-style-type: none;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+}
+
+.search-field-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+nav input {
+    width: 406px;
+    height: 100%;
+    border: none;
+}
+
+.magnifying-glass {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 375px;
+}
+
+.shopping-cart {
+    border-radius: 50%;
+}
