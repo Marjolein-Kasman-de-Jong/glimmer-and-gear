@@ -1,15 +1,15 @@
 // Images
-import logo from '../../assets/logo.jpeg'
+import logo from '../../assets/logo.jpeg';
 
 // Style
-import './titlebar.css'
+import './titlebar.css';
 
 const Titlebar = () => {
     return (
         <div className='titlebar'>
             {/* Logo */}
             <div className='logo-wrapper'>
-                <img src={logo} alt="Glimmer & Gear logo" />
+                <img src={logo} alt='Glimmer & Gear logo' />
             </div>
             {/* Shop name and tagline */}
             <hgroup>
@@ -17,7 +17,7 @@ const Titlebar = () => {
                 <p>Shine with style, thrive with tech</p>
             </hgroup>
         </div>
-    )
+    );
 }
 
-export default Titlebar
+export default Titlebar;
