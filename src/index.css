@@ -35,14 +35,14 @@ body {
 /* ---- Shop name */
 h1 {
   font-family: 'Luckiest Guy', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   letter-spacing: .1rem;
   line-height: 100%;
   color: var(--white);
 
-  @media screen and (max-width: 576px) {
+  /* @media screen and (max-width: 375px) {
     font-size: 1.5rem;
-  }
+  } */
 }
 
 /* ---- Page titles */
