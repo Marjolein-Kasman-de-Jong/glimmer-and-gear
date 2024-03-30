@@ -7,9 +7,9 @@ import './titlebar.css';
 const Titlebar = () => {
     return (
         <div className='titlebar'>
-            <div className='logo-wrapper'>
-                <img src={logo} alt='Glimmer & Gear Logo' />
-            </div>
+            {/* Logo */}
+            <img src={logo} alt='Glimmer & Gear logo' />
+            {/* Shop name and tagline */}
             <hgroup>
                 <h1>glimmer & gear</h1>
                 <p>shine with style, thrive with tech</p>

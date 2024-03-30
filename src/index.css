@@ -14,6 +14,7 @@
   --black: #000;
   --blue: #00A8E1;
   --green: #C6C72E;
+  --light-green: #e6e693;
   --orange: #F89200;
   --white: #FFF;
 }
@@ -40,9 +41,9 @@ h1 {
   line-height: 100%;
   color: var(--white);
 
-  /* @media screen and (max-width: 375px) {
-    font-size: 1.5rem;
-  } */
+  @media screen and (max-width: 600px) {
+    font-size: 1.6875rem;
+  }
 }
 
 /* ---- Page titles */
@@ -60,4 +61,8 @@ h3 {
 
 img {
   width: 100%;
+}
+
+header img, footer img {
+  border-radius: 50%;
 }
