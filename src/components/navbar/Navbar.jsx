@@ -9,6 +9,7 @@ import './navbar.css';
 
 const Navbar = () => {
     const [leftMenuItems, toggleLeftMenuItems] = useState(false);
+    const [dropdownContent, toggleDropdownContent] = useState(false);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
     // Monitor screen width
@@ -36,6 +37,11 @@ const Navbar = () => {
         toggleLeftMenuItems(!leftMenuItems);
     }
 
+    // Toggle dropdown menu
+    function toggleDropdownMenu() {
+        toggleDropdownContent(!dropdownContent);
+    }
+
     return (
         <nav>
             {/* Hamburger menu */}
@@ -48,18 +54,43 @@ const Navbar = () => {
             {
                 leftMenuItems &&
                 <ul className='left-menu'>
-                    <li>
-                        <p className='dropdown'>
+                    <li className='dropdown' onMouseEnter={() => toggleDropdownContent(true)} onMouseLeave={() => toggleDropdownContent(false)}>
+                        <button type='button' className='link' onClick={toggleDropdownMenu}>
                             Categories
-                        </p>
+                        </button>
+                        {
+                        dropdownContent &&
+                        <ul className="dropdown-content">
+                            <li>
+                                <Link to='/mens-clothing' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
+                                    Men's clothing
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/womens-clothing' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
+                                    Women's clothing
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/electronics' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
+                                    Electronics
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/jewelry' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
+                                    Jewelry
+                                </Link>
+                            </li>
+                        </ul>
+}
                     </li>
                     <li>
-                        <Link to='/faq' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
+                        <Link to='/faq' className='link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
                             FAQs
                         </Link>
                     </li>
                     <li>
-                        <Link to='/contact' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
+                        <Link to='/contact' className='link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
                             Contact
                         </Link>
                     </li>
@@ -68,7 +99,7 @@ const Navbar = () => {
             {/* Right menu */}
             <ul className='right-menu'>
                 <li>
-                    <Link to='/login-and-registration' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
+                    <Link to='/login-and-registration' className='link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
                         Login
                     </Link>
                 </li>
