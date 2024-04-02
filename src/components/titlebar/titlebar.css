@@ -1,0 +1,45 @@
+.titlebar {
+    padding: 10px 6.5%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 10px;
+    background-color: var(--orange);
+
+    @media screen and (max-width: 600px) {
+        justify-content: center;
+        column-gap: 22.5px;
+    }
+}
+
+/* Logo */
+
+.titlebar img {
+    width: 80px;
+    height: 80px;
+
+    @media screen and (max-width: 600px) {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Shop name and tagline */
+
+hgroup {
+    white-space: wrap;
+
+    @media screen and (max-width: 600px) {
+        text-align: center;
+    }
+}
+
+hgroup p {
+    font-family: 'Luckiest Guy', sans-serif;
+    color: var(--white);
+
+    @media screen and (max-width: 600px) {
+        font-size: .75rem;
+    }
+}
