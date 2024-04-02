@@ -14,7 +14,6 @@
   --black: #000;
   --blue: #00A8E1;
   --green: #C6C72E;
-  --light-green: #e6e693;
   --orange: #F89200;
   --white: #FFF;
 }
@@ -37,13 +36,8 @@ body {
 h1 {
   font-family: 'Luckiest Guy', sans-serif;
   font-size: 2.25rem;
-  letter-spacing: .1rem;
   line-height: 100%;
   color: var(--white);
-
-  @media screen and (max-width: 600px) {
-    font-size: 1.6875rem;
-  }
 }
 
 /* ---- Page titles */
@@ -55,14 +49,4 @@ h2 {
 h3 {
   font-size: 1.5rem;
   text-align: center;
-}
-
-/* Images */
-
-img {
-  width: 100%;
-}
-
-header img, footer img {
-  border-radius: 50%;
 }

@@ -11,23 +11,16 @@ import ShoppingCart from './pages/shopping-cart/ShoppingCart'
 import Checkout from './pages/checkout/Checkout'  
 import PageNotFound from './pages/page-not-found/PageNotFound'
 
-// Components
-import Header from './components/header/Header'
-
 // Style
 import './App.css'
 
 function App() {
   return (
     <>
-      <Header />
+      {/* Hier komt de header */}
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/category" element={<Category />}/>
-        <Route path="/mens-clothing" element={<Category />}/>
-        <Route path="/womens-clothing" element={<Category />}/>
-        <Route path="/electronics" element={<Category />}/>
-        <Route path="/jewelry" element={<Category />}/>
         <Route path="/product" element={<Product />}/>
         <Route path="/faq" element={<Faq />}/>
         <Route path="/contact" element={<Contact />}/>
