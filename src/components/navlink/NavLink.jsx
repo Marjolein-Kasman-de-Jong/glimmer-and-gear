@@ -1,14 +1,17 @@
-// Style
-import './hamburger-menu-icon.css';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const HamburgerMenu = ({ onClick }) => {
+// Style
+import './navlink.css';
+
+const Navlink = ({ type, linkTo, onClick, children }) => {
     return (
-        <button type='button' className='hamburger-menu' onClick={onClick}>
-            <span className='bar'></span>
-            <span className='bar'></span>
-            <span className='bar'></span>
-        </button>
+        <li>
+            <Link to={linkTo} className={type} onClick={() => screenWidth <= 600 && onClick(false)}>
+                {children}
+            </Link>
+        </li>
     );
 }
 
-export default HamburgerMenu;
+export default Navlink;

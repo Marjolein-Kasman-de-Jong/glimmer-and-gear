@@ -1,14 +1,11 @@
-.hamburger-menu {
+.hamburger-menu-icon {
     width: 30px;
     height: 30px;
-
     position: absolute;
     left: 9.3%;
-    
     display: none;
     flex-direction: column;
     justify-content: space-evenly;
-    
     border: none;
     background-color: var(--green);
 
@@ -20,6 +17,5 @@
 .bar {
     height: 3px;
     width: 100%;
-    
     background-color: var(--black);
 }

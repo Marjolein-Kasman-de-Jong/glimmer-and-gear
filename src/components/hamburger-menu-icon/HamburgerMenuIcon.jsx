@@ -1,9 +1,9 @@
 // Style
 import './hamburger-menu-icon.css';
 
-const HamburgerMenu = ({ onClick }) => {
+const HamburgerMenuIcon = ({ onClick }) => {
     return (
-        <button type='button' className='hamburger-menu' onClick={onClick}>
+        <button type='button' className='hamburger-menu-icon' onClick={onClick}>
             <span className='bar'></span>
             <span className='bar'></span>
             <span className='bar'></span>
@@ -11,4 +11,4 @@ const HamburgerMenu = ({ onClick }) => {
     );
 }
 
-export default HamburgerMenu;
+export default HamburgerMenuIcon;

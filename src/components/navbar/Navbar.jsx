@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 // Components
-import HamburgerMenuIcon from '../hamburger-menu/HamburgerMenuIcon';
+import HamburgerMenuIcon from '../hamburger-menu-icon/HamburgerMenuIcon';
+import Navlink from '../navlink/Navlink';
 
 // Images
 import shoppingCart from '../../assets/icon-shopping-cart.jpeg';
@@ -47,7 +47,7 @@ const Navbar = () => {
 
     return (
         <nav>
-            {/* Hamburger menu */}
+            {/* Hamburger menu icon */}
             <HamburgerMenuIcon onClick={toggleLeftMenu} />
             {/* Left menu */}
             {
@@ -57,56 +57,25 @@ const Navbar = () => {
                         <button type='button' className='link' onClick={toggleDropdownMenu}>
                             Categories
                         </button>
+                        {/* Dropdown menu */}
                         {
                             dropdownContent &&
                             <ul className="dropdown-content">
-                                <li>
-                                    <Link to='/mens-clothing' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
-                                        Men's clothing
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to='/womens-clothing' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
-                                        Women's clothing
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to='/electronics' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
-                                        Electronics
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to='/jewelry' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
-                                        Jewelry
-                                    </Link>
-                                </li>
+                                <Navlink type='category-link' linkTo='/mens-clothing' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Men's clothing</Navlink>
+                                <Navlink type='category-link' linkTo='/womens-clothing' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Women's clothing</Navlink>
+                                <Navlink type='category-link' linkTo='/electronics' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Electronics</Navlink>
+                                <Navlink type='category-link' linkTo='/jewelry' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Jewelry</Navlink>
                             </ul>
                         }
                     </li>
-                    <li>
-                        <Link to='/faq' className='link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
-                            FAQs
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to='/contact' className='link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
-                            Contact
-                        </Link>
-                    </li>
+                    <Navlink type='link' linkTo='/faq' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>FAQs</Navlink>
+                    <Navlink type='link' linkTo='/contact' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Contact</Navlink>
                 </ul>
             }
             {/* Right menu */}
             <ul className='right-menu'>
-                <li>
-                    <Link to='/login-and-registration' className='link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
-                        Login
-                    </Link>
-                </li>
-                <li>
-                    <Link to='/shopping-cart' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
-                        <img src={shoppingCart} alt='Shopping cart icon' />
-                    </Link>
-                </li>
+                <Navlink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Login</Navlink>
+                <Navlink type='link' linkTo='/shopping-cart' screenWidth={screenWidth} onClick={toggleLeftMenuItems}><img src={shoppingCart} alt='Shopping cart icon' /></Navlink>
             </ul>
         </nav>
     );

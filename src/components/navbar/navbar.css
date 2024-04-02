@@ -1,12 +1,11 @@
 nav {
     height: 50px;
     padding: 0 9.3%;
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--green);
-    position: relative;
-    top: -1px;
 
     @media screen and (max-width: 600px) {
         height: 37.5px;
@@ -14,61 +13,22 @@ nav {
     }
 }
 
+/* All menus */
+
 nav ul {
     display: flex;
     align-items: center;
     gap: 28px;
+    list-style-type: none;
 
     @media screen and (max-width: 600px) {
         gap: 14px;
     }
 }
 
+/* Left menu */
 
-ul {
-list-style-type: none;
-}
-
-nav .link,
-nav .link:visited,
-nav p {
-    /* height: 40px; */
-    height: 50px;
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    font-size: 1.5rem;
-    font-weight: 600;
-    text-decoration: none;
-    /* line-height: 40px; */
-    line-height: 50px;
-    color: var(--black);
-    display: flex;   
-    
-
-    @media screen and (max-width: 600px) {
-        height: 30px;
-        font-size: 1.125rem;
-        line-height: 30px;
-    }
-}
-
-nav .link:hover, nav .category-link:hover {
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-nav img {
-    width: 40px;
-    height: 40px;
-
-    @media screen and (max-width: 600px) {
-        width: 30px;
-        height: 30px;
-    }
-}
-
-nav .left-menu {
+.left-menu {
     @media screen and (max-width: 600px) {
         width: 100%;
         height: 200px;
@@ -79,44 +39,28 @@ nav .left-menu {
         flex-direction: column;
         align-items: start;
         background-color: var(--light-green);
-        gap: 14px;
     }
 }
+
+/* Dropdown menu */
 
 .dropdown {
     position: relative;
 }
 
 .dropdown-content {
+    padding: 20px;
     position: absolute;
     top: 50px;
     left: -20px;
-    
-    padding: 20px;
-    background-color: var(--light-green);
     display: flex;
     flex-direction: column;
     align-items: start;
+    background-color: var(--light-green);
 
     @media screen and (max-width: 600px) {
+        padding: 0 20px;
         top: 0;
         left: 100%;
-        padding: 0 20px;
     }
 }
-
-.category-link {
-        
-    text-wrap: nowrap;
-    font-size: 1.3rem;
-    font-weight: 600;
-    text-decoration: none;
-    line-height: 1.3rem;
-    color: var(--black);
-
-    @media screen and (max-width: 600px) {
-        font-size: 1.125rem;
-        line-height: 30px;       
-        font-style: italic;
-    }
-    }
