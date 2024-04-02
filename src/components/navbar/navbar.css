@@ -68,28 +68,6 @@ nav img {
     }
 }
 
-.hamburger-menu {
-    position: absolute;
-    left: 9.3%;
-    display: none;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 30px;
-    height: 30px;
-    background-color: var(--green);
-    border: none;
-
-    @media screen and (max-width: 600px) {
-        display: flex;
-    }
-}
-
-.hamburger-menu .bar {
-    height: 3px;
-    width: 100%;
-    background-color: var(--black);
-}
-
 nav .left-menu {
     @media screen and (max-width: 600px) {
         width: 100%;

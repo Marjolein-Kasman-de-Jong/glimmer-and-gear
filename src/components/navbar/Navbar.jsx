@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+// Components
+import HamburgerMenuIcon from '../hamburger-menu/HamburgerMenuIcon';
+
 // Images
 import shoppingCart from '../../assets/icon-shopping-cart.jpeg';
 
@@ -45,11 +48,7 @@ const Navbar = () => {
     return (
         <nav>
             {/* Hamburger menu */}
-            <button type='button' className='hamburger-menu' onClick={toggleLeftMenu}>
-                <span className='bar'></span>
-                <span className='bar'></span>
-                <span className='bar'></span>
-            </button>
+            <HamburgerMenuIcon onClick={toggleLeftMenu} />
             {/* Left menu */}
             {
                 leftMenuItems &&
@@ -59,30 +58,30 @@ const Navbar = () => {
                             Categories
                         </button>
                         {
-                        dropdownContent &&
-                        <ul className="dropdown-content">
-                            <li>
-                                <Link to='/mens-clothing' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
-                                    Men's clothing
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/womens-clothing' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
-                                    Women's clothing
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/electronics' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
-                                    Electronics
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/jewelry' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
-                                    Jewelry
-                                </Link>
-                            </li>
-                        </ul>
-}
+                            dropdownContent &&
+                            <ul className="dropdown-content">
+                                <li>
+                                    <Link to='/mens-clothing' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
+                                        Men's clothing
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to='/womens-clothing' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
+                                        Women's clothing
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to='/electronics' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
+                                        Electronics
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to='/jewelry' className='category-link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
+                                        Jewelry
+                                    </Link>
+                                </li>
+                            </ul>
+                        }
                     </li>
                     <li>
                         <Link to='/faq' className='link' onClick={() => screenWidth <= 600 && toggleLeftMenuItems(false)}>
