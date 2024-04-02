@@ -1,21 +1,21 @@
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom';
 
 // Pages
-import Home from './pages/home/Home'
-import Category from './pages/category/Category'
-import Product from './pages/product/Product'
-import Faq from './pages/faq/Faq'
-import Contact from './pages/contact/Contact'
-import LoginAndRegistration from './pages/login-and-registration/LoginAndRegistration'
-import ShoppingCart from './pages/shopping-cart/ShoppingCart'
-import Checkout from './pages/checkout/Checkout'  
-import PageNotFound from './pages/page-not-found/PageNotFound'
+import Home from './pages/home/Home';
+import Category from './pages/category/Category';
+import Product from './pages/product/Product';
+import Faq from './pages/faq/Faq';
+import Contact from './pages/contact/Contact';
+import LoginAndRegistration from './pages/login-and-registration/LoginAndRegistration';
+import ShoppingCart from './pages/shopping-cart/ShoppingCart';
+import Checkout from './pages/checkout/Checkout';  
+import PageNotFound from './pages/page-not-found/PageNotFound';
 
 // Components
-import Header from './components/header/Header'
+import Header from './components/header/Header';
 
 // Style
-import './App.css'
+import './App.css';
 
 function App() {
   return (
@@ -38,7 +38,7 @@ function App() {
       </Routes>
       {/* Hier komt de footer */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

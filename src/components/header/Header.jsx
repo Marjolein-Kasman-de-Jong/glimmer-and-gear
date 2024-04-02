@@ -3,7 +3,7 @@ import Titlebar from '../titlebar/Titlebar';
 import Navbar from '../navbar/Navbar';
 
 // Style
-import './header.css'
+import './header.css';
 
 const Header = () => {
     return (

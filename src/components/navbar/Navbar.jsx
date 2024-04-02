@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 // Components
 import HamburgerMenuIcon from '../hamburger-menu-icon/HamburgerMenuIcon';
-import Navlink from '../navlink/Navlink';
+import Navlink from '../navlink/NavLink';
 
 // Images
 import shoppingCart from '../../assets/icon-shopping-cart.jpeg';
