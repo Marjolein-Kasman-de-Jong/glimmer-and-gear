@@ -1,0 +1,9 @@
+.image-section {
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
