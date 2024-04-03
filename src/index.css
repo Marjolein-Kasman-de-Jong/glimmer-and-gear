@@ -17,6 +17,7 @@
   --light-green: #e6e693;
   --orange: #F89200;
   --white: #FFF;
+  --transparent-white: #FFFFFFBF;
 }
 
 /* Typography */
@@ -51,10 +52,14 @@ h2 {
   font-size: 2.25rem;
 }
 
-/* ---- Product titles, tab titles, FAQs */
+/* ---- Category tile titles, product titles, tab titles, FAQs */
 h3 {
   font-size: 1.5rem;
   text-align: center;
+
+  @media screen and (max-width: 912px) {
+    font-size: 1rem;
+  }
 }
 
 /* Images */

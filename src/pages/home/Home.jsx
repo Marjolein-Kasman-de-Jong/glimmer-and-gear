@@ -2,9 +2,11 @@
 import SearchBar from '../../components/search-bar/SearchBar';
 import RandomProductImage from '../../components/random-product-image/RandomProductImage';
 import Usp from '../../components/usp/Usp';
+import CategoryTile from '../../components/category-tile/CategoryTile';
 
 // Constants
 import usps from '../../constants/usps';
+import categories from '../../constants/categories';
 
 // Images
 import randomProductImage1 from '../../assets/random-product-1.jpeg';
@@ -24,11 +26,17 @@ const Home = () => {
             <section className='usp-section'>
                 {
                     usps.map((usp) => {
-                        return <Usp text={usp}/>
+                        return <Usp key={usp} text={usp} />
                     })
                 }
             </section>
-            <section className='category-section'>categories</section>
+            <section className='category-section'>
+                {
+                    categories.map((category) => {
+                        return <CategoryTile key={category.title} category={category} />
+                    })
+                }
+            </section>
             <section className="review-section">reviews</section>
         </main>
     );

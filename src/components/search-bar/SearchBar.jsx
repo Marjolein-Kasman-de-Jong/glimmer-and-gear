@@ -9,7 +9,7 @@ const SearchBar = () => {
         <aside className='search-bar'>
             <form action='#'>
                 <input type="text" name='search-field' id='search-field' placeholder='What are you looking for?' />
-                <SlMagnifier class='search-icon' />
+                <SlMagnifier className='search-icon' />
             </form>
         </aside>
     );
