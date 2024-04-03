@@ -1,27 +1,7 @@
-.image-section {
-    display: flex;
-    justify-content: space-between;
-
-    @media screen and (max-width: 600px) {
-        flex-direction: column;
-        gap: 20px;
-    }
-}
-
-.usp-section {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-
-    @media screen and (max-width: 600px) {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-}
-
-
-
-.category-section {
+.image-section,
+.usp-section,
+.category-section,
+.review-section {
     display: flex;
     justify-content: space-between;
     gap: 10px;

@@ -5,12 +5,9 @@ import Usp from '../../components/usp/Usp';
 import CategoryTile from '../../components/category-tile/CategoryTile';
 
 // Constants
+import randomImages from '../../constants/randomImages';
 import usps from '../../constants/usps';
 import categories from '../../constants/categories';
-
-// Images
-import randomProductImage1 from '../../assets/random-product-1.jpeg';
-import randomProductImage2 from '../../assets/random-product-2.jpeg';
 
 // Style
 import './home.css';
@@ -20,8 +17,11 @@ const Home = () => {
         <main>
             <SearchBar />
             <section className='image-section'>
-                <RandomProductImage src={randomProductImage1} />
-                <RandomProductImage src={randomProductImage2} />
+                {
+                    randomImages.map((randomImage) => {
+                        return <RandomProductImage key={randomImage.id} src={randomImage} />
+                    })
+                }
             </section>
             <section className='usp-section'>
                 {

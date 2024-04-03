@@ -1,5 +1,3 @@
-// import womensClothing from '../assets/category-womens-clothing.jpeg';
-
 const categories = [
     {
         title: 'women\'s clothing',
