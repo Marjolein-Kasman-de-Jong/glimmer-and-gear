@@ -1,5 +1,5 @@
 // Components
-import SearchBar from '../../components/search-bar/SearchBar'
+import SearchBar from '../../components/search-bar/SearchBar';
 
 // Style
 import './home.css'
