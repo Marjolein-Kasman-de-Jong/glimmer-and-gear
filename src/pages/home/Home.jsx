@@ -3,11 +3,13 @@ import SearchBar from '../../components/search-bar/SearchBar';
 import RandomProductImage from '../../components/random-product-image/RandomProductImage';
 import Usp from '../../components/usp/Usp';
 import CategoryTile from '../../components/category-tile/CategoryTile';
+import Review from '../../components/review/Review';
 
 // Constants
 import randomImages from '../../constants/randomImages';
 import usps from '../../constants/usps';
 import categories from '../../constants/categories';
+import reviews from '../../constants/reviews';
 
 // Style
 import './home.css';
@@ -37,7 +39,13 @@ const Home = () => {
                     })
                 }
             </section>
-            <section className="review-section">reviews</section>
+            <section className="review-section">
+                {
+                    reviews.map((review) => {
+                        return <Review key={review.id} review={review} />                         
+                    })
+                }
+            </section>
         </main>
     );
 }

@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import HamburgerMenuIcon from '../hamburger-menu-icon/HamburgerMenuIcon';
 import Navlink from '../navlink/NavLink';
 
-// Images
-import shoppingCart from '../../assets/icon-shopping-cart.jpeg';
+// Icons
+import { TiShoppingCart } from "react-icons/ti";
 
 // Style
 import './navbar.css';
@@ -75,7 +75,7 @@ const Navbar = () => {
             {/* Right menu */}
             <ul className='right-menu'>
                 <Navlink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Login</Navlink>
-                <Navlink type='link' linkTo='/shopping-cart' screenWidth={screenWidth} onClick={toggleLeftMenuItems}><img src={shoppingCart} alt='Shopping cart icon' /></Navlink>
+                <Navlink type='link' linkTo='/shopping-cart' screenWidth={screenWidth} onClick={toggleLeftMenuItems}><TiShoppingCart /></Navlink>
             </ul>
         </nav>
     );

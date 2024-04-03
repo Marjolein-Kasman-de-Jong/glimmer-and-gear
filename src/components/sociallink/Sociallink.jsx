@@ -1,11 +1,11 @@
 // Style
 import './sociallink.css';
 
-const Sociallink = ({ href, icon, alt }) => {
+const Sociallink = ({ href, children }) => {
     return (
         <a href={href} target='_blank'>
             <div className='icon-container'>
-                <img src={icon} alt={alt} />
+                {children}
             </div>
         </a>
     );

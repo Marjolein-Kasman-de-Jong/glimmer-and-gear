@@ -4,10 +4,10 @@ import Sociallink from '../sociallink/Sociallink';
 // Helpers
 import getCurrentYear from '../../helpers/getCurrentYear';
 
-// Images
-import facebook from '../../assets/icon-facebook.svg';
-import instagram from '../../assets/icon-instagram.svg';
-import twitter from '../../assets/icon-twitter.svg';
+// Icons
+import { TiSocialFacebook } from "react-icons/ti";
+import { TiSocialInstagram } from "react-icons/ti";
+import { TiSocialTwitter } from "react-icons/ti";
 
 // Style
 import './footer.css';
@@ -19,9 +19,15 @@ const Footer = () => {
         <footer>
             <p>{`glimmer and gear ${currentYear}`}</p>
             <div className='socials'>
-                <Sociallink href='https://www.facebook.com/' icon={facebook} alt='Facebook icon' />
-                <Sociallink href='https://www.instagram.com/' icon={instagram} alt='Instagram icon' />
-                <Sociallink href='https://twitter.com/' icon={twitter} alt='X/Twitter icon' />
+                <Sociallink href='https://www.facebook.com/' alt='Facebook icon'>
+                    <TiSocialFacebook className='social-icon' />
+                </Sociallink>
+                <Sociallink href='https://www.instagram.com/' alt='Instagram icon'>
+                    <TiSocialInstagram className='social-icon' />
+                </Sociallink>
+                <Sociallink href='https://twitter.com/' alt='X/Twitter icon'>
+                    <TiSocialTwitter className='social-icon' />
+                </Sociallink>
             </div >
         </footer >
     );

@@ -1,0 +1,24 @@
+.review {
+    width: 100%;
+    max-width: 353px;
+    padding: 25px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+    line-height: 118%;
+    color: var(--green);
+    border: 3px solid var(--green);
+}
+
+.rating-container {
+    text-align: left;
+}
+
+.review-info {
+    font-style: italic;
+}
+
+.review-author {
+    font-weight: 600;
+}

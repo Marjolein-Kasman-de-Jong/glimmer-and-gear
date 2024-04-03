@@ -21,3 +21,7 @@ footer {
     display: flex;
     gap: 19px;
 }
+
+.socials img {
+    width: 40px;
+}
