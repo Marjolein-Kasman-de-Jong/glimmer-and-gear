@@ -13,6 +13,7 @@ import PageNotFound from './pages/page-not-found/PageNotFound';
 
 // Components
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 // Style
 import './App.css';
@@ -36,7 +37,7 @@ function App() {
         <Route path="/checkout" element={<Checkout />}/>
         <Route path="*" element={<PageNotFound />}/>
       </Routes>
-      {/* Hier komt de footer */}
+      <Footer />
     </>
   );
 }
