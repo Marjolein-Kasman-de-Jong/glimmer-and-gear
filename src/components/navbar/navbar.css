@@ -6,6 +6,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: var(--green);
+    z-index: 10;
 
     @media screen and (max-width: 600px) {
         height: 37.5px;

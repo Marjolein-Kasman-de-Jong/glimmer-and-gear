@@ -1,0 +1,33 @@
+.search-bar {
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 400px;
+    height: 40px;
+    padding: 10px 50px 10px 20px;
+    border: 1px solid var(--black);
+    border-radius: 20px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 20px;
+}
