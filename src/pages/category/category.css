@@ -1,0 +1,56 @@
+.category-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-card {
+    width: 100%;
+    max-width: 353px;
+    padding: 8px 0;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+
+    border: 1px solid black;
+}
+
+.product-card .rating-star {
+    width: 120px;
+    height: 120px;
+
+    color: var(--green);
+
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.product-card .product-rating {
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+    top: 38px;
+    right: 35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 600;
+}
+
+.product-card img {
+    width: 100%;
+    max-width: 261px;
+}
+
+.product-card p {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
