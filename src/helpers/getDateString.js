@@ -4,7 +4,6 @@ function getDateString(date) {
         month: 'long',
         day: 'numeric',
       };
-
       return date.toLocaleDateString('en-US', options);
 }
 

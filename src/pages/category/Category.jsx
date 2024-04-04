@@ -1,16 +1,24 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';
 import ProductCard from '../../components/product-card/ProductCard';
 
-
+// Constants
+import categories from '../../constants/categories';
 
 // Style
 import './category.css'
 
 const Category = () => {
+    // Get category data
+    const { category } = useParams();
+    const categoryData = categories.find((item) => {
+        return item.category === category;
+    })
+
     const [productList, setProductList] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -33,7 +41,7 @@ const Category = () => {
             setLoading(false);
         }
 
-        getProductList('https://fakestoreapi.com/products/category/men\'s%20clothing');
+        getProductList(categoryData.apiEndpoint);
 
         return function cleanup() {
             controller.abort();
@@ -44,7 +52,7 @@ const Category = () => {
         <main>
             <SearchBar />
             <header className='category-page-header'>
-                <h2>Men's clothing</h2>
+                <h2>{categoryData.title}</h2>
                 <div>Sorteerding</div>
             </header>
             <div className='products-container'>
@@ -59,4 +67,3 @@ const Category = () => {
 }
 
 export default Category;
-

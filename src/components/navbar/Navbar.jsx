@@ -61,10 +61,10 @@ const Navbar = () => {
                         {
                             dropdownContent &&
                             <ul className="dropdown-content">
-                                <Navlink type='category-link' linkTo='/mens-clothing' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Men's clothing</Navlink>
-                                <Navlink type='category-link' linkTo='/womens-clothing' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Women's clothing</Navlink>
-                                <Navlink type='category-link' linkTo='/electronics' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Electronics</Navlink>
-                                <Navlink type='category-link' linkTo='/jewelry' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Jewelry</Navlink>
+                                <Navlink type='category-link' linkTo='/category/mens-clothing' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Men's clothing</Navlink>
+                                <Navlink type='category-link' linkTo='/category/womens-clothing' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Women's clothing</Navlink>
+                                <Navlink type='category-link' linkTo='/category/electronics' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Electronics</Navlink>
+                                <Navlink type='category-link' linkTo='/category/jewelry' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Jewelry</Navlink>
                             </ul>
                         }
                     </li>
