@@ -16,6 +16,7 @@
 .social-icon {
     width: 40px;
     height: 40px;
+    color: var(--black);
 
     @media screen and (max-width: 600px) {
         width: 30px;

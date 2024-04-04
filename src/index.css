@@ -12,6 +12,7 @@
 
 :root {
   --black: #000;
+  --light-grey: #dadada;
   --blue: #00A8E1;
   --green: #C6C72E;
   --light-green: #e6e693;
@@ -50,6 +51,7 @@ h1 {
 /* ---- Page titles */
 h2 {
   font-size: 2.25rem;
+  margin-bottom: 50px;
 }
 
 /* ---- Category tile titles, product titles, tab titles, FAQs */

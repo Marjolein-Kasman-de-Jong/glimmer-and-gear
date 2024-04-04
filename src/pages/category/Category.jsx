@@ -3,9 +3,9 @@ import axios from 'axios';
 
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';
+import ProductCard from '../../components/product-card/ProductCard';
 
-// Icons
-import { TiStarFullOutline } from "react-icons/ti";
+
 
 // Style
 import './category.css'
@@ -31,7 +31,7 @@ const Category = () => {
                 setError(true);
             }
             setLoading(false);
-        }        
+        }
 
         getProductList('https://fakestoreapi.com/products/category/men\'s%20clothing');
 
@@ -40,10 +40,6 @@ const Category = () => {
         }
     }, []);
 
-    console.log(loading);
-    console.log(error);
-    console.log(productList);
-
     return (
         <main>
             <SearchBar />
@@ -51,15 +47,13 @@ const Category = () => {
                 <h2>Men's clothing</h2>
                 <div>Sorteerding</div>
             </header>
-            {
-                <article className='product-card'>
-                    <TiStarFullOutline className='rating-star' />
-                    <p className='product-rating'>{productList[1]?.rating.rate}</p>
-                    <img src={productList[1]?.image} alt="" />
-                    <h3>{productList[1]?.title}</h3>
-                    <p>{productList[1]?.price}</p>
-                </article>
-            }
+            <div className='products-container'>
+                {
+                    productList?.map((product) => {
+                        return <ProductCard key={product.id} product={product} />
+                    })
+                }
+            </div>
         </main>
     );
 }
