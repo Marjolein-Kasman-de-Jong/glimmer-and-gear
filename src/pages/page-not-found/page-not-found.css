@@ -1,0 +1,45 @@
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+.not-found-text-container, 
+.not-found-image-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.not-found-text-container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    @media screen and (max-width: 600px) {
+        padding: 0 20px;
+    }
+}
+
+.not-found-text-container header {
+    margin-bottom: unset;
+}
+
+.not-found-text-container h2 {
+    font-weight: 400;
+}
+
+.not-found-text-container p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+
