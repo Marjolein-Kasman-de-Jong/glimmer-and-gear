@@ -19,8 +19,6 @@ const Category = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
-    console.log(sortOption);
-
     // Get category data
     const { category } = useParams();
     const categoryData = categories.find((item) => {
@@ -52,6 +50,28 @@ const Category = () => {
             controller.abort();
         }
     }, []);
+
+    // Re-render .products-container after sortOption change
+    useEffect(() => {
+        //  Copy productList because React doesn't detect that array is being changed in-place
+        const sortedProductList = [...productList];
+        console.log(sortedProductList)
+        if (sortOption === 'price-l-h') {
+            sortedProductList.sort((a, b) => {
+                return a.price - b.price;
+            })
+        } else if (sortOption === 'price-h-l') {
+            sortedProductList.sort((a, b) => {
+                return b.price - a.price;
+            })
+        } else if (sortOption === 'rating') {
+            sortedProductList.sort((a, b) => {
+                return a.rating.rate - b.rating.rate;
+            })
+        }
+        // Use setProductList with sorted copy of original array, so React detects that array has changed and re-renders .products-container
+        setProductList(sortedProductList);
+    }, [sortOption])
 
     return (
         <main>
