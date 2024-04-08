@@ -4,6 +4,7 @@ import axios from 'axios';
 
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';
+import SortOptionMenu from '../../components/sort-option-menu/SortOptionMenu';
 import ProductCard from '../../components/product-card/ProductCard';
 
 // Constants
@@ -14,8 +15,11 @@ import './category.css'
 
 const Category = () => {
     const [productList, setProductList] = useState([]);
+    const [sortOption, setSortOption] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+
+    console.log(sortOption);
 
     // Get category data
     const { category } = useParams();
@@ -54,7 +58,7 @@ const Category = () => {
             <SearchBar />
             <header className='category-page-header'>
                 <h2>{categoryData.title}</h2>
-                <div>Sorteerding</div>
+                <SortOptionMenu sortOption={sortOption} setSortOption={setSortOption} />
             </header>
             {loading && <p>Loading...</p>}
             {
