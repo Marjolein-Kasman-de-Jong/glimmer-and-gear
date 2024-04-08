@@ -13,16 +13,17 @@ import categories from '../../constants/categories';
 import './category.css'
 
 const Category = () => {
-    // Get category data
-    const { category } = useParams();
-    const categoryData = categories.find((item) => {
-        return item.category === category;
-    })
-
     const [productList, setProductList] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
+    // Get category data
+    const { category } = useParams();
+    const categoryData = categories.find((item) => {
+        return item.category === category;
+    });
+
+    // Get products in category
     useEffect(() => {
         const controller = new AbortController();
 
@@ -55,13 +56,19 @@ const Category = () => {
                 <h2>{categoryData.title}</h2>
                 <div>Sorteerding</div>
             </header>
-            <div className='products-container'>
-                {
-                    productList?.map((product) => {
-                        return <ProductCard key={product.id} product={product} />
-                    })
-                }
-            </div>
+            {loading && <p>Loading...</p>}
+            {
+                error ?
+                    <p>No products found.</p>
+                    :
+                    <div className='products-container'>
+                        {
+                            productList?.map((product) => {
+                                return <ProductCard key={product.id} product={product} />
+                            })
+                        }
+                    </div>
+            }
         </main>
     );
 }

@@ -1,25 +1,25 @@
 const categories = [
     {   
         category: 'womens-clothing',
-        title: 'women\'s clothing',
+        title: 'Women\'s clothing',
         image: 'category-womens-clothing.jpeg',
         apiEndpoint: 'https://fakestoreapi.com/products/category/women\'s%20clothing'
     },
     {
         category: 'electronics',
-        title: 'electronics',
+        title: 'Electronics',
         image: 'category-electronics.jpeg',
         apiEndpoint: 'https://fakestoreapi.com/products/category/electronics'
     },
     {
         category: 'mens-clothing',
-        title: 'men\'s clothing',
+        title: 'Men\'s clothing',
         image: 'category-mens-clothing.jpeg',
         apiEndpoint: 'https://fakestoreapi.com/products/category/men\'s%20clothing'
     },
     {
         category: 'jewelry',
-        title: 'jewelry',
+        title: 'Jewelry',
         image: 'category-jewelry.jpeg',
         apiEndpoint: 'https://fakestoreapi.com/products/category/jewelery'
     }

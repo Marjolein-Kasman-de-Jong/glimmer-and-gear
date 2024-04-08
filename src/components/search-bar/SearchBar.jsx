@@ -1,5 +1,5 @@
 // Icons
-import { SlMagnifier } from "react-icons/sl";
+import { SlMagnifier } from 'react-icons/sl';
 
 // Style
 import './search-bar.css';

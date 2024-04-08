@@ -2,20 +2,22 @@
 import getDateString from '../../helpers/getDateString';
 
 // Icons
-import { TiStar } from "react-icons/ti";
+import { TiStar } from 'react-icons/ti';
 
 // Style
 import './review.css';
 
 const Review = ({ review }) => {
+    // Create an array for rating-container to map
     let stars = [];
-    
+
     for (let i = 0; i < review.rating; i++) {
         stars.push(i);
     }
 
     return (
-        <blockquote className="review">
+        <blockquote className='review'>
+            {/* Stars */}
             <div className='rating-container'>
                 {
                     stars.map((star) => {
@@ -23,7 +25,9 @@ const Review = ({ review }) => {
                     })                    
                 }
             </div>
+            {/* Review */}
             <p>{review.content}</p>
+            {/* Review data */}
             <div className='review-info'>
                 <p className='review-author'>{review.author}</p>
                 <time className='review-date'>{getDateString(review.reviewDate)}</time>

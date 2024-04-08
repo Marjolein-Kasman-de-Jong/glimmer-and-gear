@@ -5,7 +5,7 @@ import HamburgerMenuIcon from '../hamburger-menu-icon/HamburgerMenuIcon';
 import Navlink from '../navlink/NavLink';
 
 // Icons
-import { TiShoppingCart } from "react-icons/ti";
+import { TiShoppingCart } from 'react-icons/ti';
 
 // Style
 import './navbar.css';
