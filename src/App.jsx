@@ -12,7 +12,7 @@ import Checkout from './pages/checkout/Checkout';
 import PageNotFound from './pages/page-not-found/PageNotFound';
 
 // Components
-import Header from './components/header/Header';
+import PageHeader from './components/page-header/PageHeader';
 import Footer from './components/footer/Footer';
 
 // Style
@@ -21,7 +21,7 @@ import './App.css';
 function App() {
   return (
     <>
-      <Header />
+      <PageHeader />
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/category/:category" element={<Category />}/>

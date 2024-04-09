@@ -12,7 +12,7 @@ const Titlebar = () => {
             {/* Shop name and tagline */}
             <hgroup>
                 <h1>glimmer & gear</h1>
-                <p>shine with style, thrive with tech</p>
+                <p className='titlebar-p'>shine with style, thrive with tech</p>
             </hgroup>
         </div>
     );

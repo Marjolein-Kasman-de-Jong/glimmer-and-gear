@@ -3,15 +3,15 @@ import Titlebar from '../titlebar/Titlebar';
 import Navbar from '../navbar/Navbar';
 
 // Style
-import './header.css';
+import './page-header.css';
 
-const Header = () => {
+const PageHeader = () => {
     return (
-        <header>
+        <header className='page-header'>
             <Titlebar />
             <Navbar />
         </header>
     );
 }
 
-export default Header;
+export default PageHeader;

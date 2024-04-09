@@ -27,7 +27,7 @@
 
 /* Shop name and tagline */
 
-hgroup {
+.titlebar hgroup {
     white-space: wrap;
 
     @media screen and (max-width: 600px) {
@@ -35,7 +35,7 @@ hgroup {
     }
 }
 
-hgroup p {
+.titlebar-p {
     font-family: 'Luckiest Guy', sans-serif;
     color: var(--white);
 
