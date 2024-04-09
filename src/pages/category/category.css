@@ -9,7 +9,7 @@
     }
 }
 
-.products-container {
+.category-page-products-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

@@ -19,11 +19,11 @@
 
 /* Social links */
 
-.page-footer .social-link-container {
+.social-link-container {
     display: flex;
     gap: 19px;
 }
 
-.page-footer .social-link-container img {
+.social-link-container img {
     width: 40px;
 }

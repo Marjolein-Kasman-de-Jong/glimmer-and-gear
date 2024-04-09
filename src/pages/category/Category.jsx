@@ -28,10 +28,10 @@ const Category = () => {
     // Get products in category
     useEffect(() => {
         const controller = new AbortController();
-
+        
         async function getProductList(url) {
+            setLoading(true);
             try {
-                setLoading(true);
                 const response = await axios.get(url, {
                     signal: controller.signal,
                 });
@@ -43,9 +43,9 @@ const Category = () => {
             }
             setLoading(false);
         }
-
+        
         getProductList(categoryData.apiEndpoint);
-
+        
         return function cleanup() {
             controller.abort();
         }
@@ -55,7 +55,7 @@ const Category = () => {
     useEffect(() => {
         //  Copy productList because React doesn't detect that array is being changed in-place
         const sortedProductList = [...productList];
-        
+
         // Sort products
         if (sortOption === 'price-l-h') {
             sortedProductList.sort((a, b) => {
@@ -70,7 +70,7 @@ const Category = () => {
                 return b.rating.rate - a.rating.rate;
             })
         }
-        
+
         // Use setProductList with sorted copy of original array, so React detects that array has changed and re-renders .products-container
         setProductList(sortedProductList);
     }, [sortOption])
@@ -82,18 +82,20 @@ const Category = () => {
                 <h2>{categoryData.title}</h2>
                 <SortOptionMenu sortOption={sortOption} setSortOption={setSortOption} />
             </header>
-            {loading && <p>Loading...</p>}
             {
-                error ?
-                    <p>No products found.</p>
+                loading ?
+                    <p>Loading...</p>
                     :
-                    <div className='products-container'>
-                        {
-                            productList?.map((product) => {
-                                return <ProductCard key={product.id} product={product} />
-                            })
-                        }
-                    </div>
+                    error ?
+                        <p>No products found.</p>
+                        :
+                        <div className='category-page-products-container'>
+                            {
+                                productList?.map((product) => {
+                                    return <ProductCard key={product.id} product={product} />
+                                })
+                            }
+                        </div>
             }
         </main>
     );
