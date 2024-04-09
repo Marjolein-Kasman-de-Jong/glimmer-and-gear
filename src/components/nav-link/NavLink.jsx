@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
 // Style
-import './navlink.css';
+import './nav-link.css';
 
-const Navlink = ({ type, linkTo, onClick, children }) => {
+const NavLink = ({ type, linkTo, onClick, children }) => {
     return (
         <li>
             <Link to={linkTo} className={type} onClick={() => screenWidth <= 600 && onClick(false)}>
@@ -13,4 +13,4 @@ const Navlink = ({ type, linkTo, onClick, children }) => {
     );
 }
 
-export default Navlink;
+export default NavLink;

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 // Components
 import HamburgerMenu from '../hamburger-menu/HamburgerMenu';
-import Navlink from '../navlink/NavLink';
+import NavLink from '../nav-link/NavLink';
 
 // Icons
 import { TiShoppingCart } from 'react-icons/ti';
@@ -61,21 +61,21 @@ const Navbar = () => {
                         {
                             dropdownContent &&
                             <ul className="dropdown-content">
-                                <Navlink type='category-link' linkTo='/category/mens-clothing' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Men's clothing</Navlink>
-                                <Navlink type='category-link' linkTo='/category/womens-clothing' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Women's clothing</Navlink>
-                                <Navlink type='category-link' linkTo='/category/electronics' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Electronics</Navlink>
-                                <Navlink type='category-link' linkTo='/category/jewelry' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Jewelry</Navlink>
+                                <NavLink type='category-link' linkTo='/category/mens-clothing' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Men's clothing</NavLink>
+                                <NavLink type='category-link' linkTo='/category/womens-clothing' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Women's clothing</NavLink>
+                                <NavLink type='category-link' linkTo='/category/electronics' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Electronics</NavLink>
+                                <NavLink type='category-link' linkTo='/category/jewelry' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Jewelry</NavLink>
                             </ul>
                         }
                     </li>
-                    <Navlink type='link' linkTo='/faq' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>FAQs</Navlink>
-                    <Navlink type='link' linkTo='/contact' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Contact</Navlink>
+                    <NavLink type='link' linkTo='/faq' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>FAQs</NavLink>
+                    <NavLink type='link' linkTo='/contact' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Contact</NavLink>
                 </ul>
             }
             {/* Right menu */}
             <ul className='right-menu'>
-                <Navlink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Login</Navlink>
-                <Navlink type='link' linkTo='/shopping-cart' screenWidth={screenWidth} onClick={toggleLeftMenuItems}><TiShoppingCart /></Navlink>
+                <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Login</NavLink>
+                <NavLink type='link' linkTo='/shopping-cart' screenWidth={screenWidth} onClick={toggleLeftMenuItems}><TiShoppingCart /></NavLink>
             </ul>
         </nav>
     );
