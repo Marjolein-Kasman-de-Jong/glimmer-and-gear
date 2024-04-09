@@ -3,9 +3,9 @@ import './category-tile.css';
 
 const CategoryTile = ({ category }) => {
     return (
-        <figure>
+        <figure className='category-tile'>
             <img src={`../../src/assets/${category.image}`} alt={category.title} />
-            <figcaption>
+            <figcaption className='category-tile-title'>
                 <h3>{category.title}</h3>
             </figcaption>
         </figure>

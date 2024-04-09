@@ -1,4 +1,4 @@
-figure {
+.category-tile {
     width: 100%;
     max-width: 265px;
     position: relative;
@@ -6,7 +6,7 @@ figure {
     justify-content: center;
 }
 
-figcaption {
+.category-tile-title {
     width: 100%;
     max-width: 240px;
     padding: 11px 0;
