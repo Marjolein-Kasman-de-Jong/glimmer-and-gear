@@ -12,6 +12,7 @@ const SortOptionMenu = ({ setSortOption }) => {
         setSortOption(sortType);
     }, [])
 
+    // Handle sort option change
     function handleSortOptionChange(e) {
         const selected = e.target.value;
         // Update component state

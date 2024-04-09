@@ -4,6 +4,8 @@ import axios from 'axios';
 
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';
+import ChooseAmountMenu from '../../components/choose-amount-menu/ChooseAmountMenu';
+import Button from '../../components/button/Button';   
 
 // Icons
 import { TiStar } from 'react-icons/ti';
@@ -17,7 +19,6 @@ const Product = () => {
 
     // Get product data
     const [productData, setProductData] = useState({});
-    console.log(productData)
 
     useEffect(() => {
         async function getProductData() {
@@ -31,6 +32,9 @@ const Product = () => {
         getProductData();
     }, [])
 
+    // Monitor amount of items
+    const [amountOfItems, setAmountOfItems] = useState(0);
+
     return (
         <main>
             <SearchBar />
@@ -42,8 +46,12 @@ const Product = () => {
                     <TiStar className='rating-star' />
                     <p className='rating'>{productData?.data?.rating?.rate}</p>
                 </div>
-                <div className="single-product-text-container">
+                <div className='single-product-text-container'>
                     <p>{productData?.data?.description}</p>
+                    <div className='add-to-cart-container'>
+                        <ChooseAmountMenu setAmountOfItems={setAmountOfItems} />
+                        <Button buttonText='Add to cart' />
+                    </div>
                 </div>
             </article>
         </main>

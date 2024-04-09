@@ -51,6 +51,15 @@ h1 {
 /* ---- Page titles */
 h2 {
   font-size: 2.25rem;
+
+  @media screen and (max-width: 912px) {
+    font-size: 1.75rem;
+    text-align: center;
+
+    @media screen and (max-width: 600px) {
+      font-size: 1.25rem;
+    }
+  }
 }
 
 /* ---- Category tile titles, product titles, tab titles, FAQs */
