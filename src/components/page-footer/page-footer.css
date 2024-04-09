@@ -1,4 +1,4 @@
-footer {
+.page-footer {
     height: 100px;
     padding: 0 6.5%;
     display: flex;
@@ -17,11 +17,13 @@ footer {
     }
 }
 
-.socials {
+/* Social links */
+
+.page-footer .socials {
     display: flex;
     gap: 19px;
 }
 
-.socials img {
+.page-footer .socials img {
     width: 40px;
 }

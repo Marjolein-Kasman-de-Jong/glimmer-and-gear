@@ -13,7 +13,7 @@ import PageNotFound from './pages/page-not-found/PageNotFound';
 
 // Components
 import PageHeader from './components/page-header/PageHeader';
-import Footer from './components/footer/Footer';
+import PageFooter from './components/page-footer/PageFooter';
 
 // Style
 import './App.css';
@@ -33,7 +33,7 @@ function App() {
         <Route path="/checkout" element={<Checkout />}/>
         <Route path="*" element={<PageNotFound />}/>
       </Routes>
-      <Footer />
+      <PageFooter />
     </>
   );
 }

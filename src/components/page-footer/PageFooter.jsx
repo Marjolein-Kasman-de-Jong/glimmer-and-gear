@@ -10,14 +10,16 @@ import { TiSocialInstagram } from "react-icons/ti";
 import { TiSocialTwitter } from "react-icons/ti";
 
 // Style
-import './footer.css';
+import './page-footer.css';
 
-const Footer = () => {
+const PageFooter = () => {
     const currentYear = getCurrentYear();
 
     return (
-        <footer>
+        <footer className='page-footer'>
+            {/* Copyright */}
             <p>{`glimmer and gear ${currentYear}`}</p>
+            {/* Social links */}
             <div className='socials'>
                 <Sociallink href='https://www.facebook.com/' alt='Facebook icon'>
                     <TiSocialFacebook className='social-icon' />
@@ -33,4 +35,4 @@ const Footer = () => {
     );
 }
 
-export default Footer;
+export default PageFooter;
