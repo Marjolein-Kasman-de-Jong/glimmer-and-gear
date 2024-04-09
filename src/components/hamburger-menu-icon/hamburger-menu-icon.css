@@ -1,4 +1,4 @@
-.hamburger-menu-icon {
+.hamburger-menu-button {
     width: 30px;
     height: 30px;
     position: absolute;
@@ -14,7 +14,7 @@
     }
 }
 
-.bar {
+.hamburger-menu-bar {
     height: 3px;
     width: 100%;
     background-color: var(--black);

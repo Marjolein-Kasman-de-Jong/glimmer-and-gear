@@ -3,7 +3,7 @@ import './button.css';
 
 const Button = ({ buttonText }) => {
     return (
-        <button type='button' className='action-button'>
+        <button type='button' className='regular-button'>
             {buttonText}
         </button>
     );

@@ -3,10 +3,10 @@ import './hamburger-menu-icon.css';
 
 const HamburgerMenuIcon = ({ onClick }) => {
     return (
-        <button type='button' className='hamburger-menu-icon' onClick={onClick}>
-            <span className='bar'></span>
-            <span className='bar'></span>
-            <span className='bar'></span>
+        <button type='button' className='hamburger-menu-button' onClick={onClick}>
+            <span className='hamburger-menu-bar'></span>
+            <span className='hamburger-menu-bar'></span>
+            <span className='hamburger-menu-bar'></span>
         </button>
     );
 }
