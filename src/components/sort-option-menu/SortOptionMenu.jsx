@@ -23,7 +23,7 @@ const SortOptionMenu = ({ setSortOption }) => {
 
     return (
         <form>
-            <select name='sort-by' id='sort-by' value={sortType} onChange={handleSortOptionChange}>
+            <select name='sort-option-menu' id='sort-option-menu' value={sortType} onChange={handleSortOptionChange}>
                 <option value='' disabled>Sort by</option>
                 <option value='price-l-h'>{`price (low > high)`}</option>
                 <option value='price-h-l'>{`price (high > low)`}</option>

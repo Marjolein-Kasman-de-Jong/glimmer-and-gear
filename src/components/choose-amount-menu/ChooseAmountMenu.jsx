@@ -23,7 +23,7 @@ const ChooseAmountMenu = ({ setAmountOfItems }) => {
 
     return (
         <form>
-            <select name='choose-amount' id='choose-amount' value={amount} onChange={handleAmountChange}>
+            <select name='choose-amount-menu' id='choose-amount-menu' value={amount} onChange={handleAmountChange}>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
                 <option value='3'>3</option>

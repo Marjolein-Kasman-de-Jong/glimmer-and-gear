@@ -89,3 +89,13 @@ main header {
 section {
   margin: 50px 0;
 }
+
+/* Dropdown-menus */
+
+select {
+  padding: 10px;
+}
+
+select:hover {
+  cursor: pointer;
+}
