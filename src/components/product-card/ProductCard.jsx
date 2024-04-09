@@ -7,19 +7,21 @@ import { TiStar } from 'react-icons/ti';
 import './product-card.css';
 
 const ProductCard = ({ product }) => {
-    const {id, rating, title, price} = product;
+    const { id, rating, title, price } = product;
 
     return (
-        <NavLink to={`/product/${id}`}>
+        <NavLink className='product-card-navlink' to={`/product/${id}`}>
             <article className='product-card'>
-                <div className='image-container'>
-                    <TiStar className='rating-star' />
-                    <p className='product-rating'>{rating.rate}</p>
-                    <img src={product?.image} alt={title} />
+                {/* Product card image container */}
+                <div className='product-card-image-container'>
+                    <TiStar className='product-card-rating-star' />
+                    <p className='product-card-product-rating'>{rating.rate}</p>
+                    <img className='product-card-product-image' src={product?.image} alt={title} />
                 </div>
-                <div className='text-container'>
-                    <h3>{title}</h3>
-                    <p>{price}</p>
+                {/* Product card text container */}
+                <div className='product-card-text-container'>
+                    <h3 className='product-card-product-name'>{title}</h3>
+                    <p className='product-card-price'>{price}</p>
                 </div>
             </article>
         </NavLink>
