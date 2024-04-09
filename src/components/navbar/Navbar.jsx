@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 // Components
-import HamburgerMenuIcon from '../hamburger-menu-icon/HamburgerMenuIcon';
+import HamburgerMenu from '../hamburger-menu/HamburgerMenu';
 import Navlink from '../navlink/NavLink';
 
 // Icons
@@ -47,8 +47,8 @@ const Navbar = () => {
 
     return (
         <nav>
-            {/* Hamburger menu icon */}
-            <HamburgerMenuIcon onClick={toggleLeftMenu} />
+            {/* Hamburger menu */}
+            <HamburgerMenu onClick={toggleLeftMenu} />
             {/* Left menu */}
             {
                 leftMenuItems &&

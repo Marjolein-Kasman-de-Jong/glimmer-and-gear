@@ -1,5 +1,5 @@
 // Style
-import './hamburger-menu-icon.css';
+import './hamburger-menu.css';
 
 const HamburgerMenuIcon = ({ onClick }) => {
     return (
