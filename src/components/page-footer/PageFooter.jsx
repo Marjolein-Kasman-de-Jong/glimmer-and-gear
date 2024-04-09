@@ -1,5 +1,5 @@
 // Components
-import Sociallink from '../sociallink/Sociallink';
+import SocialLink from '../social-link/SocialLink';
 
 // Helpers
 import getCurrentYear from '../../helpers/getCurrentYear';
@@ -20,16 +20,16 @@ const PageFooter = () => {
             {/* Copyright */}
             <p>{`glimmer and gear ${currentYear}`}</p>
             {/* Social links */}
-            <div className='socials'>
-                <Sociallink href='https://www.facebook.com/' alt='Facebook icon'>
-                    <TiSocialFacebook className='social-icon' />
-                </Sociallink>
-                <Sociallink href='https://www.instagram.com/' alt='Instagram icon'>
-                    <TiSocialInstagram className='social-icon' />
-                </Sociallink>
-                <Sociallink href='https://twitter.com/' alt='X/Twitter icon'>
-                    <TiSocialTwitter className='social-icon' />
-                </Sociallink>
+            <div className='social-link-container'>
+                <SocialLink href='https://www.facebook.com/' alt='Facebook icon'>
+                    <TiSocialFacebook className='social-link-icon' />
+                </SocialLink>
+                <SocialLink href='https://www.instagram.com/' alt='Instagram icon'>
+                    <TiSocialInstagram className='social-link-icon' />
+                </SocialLink>
+                <SocialLink href='https://twitter.com/' alt='X/Twitter icon'>
+                    <TiSocialTwitter className='social-link-icon' />
+                </SocialLink>
             </div >
         </footer >
     );

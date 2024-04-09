@@ -1,4 +1,4 @@
-.icon-container {
+.social-link-icon-container {
     width: 50px;
     height: 50px;
     display: flex;
@@ -13,7 +13,7 @@
     }
 }
 
-.social-icon {
+.social-link-icon {
     width: 40px;
     height: 40px;
     color: var(--black);
