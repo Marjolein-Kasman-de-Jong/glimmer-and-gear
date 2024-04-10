@@ -1,0 +1,40 @@
+.faq-component {
+    width: 100%;
+    border: 1px solid var(--black);
+    border-bottom: none;
+}
+
+.faq-component:last-of-type {
+    border-bottom: 1px solid var(--black);
+}
+
+.question {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white);
+    border: none;
+}
+
+.question:hover {
+    cursor: pointer;
+}
+
+.question h3 {
+    text-align: left;
+}
+
+.arrow {
+    width: 20px;
+    height: 20px;
+}
+
+.answer {
+    padding: 10px 20px 30px 20px;
+}
+
+.answer-p {
+    margin: 0 5%;
+}
