@@ -1,3 +1,5 @@
+/* Single product section */
+
 .single-product {
     width: 800px;
     height: 400px;
@@ -98,6 +100,8 @@
     flex-direction: column;
     gap: 15px;
 }
+
+/* More in this category section */
 
 .more-in-this-category-title {
     text-align: left;

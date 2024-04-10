@@ -31,14 +31,18 @@ const Product = () => {
         const controller = new AbortController();
 
         async function getProductData() {
+            setLoading(true);
             try {
                 const response = await axios.get(`https://fakestoreapi.com/products/${id}`, {
                     signal: controller.signal,
                 });
                 setProductData(response);
+                setError(false);
             } catch (error) {
                 console.log(error);
+                setError(false);
             }
+            setLoading(false);
         }
 
         getProductData();
@@ -103,34 +107,54 @@ const Product = () => {
             <SearchBar />
             {/* Single product section */}
             <section className='single-product-section'>
-                <h2>{productData?.data?.title}</h2>
-                <article className='single-product'>
-                    <div className='single-product-image-container'>
-                        <img src={productData?.data?.image} alt={productData?.data?.title} />
-                        <p>{productData?.data?.price}</p>
-                        <TiStar className='rating-star' />
-                        <p className='rating'>{productData?.data?.rating?.rate}</p>
-                    </div>
-                    <div className='single-product-text-container'>
-                        <p>{productData?.data?.description}</p>
-                        <div className='add-to-cart-container'>
-                            <ChooseAmountMenu setAmountOfItems={setAmountOfItems} />
-                            <Button buttonText='Add to cart' />
-                        </div>
-                    </div>
-                </article>
+                <header>
+                    <h2>{productData?.data?.title}</h2>
+                </header>
+                {
+                    loading ?
+                        <p>Loading...</p>
+                        :
+                        error ?
+                            <p>Product not found.</p>
+                            :
+                            <article className='single-product'>
+                                <div className='single-product-image-container'>
+                                    <img src={productData?.data?.image} alt={productData?.data?.title} />
+                                    <p>{productData?.data?.price}</p>
+                                    <TiStar className='rating-star' />
+                                    <p className='rating'>{productData?.data?.rating?.rate}</p>
+                                </div>
+                                <div className='single-product-text-container'>
+                                    <p>{productData?.data?.description}</p>
+                                    <div className='add-to-cart-container'>
+                                        <ChooseAmountMenu setAmountOfItems={setAmountOfItems} />
+                                        <Button buttonText='Add to cart' />
+                                    </div>
+                                </div>
+                            </article>
+                }
             </section>
             {/* More in this category section */}
             <section className='more-in-this-category-section'>
-                <h3 className='more-in-this-category-title'>More in this category</h3>
-                <div className='more-products-container'>
-                    {
-                        productList?.map((product) => {
-                            console.log(product)
-                            return <ProductCard key={product.id} category={category} product={product} />
-                        })
-                    }
-                </div>
+                <header>
+                    <h3 className='more-in-this-category-title'>More in this category</h3>
+                </header>
+                {
+                    loading ?
+                        <p>Loading...</p>
+                        :
+                        error ?
+                            <p>No products found.</p>
+                            :
+                            <div className='more-products-container'>
+                                {
+                                    productList?.map((product) => {
+                                        console.log(product)
+                                        return <ProductCard key={product.id} category={category} product={product} />
+                                    })
+                                }
+                            </div>
+                }
             </section>
         </main>
     )
