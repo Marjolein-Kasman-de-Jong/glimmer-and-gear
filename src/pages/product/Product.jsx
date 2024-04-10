@@ -5,7 +5,7 @@ import axios from 'axios';
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';
 import ChooseAmountMenu from '../../components/choose-amount-menu/ChooseAmountMenu';
-import Button from '../../components/button/Button';   
+import Button from '../../components/button/Button';
 
 // Icons
 import { TiStar } from 'react-icons/ti';
@@ -21,15 +21,24 @@ const Product = () => {
     const [productData, setProductData] = useState({});
 
     useEffect(() => {
+        const controller = new AbortController();
+
         async function getProductData() {
             try {
-                const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
+                const response = await axios.get(`https://fakestoreapi.com/products/${id}`, {
+                    signal: controller.signal,
+                });
                 setProductData(response);
             } catch (error) {
                 console.log(error);
             }
         }
+
         getProductData();
+
+        return function cleanup() {
+            controller.abort();
+        }
     }, [])
 
     // Monitor amount of items
