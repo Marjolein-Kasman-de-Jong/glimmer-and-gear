@@ -149,7 +149,6 @@ const Product = () => {
                             <div className='more-products-container'>
                                 {
                                     productList?.map((product) => {
-                                        console.log(product)
                                         return <ProductCard key={product.id} category={category} product={product} />
                                     })
                                 }

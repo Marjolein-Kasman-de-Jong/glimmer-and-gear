@@ -1,3 +1,6 @@
+// Components
+import Button from '../../components/button/Button';
+
 // Images
 import notFoundImage from '../../assets/page-not-found.jpeg';
 
@@ -12,7 +15,7 @@ const PageNotFound = () => {
                     <h2>So sorry!</h2>
                 </header>
                 <p>The page you are looking for cannot be found.</p>
-                <button type="button">Take me home</button>
+                <Button buttonText='Take me home' to='/' />
             </article>
             <div className="not-found-image-container">
                 <img src={notFoundImage} alt='Man that is lost' />
