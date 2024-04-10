@@ -72,7 +72,16 @@ const Product = () => {
                 const response = await axios.get(url, {
                     signal: controller.signal,
                 });
-                setProductList(response.data);
+                // Create array of all items in category minus item already shown
+                const filteredProductList = [];
+                for (let i = 0; i < response.data.length; i++) {
+                    const item = response.data[i];
+                    if (item.id != id) {
+                        filteredProductList.push(item);
+                    }
+                }
+                // Set productList
+                setProductList(filteredProductList);
                 setError(false);
             } catch (error) {
                 console.log(error);
