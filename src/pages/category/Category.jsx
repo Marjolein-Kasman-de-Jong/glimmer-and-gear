@@ -1,6 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+
+// Context
+import { CategoryContext } from '../../context/CategoryProvider';
 
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';
@@ -21,14 +24,22 @@ const Category = () => {
 
     // Get category data
     const { category } = useParams();
+
+    // Plaats category in context 
+    const { setCategory } = useContext(CategoryContext);
+
+    useEffect(() => {
+        setCategory(category);
+    }, [category, setCategory]); 
+
+    // Get products in category
     const categoryData = categories.find((item) => {
         return item.category === category;
     });
-
-    // Get products in category
+    
     useEffect(() => {
         const controller = new AbortController();
-        
+
         async function getProductList(url) {
             setLoading(true);
             try {
@@ -43,9 +54,9 @@ const Category = () => {
             }
             setLoading(false);
         }
-        
-        getProductList(categoryData.apiEndpoint);
-        
+
+        categoryData && getProductList(categoryData.apiEndpoint);
+
         return function cleanup() {
             controller.abort();
         }
