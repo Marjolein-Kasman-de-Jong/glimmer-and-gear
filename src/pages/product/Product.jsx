@@ -1,9 +1,6 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
-// Context
-import { CategoryContext } from '../../context/CategoryProvider';
 
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';
@@ -52,11 +49,7 @@ const Product = () => {
     const [amountOfItems, setAmountOfItems] = useState(0);
 
     // Get more items in this category
-    const {category} = useContext(CategoryContext)
-    
-    useEffect(() => {
-        console.log(category);
-    }, [])
+
     
     return (
         <main>
