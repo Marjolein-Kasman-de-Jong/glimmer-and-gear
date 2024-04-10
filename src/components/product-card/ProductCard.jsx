@@ -6,11 +6,11 @@ import { TiStar } from 'react-icons/ti';
 // Style
 import './product-card.css';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ category, product }) => {
     const { id, rating, title, price } = product;
 
     return (
-        <NavLink className='product-card-navlink' to={`/product/${id}`}>
+        <NavLink className='product-card-navlink' to={`/product/${id}?category=${category}`}>
             <article className='product-card'>
                 {/* Product card image container */}
                 <div className='product-card-image-container'>

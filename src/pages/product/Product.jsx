@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 // Components
@@ -18,6 +18,9 @@ import { TiStar } from 'react-icons/ti';
 import './product.css';
 
 const Product = () => {
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+
     // Get product id
     const { id } = useParams();
 
@@ -48,9 +51,44 @@ const Product = () => {
     // Monitor amount of items
     const [amountOfItems, setAmountOfItems] = useState(0);
 
-    // Get more items in this category
+    // Get category
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const category = queryParams.get('category');
 
-    
+    // Get more items in category
+    const [productList, setProductList] = useState([]);
+
+    const categoryData = categories.find((item) => {
+        return item.category === category;
+    });
+
+    useEffect(() => {
+        const controller = new AbortController();
+
+        async function getProductList(url) {
+            setLoading(true);
+            try {
+                const response = await axios.get(url, {
+                    signal: controller.signal,
+                });
+                setProductList(response.data);
+                setError(false);
+            } catch (error) {
+                console.log(error);
+                setError(true);
+            }
+            setLoading(false);
+        }
+
+        categoryData && getProductList(categoryData.apiEndpoint);
+
+        return function cleanup() {
+            controller.abort();
+        }
+    }, []);
+
+
     return (
         <main>
             <SearchBar />
@@ -77,7 +115,11 @@ const Product = () => {
             <section className='more-in-this-category-section'>
                 <h3 className='more-in-this-category-title'>More in this category</h3>
                 <div className='more-products-container'>
-                    
+                    {
+                        productList?.map((product) => {
+                            return <ProductCard key={product.id} category={category} product={product} />
+                        })
+                    }
                 </div>
             </section>
         </main>

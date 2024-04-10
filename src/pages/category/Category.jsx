@@ -93,7 +93,7 @@ const Category = () => {
                         <div className='category-page-products-container'>
                             {
                                 productList?.map((product) => {
-                                    return <ProductCard key={product.id} product={product} />
+                                    return <ProductCard key={product.id} category={category} product={product} />
                                 })
                             }
                         </div>
