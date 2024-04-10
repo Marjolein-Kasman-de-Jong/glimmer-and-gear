@@ -46,7 +46,7 @@ const Product = () => {
         return function cleanup() {
             controller.abort();
         }
-    }, [])
+    }, [id])
 
     // Monitor amount of items
     const [amountOfItems, setAmountOfItems] = useState(0);
@@ -95,7 +95,7 @@ const Product = () => {
         return function cleanup() {
             controller.abort();
         }
-    }, []);
+    }, [id]);
 
 
     return (
@@ -126,6 +126,7 @@ const Product = () => {
                 <div className='more-products-container'>
                     {
                         productList?.map((product) => {
+                            console.log(product)
                             return <ProductCard key={product.id} category={category} product={product} />
                         })
                     }
