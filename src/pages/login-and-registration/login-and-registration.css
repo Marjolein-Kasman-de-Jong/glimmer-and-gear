@@ -1,17 +1,30 @@
 .tabs-container {
+    font-size: 1.5rem;
     border: 1px solid var(--black);
+
+    @media screen and (max-width: 600px) {
+        font-size: .75rem;
+    }
 }
 
 .tab-button {
     width: 50%;
     padding: 24px;
+    font-size: 1.5rem;
     border: none;
     background-color: var(--white);
 
+    @media screen and (max-width: 600px) {
+        font-size: .75rem;
+    }
 }
 
 .tab-button:first-of-type {
     border-right: 1px solid var(--black);
+}
+
+.tab-button:focus {
+    color: var(--black);
 }
 
 .login-registration-form {
@@ -48,7 +61,6 @@
     max-width: 750px;
     display: flex;
     justify-content: space-between;
-    /* gap: 50px; */
 }
 
 .form-item-container label {
@@ -56,6 +68,14 @@
     text-align: right;
 }
 
-.form-item-container input {
+.form-item-container input, .form-item-container textarea {
     width: 60%;
+}
+
+.form-item-container textarea {
+    height: 100px;
+}
+
+.login-registration-form button {
+    margin-top: 20px;
 }
