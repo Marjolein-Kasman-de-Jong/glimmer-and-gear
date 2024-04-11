@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 
 // Components
-import FormItem from '../../components/form-item/FormItem';
-import Button from '../../components/button/Button';
+import Form from '../../components/form/Form';
 
 // Helpers
 import validateForm from '../../helpers/validateForm';
@@ -72,25 +71,29 @@ const LoginAndRegistration = () => {
             </header>
 
             <div className='tabs-container'>
-                <div className="tab-button-container">
+                <div className='tab-button-container'>
                     <button type='button' className='tab-button' onClick={() => { toggleActiveTab(true) }}>I have an account</button>
                     <button type='button' className='tab-button' onClick={() => { toggleActiveTab(false) }}>I am a new customer</button>
                 </div>
                 {
                     activeTab ?
-                        <form className='login-registration-form login' action=''>
-                            <FormItem item='username' type='text' formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
-                            <FormItem item='password' type='password' formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
-                            <Button type='submit' buttonText='Login' onClick={handleClick} />
-                        </form>
+                        // Login form
+                        <Form
+                            form='login'
+                            formState={formState}
+                            handleChange={handleChange}
+                            handleClick={handleClick}
+                            errorMessages={errorMessages}
+                        />
                         :
-                        <form className='login-registration-form registration' action=''>
-                            <FormItem item='username' type='text' formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
-                            <FormItem item='email' type='email' formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
-                            <FormItem item='password' type='password' formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
-                            <FormItem item='info' type='text' formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
-                            <Button type='submit' buttonText='Create account' onClick={(e) => handleClick(e, 'registration')} />
-                        </form>
+                        // Registration form
+                        <Form
+                            form='registration'
+                            formState={formState}
+                            handleChange={handleChange}
+                            handleClick={handleClick}
+                            errorMessages={errorMessages}
+                        />
                 }
             </div>
         </main>
