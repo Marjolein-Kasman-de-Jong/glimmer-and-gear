@@ -99,3 +99,14 @@ select {
 select:hover {
   cursor: pointer;
 }
+
+/* Buttons */
+
+button {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.875rem;
+}
+
+button:hover {
+  cursor: pointer;
+}

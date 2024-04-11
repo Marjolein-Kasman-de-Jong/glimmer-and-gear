@@ -128,7 +128,7 @@ const Product = () => {
                                     <p>{productData?.data?.description}</p>
                                     <div className='add-to-cart-container'>
                                         <ChooseAmountMenu setAmountOfItems={setAmountOfItems} />
-                                        <Button buttonText='Add to cart' />
+                                        <Button type='button' buttonText='Add to cart' onClick='' />
                                     </div>
                                 </div>
                             </article>

@@ -27,7 +27,9 @@ const Faq = () => {
     return (
         <main>
             <SearchBar />
-            <h2>Frequently asked questions</h2>
+            <header>
+                <h2>Frequently asked questions</h2>
+            </header>
             <div className='faq-container'>
                 {
                     faqs.map((faq, index) => {
