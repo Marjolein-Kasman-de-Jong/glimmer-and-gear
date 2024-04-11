@@ -1,5 +1,7 @@
 import checkForCapital from "./checkForCapital";
 import checkForNumber from "./checkForNumber";
+import checkForAtSign from "./checkForAtSign";
+import checkForDot from "./checkForDot";
 
 function validateForm({username, email, password, info}) {
     const errorMessages = {};
@@ -13,7 +15,13 @@ function validateForm({username, email, password, info}) {
     if (password.length < 8 || !capital || !number) {
         errorMessages['passwordError'] = 'Password must be at least 8 characters long, contain at least 1 capital and 1 number.';
     }
-    
+    // Validate email
+    const atSign = checkForAtSign(email);
+    const dot = checkForDot(email);
+    if (!atSign || !dot) {
+        errorMessages['emailError'] = 'Email must contain an at sign and a dot.'
+    }
+
     return errorMessages;
 }
 

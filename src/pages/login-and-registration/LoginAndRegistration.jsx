@@ -30,10 +30,11 @@ const LoginAndRegistration = () => {
     }
 
     // Handle login/create acoount button click
+    const [errorMessages, setErrorMessages] = useState({})
+
     function handleClick(e) {
         e.preventDefault();
-        const errorMessages = validateForm(formState);
-        console.log(errorMessages);
+        setErrorMessages(validateForm(formState));
     }
 
     return (
@@ -50,34 +51,51 @@ const LoginAndRegistration = () => {
                 {
                     activeTab ?
                         <form className='login-registration-form login' action=''>
-                            <div className='form-item-container'>
-                                <label htmlFor='username'>username</label>
-                                <input type='text' name='username' id='username' value={formState.username} onChange={handleChange} />
+                            <div className='form-item-wrapper'>
+                                <div className='form-item-container'>
+                                    <label htmlFor='username'>username</label>
+                                    <input type='text' name='username' id='username' value={formState.username} onChange={handleChange} />
+                                </div>
+                                {errorMessages?.usernameError && <p className='error-message'>{errorMessages.usernameError}</p>}
                             </div>
-                            <div className='form-item-container'>
-                                <label htmlFor='password'>password</label>
-                                <input type='password' name='password' id='password' value={formState.password} onChange={handleChange} />
+                            <div className='form-item-wrapper'>
+                                <div className='form-item-container'>
+                                    <label htmlFor='password'>password</label>
+                                    <input type='password' name='password' id='password' value={formState.password} onChange={handleChange} />
+                                </div>
+                                {errorMessages?.passwordError && <p className='error-message'>{errorMessages.passwordError}</p>}
                             </div>
                             <Button type='submit' buttonText='Login' onClick={handleClick} />
                         </form>
                         :
                         <form className='login-registration-form registration' action=''>
-                            <div className='form-item-container'>
-                                <label htmlFor='username'>username</label>
-                                <input type='text' name='username' id='username' value={formState.username} onChange={handleChange} />
+                            <div className='form-item-wrapper'>
+                                <div className='form-item-container'>
+                                    <label htmlFor='username'>username</label>
+                                    <input type='text' name='username' id='username' value={formState.username} onChange={handleChange} />
+                                </div>
+                                {errorMessages?.usernameError && <p className='error-message'>{errorMessages.usernameError}</p>}
                             </div>
-                            <div className='form-item-container'>
-                                <label htmlFor='email'>email</label>
-                                <input type='email' name='email' id='email' value={formState.email} onChange={handleChange} />
+                            <div className='form-item-wrapper'>
+                                <div className='form-item-container'>
+                                    <label htmlFor='email'>email</label>
+                                    <input type='email' name='email' id='email' value={formState.email} onChange={handleChange} />
+                                </div>
+                                {errorMessages?.emailError && <p className='error-message'>{errorMessages.emailError}</p>}
                             </div>
-                            <div className='form-item-container'>
-                                <label htmlFor='password'>password</label>
-                                <input type='password' name='password' id='password' value={formState.password} onChange={handleChange} />
+                            <div className='form-item-wrapper'>
+                                <div className='form-item-container'>
+                                    <label htmlFor='password'>password</label>
+                                    <input type='password' name='password' id='password' value={formState.password} onChange={handleChange} />
+                                </div>
+                                {errorMessages?.passwordError && <p className='error-message'>{errorMessages.passwordError}</p>}
                             </div>
-                            <div className='form-item-container'>
-                                <label htmlFor='info'>about me</label>
-                                <textarea id='info' name='info' value={formState.info} onChange={handleChange} >
-                                </textarea>
+                            <div className='form-item-wrapper'>
+                                <div className='form-item-container'>
+                                    <label htmlFor='info'>about me</label>
+                                    <textarea id='info' name='info' value={formState.info} onChange={handleChange} >
+                                    </textarea>
+                                </div>
                             </div>
                             <Button type='submit' buttonText='Create account' onClick={handleClick} />
                         </form>
