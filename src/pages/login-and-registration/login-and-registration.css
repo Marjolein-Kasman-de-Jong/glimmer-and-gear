@@ -90,6 +90,10 @@
     font-size: 1rem;
     color: var(--red);
     text-align: center;
+
+    @media screen and (max-width: 600px) {
+        font-size: .8rem;
+    }
 }
 
 .form-item-wrapper {

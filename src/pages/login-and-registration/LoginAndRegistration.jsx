@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 // Components
+import FormItem from '../../components/form-item/FormItem';
 import Button from '../../components/button/Button';
 
 // Helpers
@@ -78,52 +79,16 @@ const LoginAndRegistration = () => {
                 {
                     activeTab ?
                         <form className='login-registration-form login' action=''>
-                            <div className='form-item-wrapper'>
-                                <div className='form-item-container'>
-                                    <label htmlFor='username'>username</label>
-                                    <input type='text' name='username' id='username' value={formState.username} onChange={handleChange} />
-                                </div>
-                                {errorMessages?.usernameError && <p className='error-message'>{errorMessages.usernameError}</p>}
-                            </div>
-                            <div className='form-item-wrapper'>
-                                <div className='form-item-container'>
-                                    <label htmlFor='password'>password</label>
-                                    <input type='password' name='password' id='password' value={formState.password} onChange={handleChange} />
-                                </div>
-                                {errorMessages?.passwordError && <p className='error-message'>{errorMessages.passwordError}</p>}
-                            </div>
+                            <FormItem item='username' type='text' formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
+                            <FormItem item='password' type='password' formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
                             <Button type='submit' buttonText='Login' onClick={handleClick} />
                         </form>
                         :
                         <form className='login-registration-form registration' action=''>
-                            <div className='form-item-wrapper'>
-                                <div className='form-item-container'>
-                                    <label htmlFor='username'>username</label>
-                                    <input type='text' name='username' id='username' value={formState.username} onChange={handleChange} />
-                                </div>
-                                {errorMessages?.usernameError && <p className='error-message'>{errorMessages.usernameError}</p>}
-                            </div>
-                            <div className='form-item-wrapper'>
-                                <div className='form-item-container'>
-                                    <label htmlFor='email'>email</label>
-                                    <input type='email' name='email' id='email' value={formState.email} onChange={handleChange} />
-                                </div>
-                                {errorMessages?.emailError && <p className='error-message'>{errorMessages.emailError}</p>}
-                            </div>
-                            <div className='form-item-wrapper'>
-                                <div className='form-item-container'>
-                                    <label htmlFor='password'>password</label>
-                                    <input type='password' name='password' id='password' value={formState.password} onChange={handleChange} />
-                                </div>
-                                {errorMessages?.passwordError && <p className='error-message'>{errorMessages.passwordError}</p>}
-                            </div>
-                            <div className='form-item-wrapper'>
-                                <div className='form-item-container'>
-                                    <label htmlFor='info'>about me</label>
-                                    <textarea id='info' name='info' value={formState.info} onChange={handleChange} >
-                                    </textarea>
-                                </div>
-                            </div>
+                            <FormItem item='username' type='text' formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
+                            <FormItem item='email' type='email' formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
+                            <FormItem item='password' type='password' formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
+                            <FormItem item='info' type='text' formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
                             <Button type='submit' buttonText='Create account' onClick={(e) => handleClick(e, 'registration')} />
                         </form>
                 }
