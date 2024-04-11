@@ -13,10 +13,12 @@ const Form = ({ form, formState, handleChange, handleClick, errorMessages }) => 
         <form className={`login-registration-form ${form}`} action=''>
             {
                 form === 'login' ?
+                    // Login form
                     loginItems.map((loginItem) => {
                         return <FormItem key={loginItem} item={loginItem} type={loginItem} formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
                     })
                     :
+                    // Registration form
                     registrationItems.map((registrationItem) => {
                         return <FormItem key={registrationItem} item={registrationItem} type={registrationItem} formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
                     })

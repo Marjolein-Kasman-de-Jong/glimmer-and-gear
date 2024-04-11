@@ -97,7 +97,7 @@ const LoginAndRegistration = () => {
                 }
             </div>
         </main>
-    )
+    );
 }
 
-export default LoginAndRegistration
+export default LoginAndRegistration;

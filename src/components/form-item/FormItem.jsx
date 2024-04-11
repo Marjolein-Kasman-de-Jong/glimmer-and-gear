@@ -3,6 +3,7 @@ import './form-item.css';
 
 const FormItem = ({ item, type, formState, handleChange, errorMessages }) => {
     const error = `${item}Error`;
+
     return (
         <div className='form-item-wrapper'>
             <div className='form-item-container'>
