@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Components
 import Button from '../../components/button/Button';
@@ -10,13 +10,22 @@ import validateForm from '../../helpers/validateForm';
 import './login-and-registration.css';
 
 const LoginAndRegistration = () => {
+    // Monitor component load
+    const [isComponentLoaded, setComponentLoaded] = useState(false);
+
+    // Monitor active tab
     const [activeTab, toggleActiveTab] = useState(true);
+
+    // Monitor user input
     const [formState, setFormState] = useState({
         username: '',
         email: '',
         password: '',
         info: ''
     });
+
+    // Monitor error messages
+    const [errorMessages, setErrorMessages] = useState({});
 
     // Handle input change
     function handleChange(e) {
@@ -29,13 +38,31 @@ const LoginAndRegistration = () => {
         });
     }
 
-    // Handle login/create acoount button click
-    const [errorMessages, setErrorMessages] = useState({})
-
-    function handleClick(e) {
+    // Handle login/create account button click
+    function handleClick(e, form) {
         e.preventDefault();
-        setErrorMessages(validateForm(formState));
+        // Validate form and set error messages
+        setErrorMessages(validateForm(formState, form));
     }
+
+    // Prevent data being sent to backend on component load, when errorMessages is still empty
+    useEffect(() => {
+        setComponentLoaded(true);
+        return () => {
+            setComponentLoaded(false);
+        };
+    }, []);
+
+    // Send data to backend if isComponentLoaded === true AND errorMessages is empty
+    useEffect(() => {
+        if (isComponentLoaded && Object.keys(errorMessages).length === 0) {
+            console.log('verstuur data');
+            // Error en succes messages toevoegen 
+        } else {
+            console.log('oeps');
+            // Error messages toevoegen
+        }
+    }, [errorMessages]);
 
     return (
         <main>
@@ -97,7 +124,7 @@ const LoginAndRegistration = () => {
                                     </textarea>
                                 </div>
                             </div>
-                            <Button type='submit' buttonText='Create account' onClick={handleClick} />
+                            <Button type='submit' buttonText='Create account' onClick={(e) => handleClick(e, 'registration')} />
                         </form>
                 }
             </div>
