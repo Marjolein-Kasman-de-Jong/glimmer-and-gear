@@ -28,3 +28,7 @@
 .registration:after {
     left: 0;
 }
+
+.response-message {
+    color: var(--red);
+}

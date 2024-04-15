@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 // Components
 import Form from '../../components/form/Form';
@@ -45,7 +46,7 @@ const LoginAndRegistration = () => {
         setErrorMessages(validateForm(formState, form));
     }
 
-    // Prevent data being sent to backend on component load, when errorMessages is still empty
+    // Prevent data being sent to backend on component load (when errorMessages is still empty)
     useEffect(() => {
         setComponentLoaded(true);
         return () => {
@@ -54,14 +55,58 @@ const LoginAndRegistration = () => {
     }, []);
 
     // Send data to backend if isComponentLoaded === true AND errorMessages is empty
+    const [responseMessage, setResponseMessage] = useState('');
+
     useEffect(() => {
-        if (isComponentLoaded && Object.keys(errorMessages).length === 0) {
-            console.log('verstuur data');
-            // Error en succes messages toevoegen 
-        } else {
-            console.log('oeps');
-            // Error messages toevoegen
+        // User registration
+        async function createUser() {
+            try {
+                const response = await axios.post('https://api.datavortex.nl/glimmerandgear/users', {
+                    "username": formState.username,
+                    "email": formState.email,
+                    "password": formState.password,
+                    "info": formState.info,
+                    "authorities": [
+                        {
+                            "authority": "USER"
+                        },
+                    ]
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Api-Key': 'glimmerandgear:60TTS2GBNi8Hyhi22dtu',
+                    },
+                });
+                setResponseMessage('User registration succesful'); // Nog verwijderen als automatische inlog is toegevoegd
+            } catch (error) {
+                console.log(error);
+                setResponseMessage('User registration failed. ' + error.response.data + '.');
+            }
         }
+
+        if (!activeTab && isComponentLoaded && Object.keys(errorMessages).length === 0) {
+            createUser();
+        }
+
+        // User login
+        async function authenticateUser() {
+            try {
+                const response = await axios.post('https://api.datavortex.nl/glimmerandgear/users/authenticate', {
+                    'username': formState.username,
+                    'password': formState.password,
+                });
+                console.log(response);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        if (activeTab && isComponentLoaded && Object.keys(errorMessages).length === 0) {
+            authenticateUser();
+        }
+
+
+
     }, [errorMessages]);
 
     return (
@@ -75,6 +120,7 @@ const LoginAndRegistration = () => {
                     <button type='button' className='tab-button' onClick={() => { toggleActiveTab(true) }}>I have an account</button>
                     <button type='button' className='tab-button' onClick={() => { toggleActiveTab(false) }}>I am a new customer</button>
                 </div>
+
                 {
                     activeTab ?
                         // Login form
@@ -87,13 +133,14 @@ const LoginAndRegistration = () => {
                         />
                         :
                         // Registration form
-                        <Form
-                            form='registration'
-                            formState={formState}
-                            handleChange={handleChange}
-                            handleClick={handleClick}
-                            errorMessages={errorMessages}
-                        />
+                            <Form
+                                form='registration'
+                                formState={formState}
+                                handleChange={handleChange}
+                                handleClick={handleClick}
+                                errorMessages={errorMessages}
+                                responseMessage={responseMessage}
+                            />
                 }
             </div>
         </main>

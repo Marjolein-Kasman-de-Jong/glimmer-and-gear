@@ -5,7 +5,7 @@ import Button from '../button/Button';
 // Style
 import './form.css';
 
-const Form = ({ form, formState, handleChange, handleClick, errorMessages }) => {
+const Form = ({ form, formState, handleChange, handleClick, errorMessages, responseMessage }) => {
     const loginItems = ['username', 'password']; // Verplaatsen naar constants
     const registrationItems = ['username', 'email', 'password', 'info'];
 
@@ -19,9 +19,14 @@ const Form = ({ form, formState, handleChange, handleClick, errorMessages }) => 
                     })
                     :
                     // Registration form
-                    registrationItems.map((registrationItem) => {
-                        return <FormItem key={registrationItem} item={registrationItem} type={registrationItem} formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
-                    })
+                    <>
+                        {responseMessage && <p className='response-message'>{responseMessage}</p>}
+                        {
+                            registrationItems.map((registrationItem) => {
+                                return <FormItem key={registrationItem} item={registrationItem} type={registrationItem} formState={formState} handleChange={handleChange} errorMessages={errorMessages} />
+                            })
+                        }
+                    </>
             }
             <Button type='submit' buttonText={form} onClick={(e) => handleClick(e, form)} />
         </form>
