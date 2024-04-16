@@ -19,8 +19,6 @@ const Navbar = () => {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
     const { isLoggedIn, logout } = useContext(AuthContext);
-    console.log(isLoggedIn);
-    // console.log(logout)
 
     // Monitor screen width
     const handleChange = () => {
@@ -82,7 +80,6 @@ const Navbar = () => {
             {/* Right menu */}
             <ul className='right-menu'>
                 {isLoggedIn ?
-                    // <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Logout</NavLink>
                     <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={logout}>Logout</NavLink>
                     :
                     <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Login</NavLink>}

@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
+import axios from 'axios';
 
 export const AuthContext = createContext(null);
 
@@ -13,13 +13,6 @@ function AuthContextProvider({ children }) {
         status: 'pending',
     });
 
-    // Check for stored token and decode if present
-    const storedToken = localStorage.getItem('token');
-    let decodedStoredToken;
-    if (storedToken) {
-        decodedStoredToken = jwtDecode(storedToken);
-    }
-
     // Create data object
     const data = {
         ...authState,
@@ -27,11 +20,19 @@ function AuthContextProvider({ children }) {
         logout,
     };
 
+    // Check for stored token and decode if present
+    const storedToken = localStorage.getItem('token');
+    let decodedStoredToken;
+    if (storedToken) {
+        decodedStoredToken = jwtDecode(storedToken);
+    }
+
     // Get user data
-    async function getUserData(decodedToken, storedToken, setAuthState) {
+    async function getUserData(decodedToken, storedToken, setAuthState, setStatusCode) {
         try {
             let response;
             if (decodedToken) {
+                // Get user data
                 response = await axios.get(`https://api.datavortex.nl/glimmerandgear/users/${decodedToken.sub}`, {
                     headers: {
                         'Content-Type': 'application/json',
@@ -40,33 +41,29 @@ function AuthContextProvider({ children }) {
                 })
             };
             if (response) {
+                // Set authState
                 setAuthState({
                     isLoggedIn: true,
                     username: response.data.username,
                     email: response.data.email,
                     info: response.data.info,
                     status: 'done',
-                })
+                });
+                // Set status code
+                setStatusCode && setStatusCode(response.status);
             };
         } catch (error) {
-            setAuthState({
-                isLoggedIn: false,
-                username: '',
-                email: '',
-                info: '',
-                status: 'done',
-            });
             console.log(error);
         }
     }
 
-    // Call getUserData on first render and login user is a token is already present 
+    // Call getUserData on component render and login user if a token is already present 
     useEffect(() => {
         getUserData(decodedStoredToken, storedToken, setAuthState);
     }, []);
 
-    // Login user when login button is clicked
-    async function login(formState) {
+    // Login user
+    async function login(formState, setStatusCode) {
         try {
             // Get token
             const response = await axios.post('https://api.datavortex.nl/glimmerandgear/users/authenticate', {
@@ -77,12 +74,22 @@ function AuthContextProvider({ children }) {
             // Decode token
             const decodedToken = jwtDecode(response.data.jwt);
             // Get user data
-            getUserData(decodedToken, response.data.jwt, setAuthState);
+            getUserData(decodedToken, response.data.jwt, setAuthState, setStatusCode);
         } catch (error) {
+            // Clear authState
+            setAuthState({
+                isLoggedIn: false,
+                username: '',
+                email: '',
+                info: '',
+                status: 'done',
+            });
+            setStatusCode('error');
             console.log(error);
         }
     }
 
+    // Logout user
     function logout() {
         // Clear local storage
         localStorage.clear();
@@ -94,7 +101,7 @@ function AuthContextProvider({ children }) {
             info: '',
             status: 'pending',
         });
-
+        setStatusCode('');
     }
 
     return (

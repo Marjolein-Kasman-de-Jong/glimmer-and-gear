@@ -29,6 +29,10 @@
     left: 0;
 }
 
-.response-message {
+.statusCode-200 {
+    color: var(--green);
+}
+
+.statusCode-error {
     color: var(--red);
 }
