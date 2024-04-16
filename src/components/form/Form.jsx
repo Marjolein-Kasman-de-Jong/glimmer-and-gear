@@ -2,13 +2,14 @@
 import FormItem from '../form-item/FormItem';
 import Button from '../button/Button';
 
+// Constants
+import loginItems from '../../constants/loginItems';
+import registrationItems from '../../constants/registrationItems';
+
 // Style
 import './form.css';
 
 const Form = ({ form, formState, handleChange, handleClick, errorMessages, statusCode, statusMessage }) => {
-    const loginItems = ['username', 'password']; // Verplaatsen naar constants
-    const registrationItems = ['username', 'email', 'password', 'info'];
-
     return (
         <form className={`login-registration-form ${form}`} action=''>
             {
@@ -48,7 +49,13 @@ const Form = ({ form, formState, handleChange, handleClick, errorMessages, statu
                     </>
             }
             {/* Login/registration button */}
-            {<Button type='submit' buttonText={form === 'login' ? 'Login' : 'Create account'} onClick={(e) => handleClick(e, form)} />}
+            {
+                <Button
+                    type='submit'
+                    buttonText={form === 'login' ? 'Login' : 'Create account'}
+                    onClick={(e) => handleClick(e, form)}
+                />
+            }
         </form>
     );
 }
