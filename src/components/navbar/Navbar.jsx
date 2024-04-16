@@ -1,4 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+
+// Context
+import { AuthContext } from '../../context/AuthContext';
 
 // Components
 import HamburgerMenu from '../hamburger-menu/HamburgerMenu';
@@ -14,6 +17,10 @@ const Navbar = () => {
     const [leftMenuItems, toggleLeftMenuItems] = useState(false);
     const [dropdownContent, toggleDropdownContent] = useState(false);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    const { isLoggedIn, logout } = useContext(AuthContext);
+    console.log(isLoggedIn);
+    // console.log(logout)
 
     // Monitor screen width
     const handleChange = () => {
@@ -74,7 +81,11 @@ const Navbar = () => {
             }
             {/* Right menu */}
             <ul className='right-menu'>
-                <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Login</NavLink>
+                {isLoggedIn ?
+                    // <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Logout</NavLink>
+                    <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={logout}>Logout</NavLink>
+                    :
+                    <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Login</NavLink>}
                 <NavLink type='link' linkTo='/shopping-cart' screenWidth={screenWidth} onClick={toggleLeftMenuItems}><TiShoppingCart /></NavLink>
             </ul>
         </nav>

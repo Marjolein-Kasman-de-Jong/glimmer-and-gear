@@ -1,5 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+
+// Context
+import { AuthContext } from '../../context/AuthContext';
 
 // Components
 import Form from '../../components/form/Form';
@@ -28,6 +31,11 @@ const LoginAndRegistration = () => {
     // Monitor error messages
     const [errorMessages, setErrorMessages] = useState({});
 
+    // Destructure AuthContext
+    // const { authState, setAuthState } = useContext(AuthContext);
+    const { login } = useContext(AuthContext)
+
+
     // Handle input change
     function handleChange(e) {
         const changedFieldName = e.target.name;
@@ -44,11 +52,14 @@ const LoginAndRegistration = () => {
         e.preventDefault();
         // Validate form and set error messages
         setErrorMessages(validateForm(formState, form));
+        // Login
+        activeTab && login(formState)
     }
 
     // Prevent data being sent to backend on component load (when errorMessages is still empty)
     useEffect(() => {
         setComponentLoaded(true);
+
         return () => {
             setComponentLoaded(false);
         };
@@ -87,26 +98,6 @@ const LoginAndRegistration = () => {
         if (!activeTab && isComponentLoaded && Object.keys(errorMessages).length === 0) {
             createUser();
         }
-
-        // User login
-        async function authenticateUser() {
-            try {
-                const response = await axios.post('https://api.datavortex.nl/glimmerandgear/users/authenticate', {
-                    'username': formState.username,
-                    'password': formState.password,
-                });
-                console.log(response);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        if (activeTab && isComponentLoaded && Object.keys(errorMessages).length === 0) {
-            authenticateUser();
-        }
-
-
-
     }, [errorMessages]);
 
     return (
@@ -133,14 +124,14 @@ const LoginAndRegistration = () => {
                         />
                         :
                         // Registration form
-                            <Form
-                                form='registration'
-                                formState={formState}
-                                handleChange={handleChange}
-                                handleClick={handleClick}
-                                errorMessages={errorMessages}
-                                responseMessage={responseMessage}
-                            />
+                        <Form
+                            form='registration'
+                            formState={formState}
+                            handleChange={handleChange}
+                            handleClick={handleClick}
+                            errorMessages={errorMessages}
+                            responseMessage={responseMessage}
+                        />
                 }
             </div>
         </main>
