@@ -2,6 +2,9 @@ import { createContext, useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
 
+// Helpers
+// import getUserData from '../helpers/getUserData';
+
 export const AuthContext = createContext(null);
 
 function AuthContextProvider({ children }) {
@@ -13,11 +16,17 @@ function AuthContextProvider({ children }) {
         status: 'pending',
     });
 
+    const [needsUpdate, toggleNeedsUpdate] = useState(true)
+
     const data = {
         ...authState,
         login,
         logout,
+        toggleNeedsUpdate,
     };
+
+    console.log(authState)
+    console.log(needsUpdate)
 
     // Get user data
     async function getUserData(decodedToken, storedToken, setAuthState, setStatusCode) {
@@ -49,8 +58,9 @@ function AuthContextProvider({ children }) {
         }
     }
 
-    // Auto login
+    // Auto login ??
     useEffect(() => {
+        if (needsUpdate) {
         // Check for stored token and decode if present
         const storedToken = localStorage.getItem('token');
         let decodedStoredToken;
@@ -59,7 +69,9 @@ function AuthContextProvider({ children }) {
         }
         // Call getUserData and login if a token is already present 
         storedToken && getUserData(decodedStoredToken, storedToken, setAuthState);
-    }, []);
+    }
+        toggleNeedsUpdate(false);
+    }, [needsUpdate]);
 
     // Login
     async function login(formState, setStatusCode) {
