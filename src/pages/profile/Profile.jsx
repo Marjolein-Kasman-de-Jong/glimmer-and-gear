@@ -8,14 +8,10 @@ import { AuthContext } from '../../context/AuthContext';
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';
 import Form from '../../components/form/Form';
-import ProfileItem from '../../components/profile-item/ProfileItem';
-import Button from '../../components/button/Button';
+import UserProfile from '../../components/user-profile/UserProfile';
 
 // Helpers
 import validateForm from '../../helpers/validateForm';
-
-// Icons
-import { SlPencil } from "react-icons/sl";
 
 // Style
 import './profile.css'
@@ -32,10 +28,6 @@ const Profile = () => {
         password,
         info,
     });
-
-    const icon = <SlPencil />;
-
-    console.log(statusCode)
 
     // Handle input change
     function handleChange(e) {
@@ -111,17 +103,18 @@ const Profile = () => {
                 edit ?
                     <Form form='profile' formState={formState} handleChange={handleChange} handleClick={handleClick} errorMessages={errorMessages} statusCode={statusCode} statusMessage={statusMessage} />
                     :
-                    <>
-                        {statusMessage && <p className={`statusCode-${statusCode}`}>{statusMessage}</p>}
-                        <article className='profile-container'>
-                            <header className='profile-title'>
-                                <h3>{username}</h3>
-                                <Button type='button' buttonText='edit' icon={icon} onClick={() => toggleEdit(!edit)} />
-                            </header>
-                            <ProfileItem item={{ email: email }} />
-                            <ProfileItem item={{ info: info }} />
-                        </article>
-                    </>
+                    <UserProfile statusCode={statusCode} statusMessage={statusMessage} username={username} email={email} info={info} edit={edit} toggleEdit={toggleEdit} />
+                    // <>
+                    //     {statusMessage && <p className={`statusCode-${statusCode}`}>{statusMessage}</p>}
+                    //     <article className='profile-container'>
+                    //         <header className='profile-title'>
+                    //             <h3>{username}</h3>
+                    //             <Button type='button' buttonText='edit' icon={icon} onClick={() => toggleEdit(!edit)} />
+                    //         </header>
+                    //         <ProfileItem item={{ email: email }} />
+                    //         <ProfileItem item={{ info: info }} />
+                    //     </article>
+                    // </>
             }
         </main>
     );
