@@ -13,19 +13,11 @@ function AuthContextProvider({ children }) {
         status: 'pending',
     });
 
-    // Create data object
     const data = {
         ...authState,
         login,
         logout,
     };
-
-    // Check for stored token and decode if present
-    const storedToken = localStorage.getItem('token');
-    let decodedStoredToken;
-    if (storedToken) {
-        decodedStoredToken = jwtDecode(storedToken);
-    }
 
     // Get user data
     async function getUserData(decodedToken, storedToken, setAuthState, setStatusCode) {
@@ -57,12 +49,19 @@ function AuthContextProvider({ children }) {
         }
     }
 
-    // Call getUserData on component render and login user if a token is already present 
+    // Auto login
     useEffect(() => {
-        getUserData(decodedStoredToken, storedToken, setAuthState);
+        // Check for stored token and decode if present
+        const storedToken = localStorage.getItem('token');
+        let decodedStoredToken;
+        if (storedToken) {
+            decodedStoredToken = jwtDecode(storedToken);
+        }
+        // Call getUserData and login if a token is already present 
+        storedToken && getUserData(decodedStoredToken, storedToken, setAuthState);
     }, []);
 
-    // Login user
+    // Login
     async function login(formState, setStatusCode) {
         try {
             // Get token
@@ -84,12 +83,13 @@ function AuthContextProvider({ children }) {
                 info: '',
                 status: 'done',
             });
+            // Set status code
             setStatusCode('error');
             console.log(error);
         }
     }
 
-    // Logout user
+    // Logout
     function logout() {
         // Clear local storage
         localStorage.clear();
@@ -101,6 +101,7 @@ function AuthContextProvider({ children }) {
             info: '',
             status: 'pending',
         });
+        // Set status code
         setStatusCode('');
     }
 
