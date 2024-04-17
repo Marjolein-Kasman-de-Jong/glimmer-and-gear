@@ -25,9 +25,6 @@ function AuthContextProvider({ children }) {
         toggleNeedsUpdate,
     };
 
-    console.log(authState)
-    console.log(needsUpdate)
-
     // Get user data
     async function getUserData(decodedToken, storedToken, setAuthState, setStatusCode) {
         try {
@@ -58,18 +55,18 @@ function AuthContextProvider({ children }) {
         }
     }
 
-    // Auto login ??
+    // Auto login/refresh user data
     useEffect(() => {
         if (needsUpdate) {
-        // Check for stored token and decode if present
-        const storedToken = localStorage.getItem('token');
-        let decodedStoredToken;
-        if (storedToken) {
-            decodedStoredToken = jwtDecode(storedToken);
+            // Check for stored token and decode if present
+            const storedToken = localStorage.getItem('token');
+            let decodedStoredToken;
+            if (storedToken) {
+                decodedStoredToken = jwtDecode(storedToken);
+            }
+            // Call getUserData and login if a token is already present 
+            storedToken && getUserData(decodedStoredToken, storedToken, setAuthState);
         }
-        // Call getUserData and login if a token is already present 
-        storedToken && getUserData(decodedStoredToken, storedToken, setAuthState);
-    }
         toggleNeedsUpdate(false);
     }, [needsUpdate]);
 

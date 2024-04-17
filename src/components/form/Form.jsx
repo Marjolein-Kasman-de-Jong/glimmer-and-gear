@@ -53,6 +53,7 @@ const Form = ({ form, formState, handleChange, handleClick, errorMessages, statu
                         :
                         // Profile form
                         <>
+                            {/* {statusMessage && <p className={`statusCode-${statusCode}`}>{statusMessage}</p>} */}
                             {
                                 profileItems.map((profileItem) => {
                                     return <FormItem

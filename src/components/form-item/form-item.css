@@ -8,17 +8,23 @@
 .form-item-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .form-item-container label {
     width: 30%;
     text-align: right;
+    font-size: 1.5rem;
 }
 
 .form-item-container input,
 .form-item-container textarea,
 .error-message {
     width: 60%;
+}
+
+.form-item-container input {
+    height: 1.5rem;
 }
 
 .form-item-container textarea {

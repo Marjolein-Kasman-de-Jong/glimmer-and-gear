@@ -7,9 +7,9 @@ import { AuthContext } from '../../context/AuthContext';
 
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';
+import Form from '../../components/form/Form';
 import ProfileItem from '../../components/profile-item/ProfileItem';
 import Button from '../../components/button/Button';
-import Form from '../../components/form/Form';
 
 // Helpers
 import validateForm from '../../helpers/validateForm';
@@ -21,7 +21,6 @@ import { SlPencil } from "react-icons/sl";
 import './profile.css'
 
 const Profile = () => {
-    //const { authState, setAuthState } = useContext(AuthContext);
     const { username, email, password, info, toggleNeedsUpdate } = useContext(AuthContext);
     const [errorMessages, setErrorMessages] = useState({});
     const [statusCode, setStatusCode] = useState('');
@@ -32,8 +31,11 @@ const Profile = () => {
         email,
         password,
         info,
-    })
+    });
+
     const icon = <SlPencil />;
+
+    console.log(statusCode)
 
     // Handle input change
     function handleChange(e) {
@@ -47,7 +49,6 @@ const Profile = () => {
     }
 
     // Update user profile
-
     const storedToken = localStorage.getItem('token');
     let decodedStoredToken;
 
@@ -62,8 +63,11 @@ const Profile = () => {
                     'Authorization': `Bearer ${storedToken}`,
                 },
             });
-            toggleNeedsUpdate(true)
+            setStatusCode(response.status);
+            // Trigger authState refresh so updated user data is shown on profile page
+            toggleNeedsUpdate(true);
         } catch (error) {
+            setStatusCode('error');
             console.log(error);
         }
     }
@@ -76,12 +80,26 @@ const Profile = () => {
         // Discard changes
         if (e.target.textContent === 'Discard changes') {
             toggleEdit(!edit);
-        // Update user profile
+            // Update user profile
         } else {
-            updateUserProfile()
+            updateUserProfile();
             toggleEdit(!edit);
         }
     }
+
+    useEffect(() => {
+        switch (statusCode) {
+            case '':
+                setStatusMessage('');
+                break;
+            case 204:
+                setStatusMessage('User profile updated');
+                break;
+            case 'error':
+                setStatusMessage('User profile update failed');
+                break
+        }
+    }, [statusCode])
 
     return (
         <main>
@@ -93,14 +111,17 @@ const Profile = () => {
                 edit ?
                     <Form form='profile' formState={formState} handleChange={handleChange} handleClick={handleClick} errorMessages={errorMessages} statusCode={statusCode} statusMessage={statusMessage} />
                     :
-                    <article className='profile-container'>
-                        <header className='profile-title'>
-                            <h3>{username}</h3>
-                            <Button type='button' buttonText='edit' icon={icon} onClick={() => toggleEdit(!edit)} />
-                        </header>
-                        <ProfileItem item={{ email: email }} />
-                        <ProfileItem item={{ info: info }} />
-                    </article>
+                    <>
+                        {statusMessage && <p className={`statusCode-${statusCode}`}>{statusMessage}</p>}
+                        <article className='profile-container'>
+                            <header className='profile-title'>
+                                <h3>{username}</h3>
+                                <Button type='button' buttonText='edit' icon={icon} onClick={() => toggleEdit(!edit)} />
+                            </header>
+                            <ProfileItem item={{ email: email }} />
+                            <ProfileItem item={{ info: info }} />
+                        </article>
+                    </>
             }
         </main>
     );
