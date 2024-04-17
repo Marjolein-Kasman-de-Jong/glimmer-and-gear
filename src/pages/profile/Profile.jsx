@@ -5,6 +5,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';
+import ProfileItem from '../../components/profile-item/ProfileItem';
 
 // Style
 import './profile.css'
@@ -22,14 +23,8 @@ const Profile = () => {
                 <header className='profile-title'>
                     <h3>{username}</h3>
                 </header>
-                <div className='profile-item-container'>
-                    <h4>email</h4><p>{email}</p>
-                </div>
-                <div className='profile-item-container'>
-                    <h4>about</h4>
-                    <p>{info}</p>
-                </div>
-                
+                <ProfileItem item={{ email: email }} />
+                <ProfileItem item={{ info: info }} />
             </article>
         </main>
     );

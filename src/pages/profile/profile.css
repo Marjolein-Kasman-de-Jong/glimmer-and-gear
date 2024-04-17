@@ -15,14 +15,3 @@
     text-align: left;
     color: var(--orange);
 }
-
-.profile-item-container {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.profile-item-container p {
-    width: 70%;
-}
