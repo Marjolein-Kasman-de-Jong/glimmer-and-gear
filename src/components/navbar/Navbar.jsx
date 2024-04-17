@@ -80,7 +80,10 @@ const Navbar = () => {
             {/* Right menu */}
             <ul className='right-menu'>
                 {isLoggedIn ?
-                    <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={logout}>Logout</NavLink>
+                    <>
+                        <NavLink type='link' linkTo='/profile' screenWidth={screenWidth}>User profile</NavLink>
+                        <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={logout}>Logout</NavLink>
+                    </>
                     :
                     <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Login</NavLink>}
                 <NavLink type='link' linkTo='/shopping-cart' screenWidth={screenWidth} onClick={toggleLeftMenuItems}><TiShoppingCart /></NavLink>
