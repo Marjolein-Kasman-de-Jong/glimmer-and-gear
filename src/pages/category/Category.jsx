@@ -50,7 +50,7 @@ const Category = () => {
         return function cleanup() {
             controller.abort();
         }
-    }, []);
+    }, [category]);
 
     // Re-render .products-container after sortOption change
     useEffect(() => {

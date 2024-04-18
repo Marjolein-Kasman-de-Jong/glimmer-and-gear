@@ -1,7 +1,9 @@
 .search-bar {
     margin: 50px auto 50px auto;
+    position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .search-bar form {
@@ -30,4 +32,38 @@
     height: 20px;
     position: absolute;
     right: 20px;
+}
+
+.search-results {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    position: absolute;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid var(--light-grey);
+    list-style-type: none;
+    background-color: white;
+    z-index: 20;
+}
+
+.search-results a {
+    display: block;
+    color: var(--orange);
+    text-decoration: none;
+}
+
+.search-results a:hover {
+    color: var(--black);
+    background-color: var(--light-grey);
+}
+
+.search-results a:visited {
+    color: var(--orange);
+}
+
+.search-results a:visited:hover {
+    color: var(--black);
 }
