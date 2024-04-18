@@ -68,17 +68,19 @@ const Profile = () => {
     function handleClick(e, form) {
         e.preventDefault();
         // Validate form and set error messages
-        setErrorMessages(validateForm(formState, form));
+        const errors = validateForm(formState, form);
+        setErrorMessages(errors);
         // Discard changes
         if (e.target.textContent === 'Discard changes') {
             toggleEdit(!edit);
-            // Update user profile
-        } else {
+        // Update user profile
+        } else if (Object.keys(errors).length === 0) {
             updateUserProfile();
             toggleEdit(!edit);
         }
     }
 
+    // Set status message
     useEffect(() => {
         switch (statusCode) {
             case '':
@@ -101,24 +103,13 @@ const Profile = () => {
             </header>
             {
                 edit ?
+
                     <Form form='profile' formState={formState} handleChange={handleChange} handleClick={handleClick} errorMessages={errorMessages} statusCode={statusCode} statusMessage={statusMessage} />
                     :
                     <UserProfile statusCode={statusCode} statusMessage={statusMessage} username={username} email={email} info={info} edit={edit} toggleEdit={toggleEdit} />
-                    // <>
-                    //     {statusMessage && <p className={`statusCode-${statusCode}`}>{statusMessage}</p>}
-                    //     <article className='profile-container'>
-                    //         <header className='profile-title'>
-                    //             <h3>{username}</h3>
-                    //             <Button type='button' buttonText='edit' icon={icon} onClick={() => toggleEdit(!edit)} />
-                    //         </header>
-                    //         <ProfileItem item={{ email: email }} />
-                    //         <ProfileItem item={{ info: info }} />
-                    //     </article>
-                    // </>
             }
         </main>
     );
-
 }
 
 export default Profile;

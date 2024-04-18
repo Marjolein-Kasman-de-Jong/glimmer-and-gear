@@ -27,6 +27,8 @@ const LoginAndRegistration = () => {
 
     const { login } = useContext(AuthContext);
 
+    console.log(errorMessages)
+
     // Handle input change
     function handleChange(e) {
         const changedFieldName = e.target.name;
@@ -42,12 +44,13 @@ const LoginAndRegistration = () => {
     function handleClick(e, form) {
         e.preventDefault();
         // Validate form and set error messages
-        setErrorMessages(validateForm(formState, form));
+        const errors = validateForm(formState, form);
+        setErrorMessages(errors);
         // Login
         if (activeTab) {
             login(formState, setStatusCode);
         // Create account
-        } else {
+        } else if (Object.keys(errors).length === 0) {
             createUser(formState, setStatusCode);
         }
     }
