@@ -27,8 +27,6 @@ const LoginAndRegistration = () => {
 
     const { login } = useContext(AuthContext);
 
-    console.log(errorMessages)
-
     // Handle input change
     function handleChange(e) {
         const changedFieldName = e.target.name;
