@@ -26,6 +26,14 @@ const Product = () => {
 
     // Get product data
     const [productData, setProductData] = useState({});
+    const [category, setCategory] = useState('')
+
+    function getCorrectCategoryName(query) {
+        const categoryData = categories.find((item) => {
+            return item.title.toLowerCase() === query.toLowerCase();
+        })
+        return categoryData.category;
+    }
 
     useEffect(() => {
         const controller = new AbortController();
@@ -37,6 +45,7 @@ const Product = () => {
                     signal: controller.signal,
                 });
                 setProductData(response);
+                setCategory(getCorrectCategoryName(response.data.category));
                 setError(false);
             } catch (error) {
                 console.log(error);
@@ -52,21 +61,13 @@ const Product = () => {
         }
     }, [id])
 
-    // Monitor amount of items
+    // Monitor amount of items to order
     const [amountOfItems, setAmountOfItems] = useState(0);
-
-    // Get category
-    const location = useLocation();
-    const queryParams = new URLSearchParams(location.search);
-    const category = queryParams.get('category');
 
     // Get more items in category
     const [productList, setProductList] = useState([]);
 
-    const categoryData = categories.find((item) => {
-        return item.category === category;
-    });
-
+    let categoryData;
     useEffect(() => {
         const controller = new AbortController();
 
@@ -93,13 +94,18 @@ const Product = () => {
             }
             setLoading(false);
         }
+        
+        // Find apiEndpoint for this category
+        categoryData = categories.find((item) => {
+            return item.category === category;
+        });
 
-        categoryData && getProductList(categoryData.apiEndpoint);
+        getProductList(categoryData?.apiEndpoint);
 
         return function cleanup() {
             controller.abort();
         }
-    }, [id]);
+    }, [id, category]);
 
 
     return (

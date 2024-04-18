@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
-import NavLink from '../nav-link/NavLink';
 import axios from 'axios';
+
+// Components
+import NavLink from '../nav-link/NavLink';
+
+// Constants
+import categories from '../../constants/categories';
 
 // Icons
 import { SlMagnifier } from 'react-icons/sl';
@@ -13,9 +18,9 @@ const SearchBar = () => {
     const [allProducts, setAllProducts] = useState([]);
     const [showSearchResults, toggleShowSearchResults] = useState(false);
 
+    // Get all products
     useEffect(() => {
         const controller = new AbortController();
-
         async function getAllProducts() {
             try {
                 const response = await axios.get('https://fakestoreapi.com/products', {
@@ -26,20 +31,17 @@ const SearchBar = () => {
                 console.log(error);
             }
         }
-
         getAllProducts();
-
         return function cleanup() {
             controller.abort();
         }
     }, [])
 
+    // Show/hide search results based on query length and existence of search results
     useEffect(() => {
-        // Check if there are search results
         const searchResults = allProducts.some(product =>
             product.title.toLowerCase().includes(query.toLowerCase())
         );
-        // Toggle showSearchResults based on query length and existence of search results
         if (query.length > 0 && !searchResults) {
             toggleShowSearchResults(false);
         } else if (query.length > 0 && searchResults) {
@@ -47,6 +49,7 @@ const SearchBar = () => {
         }
     }, [query, allProducts])
 
+    // Hide .searchResults when user clicks outside .searchResults
     useEffect(() => {
         const elementToIgnore = document.getElementsByClassName('search-results');
         document.body.addEventListener('click', (e) => {
@@ -71,7 +74,8 @@ const SearchBar = () => {
                             allProducts.map((product) => {
                                 if (product.title.toLowerCase().includes(query.toLowerCase())) {
                                     return (
-                                        <NavLink key={product.id} type='search-result' linkTo={`/product/${product.id}?category=${product.category}`} onClick={() => { setQuery('') }}>
+                                        <NavLink key={product.id} type='search-result' linkTo={`/product/${product.id}`} onClick={() => { setQuery('') }}>
+                                            {/* <NavLink key={product.id} type='search-result' linkTo={`/product/${product.id}?category=${product.category}`} onClick={() => { setQuery('') }}></NavLink> */}
                                             {product.title}
                                         </NavLink>
                                     )

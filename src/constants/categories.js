@@ -19,7 +19,7 @@ const categories = [
     },
     {
         category: 'jewelry',
-        title: 'Jewelry',
+        title: 'Jewelery',
         image: 'category-jewelry.jpeg',
         apiEndpoint: 'https://fakestoreapi.com/products/category/jewelery'
     }
