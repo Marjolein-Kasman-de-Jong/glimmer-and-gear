@@ -1,0 +1,15 @@
+.contact-information-container {
+    margin: 0 auto;
+}
+
+.socials-container,
+.email-container {
+    display: flex;
+}
+
+.socials,
+.email,
+.contact-image-wrapper {
+    width: 100%;
+    max-width: 300px;
+}
