@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 // Components
-import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
 import SearchBar from '../../components/search-bar/SearchBar';
 import SortOptionMenu from '../../components/sort-option-menu/SortOptionMenu';
 import ProductCard from '../../components/product-card/ProductCard';
@@ -79,7 +78,6 @@ const Category = () => {
 
     return (
         <main>
-            <Breadcrumb category={category}/>
             <SearchBar />
             <header className='category-page-header'>
                 <h2>{categoryData.title}</h2>

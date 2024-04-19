@@ -1,25 +1,19 @@
-.breadcrumb {
-    padding: 50px 0 0 0;
+.breadcrumbs {
+    padding: 50px 9.3% 0 9.3%;
     display: flex;
     align-items: center;
     gap: 10px;
-    color: var(--green);
 }
 
 .crumb {
     display: flex;
     gap: 10px;
-}
-
-.crumb,
-.crumb:after,
-.crumb:visited {
     color: var(--green);
-    text-decoration: none;
 }
 
 .crumb:after {
     content: '>';
+    color: var(--green);
 }
 
 .crumb:first-of-type:after,
@@ -27,8 +21,13 @@
     content: unset;
 }
 
+.crumb a,
+.crumb a:visited {
+    color: var(--green);
+    text-decoration: none;
+}
+
 .home-icon {
     width: 20px;
-    height: 20px;margin-right: 10px;
-    color: var(--green);
+    height: 20px;
 }
