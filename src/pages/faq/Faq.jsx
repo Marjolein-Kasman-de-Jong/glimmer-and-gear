@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 // Components
+import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
 import SearchBar from '../../components/search-bar/SearchBar';
 import FaqComponent from '../../components/faq-component/FaqComponent'
 
@@ -26,6 +27,7 @@ const Faq = () => {
 
     return (
         <main>
+            <Breadcrumb page={'faq'}/>
             <SearchBar />
             <header>
                 <h2>Frequently asked questions</h2>

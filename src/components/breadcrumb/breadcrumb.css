@@ -1,0 +1,34 @@
+.breadcrumb {
+    padding: 50px 0 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--green);
+}
+
+.crumb {
+    display: flex;
+    gap: 10px;
+}
+
+.crumb,
+.crumb:after,
+.crumb:visited {
+    color: var(--green);
+    text-decoration: none;
+}
+
+.crumb:after {
+    content: '>';
+}
+
+.crumb:first-of-type:after,
+.crumb:last-of-type:after {
+    content: unset;
+}
+
+.home-icon {
+    width: 20px;
+    height: 20px;margin-right: 10px;
+    color: var(--green);
+}

@@ -3,6 +3,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 // Components
+import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
 import SearchBar from '../../components/search-bar/SearchBar';
 import ChooseAmountMenu from '../../components/choose-amount-menu/ChooseAmountMenu';
 import Button from '../../components/button/Button';
@@ -110,6 +111,7 @@ const Product = () => {
 
     return (
         <main>
+            <Breadcrumb category={category} product={productData?.data?.title} id={productData?.data?.id}/>
             <SearchBar />
             {/* Single product section */}
             <section className='single-product-section'>

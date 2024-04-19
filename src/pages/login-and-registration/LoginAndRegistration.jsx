@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 
 // Components
+import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
 import Form from '../../components/form/Form';
 
 // Helpers
@@ -82,6 +83,7 @@ const LoginAndRegistration = () => {
 
     return (
         <main>
+            <Breadcrumb page={'login-and-registration'} />
             <header>
                 <h2>Login/registration</h2>
             </header>
