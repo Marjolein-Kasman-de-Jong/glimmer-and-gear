@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
 // Context
@@ -67,9 +67,7 @@ const Product = () => {
     // Check if item is already in shopping cart
     const { shoppingCart } = useContext(ShoppingCartContext);
     const [alreadyInCart, toggleAlreadyInCart] = useState(false);
-    console.log(shoppingCart)
-    console.log(alreadyInCart);
-
+   
     useEffect(() => {
         function checkIfItemIsAlreadyInCart() {
             const test = shoppingCart.find((item) => {
@@ -98,8 +96,11 @@ const Product = () => {
         order = {
             itemId: productData.data.id,
             itemName: productData.data.title,
+            // If amountofItems === undefined, amount is 1
+            // amount: amountOfItems ? amountOfItems : 1,
             amount: amountOfItems,
-            price: productData.data.price
+            price: productData.data.price,
+            image: productData.data.image
         }
 
         addToCart(order);
@@ -175,8 +176,9 @@ const Product = () => {
                                     <p>{productData?.data?.description}</p>
                                     {
                                         alreadyInCart ?
-                                            <div className="go-to-cart-container">
+                                            <div className='go-to-cart-container'>
                                                 <p>This item is in your shopping cart.</p>
+                                                <Link to='/shopping-cart'>{`>> See shopping cart`}</Link>
                                             </div>
                                             :
                                             <div className='add-to-cart-container'>

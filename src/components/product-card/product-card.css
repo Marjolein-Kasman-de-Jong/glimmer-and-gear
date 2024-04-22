@@ -22,6 +22,16 @@
     border: 1px solid var(--light-grey);
 }
 
+.product-card.shopping-cart {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    
+    flex-direction: row;
+    justify-content: center;
+}
+
+
 /* Product card image container */
 
 .product-card-image-container {

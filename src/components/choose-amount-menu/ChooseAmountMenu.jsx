@@ -1,29 +1,29 @@
-import {useState, useEffect} from 'react';
+import { useEffect } from 'react';
 
 // Style
 import './choose-amount-menu.css';
 
-const ChooseAmountMenu = ({ setAmountOfItems }) => {
-    // Standard amount
-    const [amount, setAmount] = useState(1);
-
-    // Select standard amount on first render
+const ChooseAmountMenu = ({ amountOfItems, setAmountOfItems, setAmountOfItemsAndId, id }) => {
+    // Select standard amount on first render to prevent amount === 0 being set to shoppingCart if handleAmountChange() isn't triggered
     useEffect(() => {
-        setAmountOfItems(amount);
+        setAmountOfItems && setAmountOfItems(1);
     }, [])
 
     // Handle amount change
     function handleAmountChange(e) {
         const selected = Number(e.target.value);
-        // Update component state
-        setAmount(selected);
+
         // Update page state
-        setAmountOfItems(selected);
+        setAmountOfItems && setAmountOfItems(selected);
+        // setAmountOfItems && setAmountOfItems(selected);
+        setAmountOfItemsAndId && setAmountOfItemsAndId(id, selected);
     }
+
+
 
     return (
         <form>
-            <select name='choose-amount-menu' id='choose-amount-menu' value={amount} onChange={handleAmountChange}>
+            <select name='choose-amount-menu' id='choose-amount-menu' value={amountOfItems} onChange={handleAmountChange}>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
                 <option value='3'>3</option>

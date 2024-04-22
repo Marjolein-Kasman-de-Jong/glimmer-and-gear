@@ -101,6 +101,22 @@
     gap: 15px;
 }
 
+.go-to-cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--green);
+    border: 3px solid var(--green);
+    padding: 10px;
+}
+
+.go-to-cart-container a,
+.add-to-cart-container a:visited {
+    color: var(--green);
+    font-weight: 600;
+    text-decoration: none;
+}
+
 /* More in this category section */
 
 .more-in-this-category-title {
