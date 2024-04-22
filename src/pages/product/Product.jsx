@@ -1,6 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
+
+// Context
+import { ShoppingCartContext } from '../../context/shoppingCartContext';
 
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';
@@ -63,6 +66,13 @@ const Product = () => {
 
     // Monitor amount of items to order
     const [amountOfItems, setAmountOfItems] = useState(0);
+
+    // Handle Add to Cart button click
+    const {addToCart} = useContext(ShoppingCartContext);
+
+    function handleClick() {
+        console.log('handle click!');
+    }
 
     // Get more items in category
     const [productList, setProductList] = useState([]);
@@ -134,7 +144,7 @@ const Product = () => {
                                     <p>{productData?.data?.description}</p>
                                     <div className='add-to-cart-container'>
                                         <ChooseAmountMenu setAmountOfItems={setAmountOfItems} />
-                                        <Button type='button' buttonText='Add to cart' onClick='' />
+                                        <Button type='button' buttonText='Add to cart' onClick={() => handleClick()} />
                                     </div>
                                 </div>
                             </article>

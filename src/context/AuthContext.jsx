@@ -2,9 +2,6 @@ import { createContext, useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
 
-// Helpers
-// import getUserData from '../helpers/getUserData';
-
 export const AuthContext = createContext(null);
 
 function AuthContextProvider({ children }) {
