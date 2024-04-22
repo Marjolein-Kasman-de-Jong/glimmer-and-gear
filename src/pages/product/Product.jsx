@@ -21,26 +21,30 @@ import { TiStar } from 'react-icons/ti';
 import './product.css';
 
 const Product = () => {
+    const { shoppingCart, addToCart } = useContext(ShoppingCartContext);
+
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [productData, setProductData] = useState({});
+    const [productList, setProductList] = useState([]);
+    const [category, setCategory] = useState('');
+    const [amountOfItems, setAmountOfItems] = useState(0);
+    const [alreadyInCart, toggleAlreadyInCart] = useState(false);
 
     // Get product id
     const { id } = useParams();
 
-    // Get product data
-    const [productData, setProductData] = useState({});
-    const [category, setCategory] = useState('')
-
+    // Get right category name from categories.js
     function getCorrectCategoryName(query) {
         const categoryData = categories.find((item) => {
             return item.title.toLowerCase() === query.toLowerCase();
-        })
+        });
         return categoryData.category;
     }
 
+    // Get product data
     useEffect(() => {
         const controller = new AbortController();
-
         async function getProductData() {
             setLoading(true);
             try {
@@ -56,63 +60,43 @@ const Product = () => {
             }
             setLoading(false);
         }
-
         getProductData();
-
         return function cleanup() {
             controller.abort();
         }
     }, [id])
 
-    // Check if item is already in shopping cart
-    const { shoppingCart } = useContext(ShoppingCartContext);
-    const [alreadyInCart, toggleAlreadyInCart] = useState(false);
-   
+    // Check if item is already in shoppingCart
     useEffect(() => {
         function checkIfItemIsAlreadyInCart() {
-            const test = shoppingCart.find((item) => {
-                const idToCheck = Number(id)
+            const check = shoppingCart.find((item) => {
+                const idToCheck = Number(id);
                 return item?.itemId === idToCheck;
-            })
-
-            if (test) {
+            });
+            if (check) {
                 toggleAlreadyInCart(true);
             } else {
                 toggleAlreadyInCart(false);
             }
         }
-
         checkIfItemIsAlreadyInCart();
     }, [shoppingCart, productData])
 
-    // Monitor amount of items to order
-    const [amountOfItems, setAmountOfItems] = useState(0);
-
-    // Handle Add to cart button click
-    const { addToCart } = useContext(ShoppingCartContext);
-    let order;
-
+    // Handle button click
     function handleClick() {
-        order = {
+        const order = {
             itemId: productData.data.id,
             itemName: productData.data.title,
-            // If amountofItems === undefined, amount is 1
-            // amount: amountOfItems ? amountOfItems : 1,
             amount: amountOfItems,
             price: productData.data.price,
             image: productData.data.image
         }
-
         addToCart(order);
     }
 
     // Get more items in category
-    const [productList, setProductList] = useState([]);
-
-    let categoryData;
     useEffect(() => {
         const controller = new AbortController();
-
         async function getProductList(url) {
             setLoading(true);
             try {
@@ -127,7 +111,6 @@ const Product = () => {
                         filteredProductList.push(item);
                     }
                 }
-                // Set productList
                 setProductList(filteredProductList);
                 setError(false);
             } catch (error) {
@@ -136,19 +119,15 @@ const Product = () => {
             }
             setLoading(false);
         }
-
         // Find apiEndpoint for this category
-        categoryData = categories.find((item) => {
+        const categoryData = categories.find((item) => {
             return item.category === category;
         });
-
         getProductList(categoryData?.apiEndpoint);
-
         return function cleanup() {
             controller.abort();
         }
     }, [id, category]);
-
 
     return (
         <main>

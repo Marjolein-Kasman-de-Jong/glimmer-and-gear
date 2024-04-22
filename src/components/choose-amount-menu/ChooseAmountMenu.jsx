@@ -12,14 +12,11 @@ const ChooseAmountMenu = ({ amountOfItems, setAmountOfItems, setAmountOfItemsAnd
     // Handle amount change
     function handleAmountChange(e) {
         const selected = Number(e.target.value);
-
-        // Update page state
+        // Used by product page
         setAmountOfItems && setAmountOfItems(selected);
-        // setAmountOfItems && setAmountOfItems(selected);
+        // Used by shopping cart page, because shopping cart page needs to know which item in shoppingCart needs to be updated
         setAmountOfItemsAndId && setAmountOfItemsAndId(id, selected);
     }
-
-
 
     return (
         <form>
