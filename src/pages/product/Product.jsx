@@ -64,14 +64,45 @@ const Product = () => {
         }
     }, [id])
 
+    // Check if item is already in shopping cart
+    const { shoppingCart } = useContext(ShoppingCartContext);
+    const [alreadyInCart, toggleAlreadyInCart] = useState(false);
+    console.log(shoppingCart)
+    console.log(alreadyInCart);
+
+    useEffect(() => {
+        function checkIfItemIsAlreadyInCart() {
+            const test = shoppingCart.find((item) => {
+                const idToCheck = Number(id)
+                return item?.itemId === idToCheck;
+            })
+
+            if (test) {
+                toggleAlreadyInCart(true);
+            } else {
+                toggleAlreadyInCart(false);
+            }
+        }
+
+        checkIfItemIsAlreadyInCart();
+    }, [shoppingCart, productData])
+
     // Monitor amount of items to order
     const [amountOfItems, setAmountOfItems] = useState(0);
 
-    // Handle Add to Cart button click
-    const {addToCart} = useContext(ShoppingCartContext);
+    // Handle Add to cart button click
+    const { addToCart } = useContext(ShoppingCartContext);
+    let order;
 
     function handleClick() {
-        console.log('handle click!');
+        order = {
+            itemId: productData.data.id,
+            itemName: productData.data.title,
+            amount: amountOfItems,
+            price: productData.data.price
+        }
+
+        addToCart(order);
     }
 
     // Get more items in category
@@ -104,7 +135,7 @@ const Product = () => {
             }
             setLoading(false);
         }
-        
+
         // Find apiEndpoint for this category
         categoryData = categories.find((item) => {
             return item.category === category;
@@ -142,10 +173,17 @@ const Product = () => {
                                 </div>
                                 <div className='single-product-text-container'>
                                     <p>{productData?.data?.description}</p>
-                                    <div className='add-to-cart-container'>
-                                        <ChooseAmountMenu setAmountOfItems={setAmountOfItems} />
-                                        <Button type='button' buttonText='Add to cart' onClick={() => handleClick()} />
-                                    </div>
+                                    {
+                                        alreadyInCart ?
+                                            <div className="go-to-cart-container">
+                                                <p>This item is in your shopping cart.</p>
+                                            </div>
+                                            :
+                                            <div className='add-to-cart-container'>
+                                                <ChooseAmountMenu setAmountOfItems={setAmountOfItems} />
+                                                <Button type='button' buttonText='Add to cart' onClick={() => handleClick()} />
+                                            </div>
+                                    }
                                 </div>
                             </article>
                 }

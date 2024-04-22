@@ -4,23 +4,21 @@ export const ShoppingCartContext = createContext(null);
 
 function shoppingCartContextProvider({ children }) {
     const [shoppingCart, setShoppingCart] = useState([]);
+    // console.log(shoppingCart);
 
-    function addToCart(itemId, itemName, amount, price) {
-        shoppingCart.push({
-            itemId,
-            itemName,
-            amount,
-            price
-        });
+    function addToCart(order) {
+        const updatedCart = [...shoppingCart, order];
+        setShoppingCart(updatedCart);
     }
 
-    return (
-        <ShoppingCartContext.Provider value={{
-            addToCart
-        }}>
-            {children}
-        </ShoppingCartContext.Provider>
-    );
+return (
+    <ShoppingCartContext.Provider value={{
+        shoppingCart,
+        addToCart
+    }}>
+        {children}
+    </ShoppingCartContext.Provider>
+);
 }
 
 export default shoppingCartContextProvider;

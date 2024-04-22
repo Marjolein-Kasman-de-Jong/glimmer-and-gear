@@ -5,7 +5,7 @@ import './choose-amount-menu.css';
 
 const ChooseAmountMenu = ({ setAmountOfItems }) => {
     // Standard amount
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState(1);
 
     // Select standard amount on first render
     useEffect(() => {
@@ -14,7 +14,7 @@ const ChooseAmountMenu = ({ setAmountOfItems }) => {
 
     // Handle amount change
     function handleAmountChange(e) {
-        const selected = e.target.value;
+        const selected = Number(e.target.value);
         // Update component state
         setAmount(selected);
         // Update page state
