@@ -11,7 +11,7 @@ import ProductCard from '../../components/product-card/ProductCard';
 import './shopping-cart.css';
 
 const ShoppingCart = () => {
-    const { shoppingCart, updateCart } = useContext(ShoppingCartContext);
+    const { shoppingCart, updateCart, removeItem } = useContext(ShoppingCartContext);
 
     const [amountOfItems, setAmountOfItems] = useState(0);
     const [itemToUpdate, setItemToUpdate] = useState(0);
@@ -24,13 +24,19 @@ const ShoppingCart = () => {
 
     // Update shoppingCart if amount of items to order changes
     useEffect(() => {
-        const index = shoppingCart.findIndex(item => item.itemId === itemToUpdate)
+        const index = shoppingCart.findIndex(item => item.itemId === itemToUpdate);
         const update = {
             ...shoppingCart[index],
             amount: amountOfItems
         };
         index != -1 && updateCart(index, update); // Update shoppingCart, but do not add an empty object
     }, [amountOfItems])
+
+    // Remove item from shoppingCart
+    function handleClick(itemToRemove) {
+        const index = shoppingCart.findIndex(item => item.itemId === itemToRemove);
+        removeItem(index);
+    }
 
     return (
         <main>
@@ -45,11 +51,12 @@ const ShoppingCart = () => {
                                     key={item.itemId}
                                     amountOfItems={item.amount}
                                     setAmountOfItemsAndId={setAmountOfItemsAndId}
+                                    handleClick={handleClick}
                                     page='shopping-cart'
                                     product={{
                                         id: item.itemId,
                                         title: item.itemName,
-                                        price: item.price,
+                                        price: item.price * item.amount,
                                         image: item.image,
                                         amount: item.amount
                                     }}

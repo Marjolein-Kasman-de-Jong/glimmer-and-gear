@@ -23,11 +23,19 @@ function shoppingCartContextProvider({ children }) {
         setShoppingCart(updatedCart);
     }
 
+    // Remove item from shopping cart
+    function removeItem(index) {
+        const updatedCart = [...shoppingCart];
+        updatedCart.splice(index, 1);
+        setShoppingCart(updatedCart);
+    }
+
     return (
         <ShoppingCartContext.Provider value={{
             shoppingCart,
             addToCart,
-            updateCart
+            updateCart,
+            removeItem
         }}>
             {children}
         </ShoppingCartContext.Provider>

@@ -83,3 +83,18 @@
     font-size: 1.5rem;
     font-weight: 600;
 }
+
+.amount-and-trash-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.amount-and-trash-container button {
+    border: none;
+}
+
+.trash {
+    width: 25px;
+    height: 25px;
+}
