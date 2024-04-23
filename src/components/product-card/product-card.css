@@ -30,6 +30,12 @@
     height: 300px;
     flex-direction: row;
     gap: 10px;
+
+    @media screen and (max-width: 912px) {
+        height: unset;
+        flex-direction: column;
+        
+    }
 }
 
 /* Product card image container */

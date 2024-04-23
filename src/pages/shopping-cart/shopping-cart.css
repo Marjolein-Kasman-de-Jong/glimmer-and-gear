@@ -3,25 +3,40 @@
     margin: 50px 0;
     display: flex;
     justify-content: space-between;
+    gap: 20px;
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column-reverse;
+        justify-content: unset;
+        align-items: center;
+    }
 }
 
 .item-container {
-    width: 100%;
+    width: 50%;
     max-width: 600px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+    }
 }
 
 .summary-container {
-    width: 100%;
-    max-width: 425px;
+    width: 50%;
+    max-width: 600px;
     height: 100%;
     padding: 45px;
     display: flex;
     flex-direction: column;
     gap: 50px;
     border: 1px solid var(--black);
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+    }
 }
 
 .summary-container header {

@@ -1,14 +1,15 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState, createContext, useEffect } from 'react';
 
 export const ShoppingCartContext = createContext(null);
 
 function shoppingCartContextProvider({ children }) {
     const [shoppingCart, setShoppingCart] = useState([]);
+    const [itemsInCart, setItemsInCart] = useState(0);
 
-    // Used to check current state of shopping Cart
-    useEffect(() => { // Nog verwijderen
-        console.log(shoppingCart) // Nog verwijderen
-    }, [shoppingCart]) // Nog verwijderen
+    // Keep track of number of items in cart
+    useEffect(() => {
+        setItemsInCart(shoppingCart.length);
+    }, [shoppingCart])
 
     // Add new product to shoppingCart
     function addToCart(order) {
@@ -33,6 +34,7 @@ function shoppingCartContextProvider({ children }) {
     return (
         <ShoppingCartContext.Provider value={{
             shoppingCart,
+            itemsInCart,
             addToCart,
             updateCart,
             removeItem

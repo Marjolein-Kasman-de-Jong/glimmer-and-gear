@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from 'react';
 
 // Context
 import { AuthContext } from '../../context/AuthContext';
+import { ShoppingCartContext } from '../../context/shoppingCartContext';
 
 // Components
 import HamburgerMenu from '../hamburger-menu/HamburgerMenu';
@@ -18,7 +19,9 @@ const Navbar = () => {
     const [dropdownContent, toggleDropdownContent] = useState(false);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
+    const { itemsInCart } = useContext(ShoppingCartContext);
     const { isLoggedIn, logout } = useContext(AuthContext);
+
 
     // Monitor screen width
     const handleChange = () => {
@@ -86,7 +89,12 @@ const Navbar = () => {
                     </>
                     :
                     <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Login</NavLink>}
-                <NavLink type='link' linkTo='/shopping-cart' screenWidth={screenWidth} onClick={toggleLeftMenuItems}><TiShoppingCart /></NavLink>
+                <NavLink type='link' linkTo='/shopping-cart' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>
+                    <TiShoppingCart />
+                    <div className='shopping-cart-badge'>
+                        {itemsInCart}
+                    </div>
+                </NavLink>
             </ul>
         </nav>
     );

@@ -65,3 +65,18 @@ nav ul {
         left: 100%;
     }
 }
+
+.shopping-cart-badge {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 2px;
+    right: -10px;
+    font-size: 1rem;
+    border-radius: 50%;
+    color: var(--white);
+    background-color: var(--red);
+}
