@@ -16,6 +16,8 @@ const ShoppingCart = () => {
     const [amountOfItems, setAmountOfItems] = useState(0);
     const [itemToUpdate, setItemToUpdate] = useState(0);
 
+    let productsTotal = 0;
+
     // Set amountOfItems and itemToUpdate
     function setAmountOfItemsAndId(id, amountOfItems) {
         setAmountOfItems(amountOfItems);
@@ -46,6 +48,9 @@ const ShoppingCart = () => {
                 <div className='item-container'>
                     {
                         shoppingCart.map((item) => {
+                            const price = item.price * item.amount;
+                            productsTotal += price;
+                            
                             return (
                                 <ProductCard
                                     key={item.itemId}
@@ -56,7 +61,7 @@ const ShoppingCart = () => {
                                     product={{
                                         id: item.itemId,
                                         title: item.itemName,
-                                        price: item.price * item.amount,
+                                        price: price,
                                         image: item.image,
                                         amount: item.amount
                                     }}
@@ -65,9 +70,28 @@ const ShoppingCart = () => {
                         })
                     }
                 </div>
-                <div className='summary-container'>
-                        {/* Summary toevoegen */}
-                </div>
+                <article className='summary-container'>
+                        <header>
+                            <h3>Summary</h3>
+                        </header>
+                        <div className='products-and-shipping'>
+                            <div className='products'>
+                                <p>Products</p>
+                                <p>{productsTotal}</p>
+                            </div>
+                            <div className='shipping'>
+                                <p>Shipping</p>
+                                <p>{productsTotal >= 20 ? 0 : 9.99}</p>
+                            </div>
+                        </div>
+                        <div className='total'>
+                            <p>Total</p>
+                            <p>{productsTotal + (productsTotal >= 20 ? 0 : 9.99)}</p>
+                        </div>
+                        <footer>
+                            <p>Checkout</p>
+                        </footer>
+                </article>
             </div>
         </main>
     );
