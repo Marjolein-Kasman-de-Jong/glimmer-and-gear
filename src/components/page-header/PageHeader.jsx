@@ -9,8 +9,10 @@ import './page-header.css';
 const PageHeader = () => {
     return (
         <header className='page-header'>
-            <Titlebar />
-            <Navbar />
+            <div className='sticky-header'>
+                <Titlebar />
+                <Navbar />
+            </div>
             <Breadcrumb />
         </header>
     );

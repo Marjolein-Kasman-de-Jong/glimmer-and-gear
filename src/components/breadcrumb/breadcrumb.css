@@ -1,4 +1,5 @@
 .breadcrumbs {
+    margin-top: 150px; /* Avoid breadcrumbs always being hidden behind titlebar and navbar */
     padding: 50px 9.3% 0 9.3%;
     display: flex;
     align-items: center;
