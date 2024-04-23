@@ -1,3 +1,11 @@
+/* Push footer to the bottom of the screen */
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .page-footer {
     height: 100px;
     padding: 0 6.5%;

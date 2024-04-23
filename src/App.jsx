@@ -24,23 +24,25 @@ import PageFooter from './components/page-footer/PageFooter';
 import './App.css';
 
 function App() {
-  const {isLoggedIn} = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
 
   return (
     <>
-      <PageHeader />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/category/:category' element={<Category />} />
-        <Route path='/product/:id' element={<Product />} />
-        <Route path='/faq' element={<Faq />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/login-and-registration' element={isLoggedIn ? <Navigate to='/profile' /> : <LoginAndRegistration />} />
-        <Route path='/profile' element={isLoggedIn ? <Profile /> : <Navigate to='/login-and-registration' />} />
-        <Route path='/shopping-cart' element={<ShoppingCart />} />
-        <Route path='/checkout' element={<Checkout />} />
-        <Route path='*' element={<PageNotFound />} />
-      </Routes>
+      <div className='page-wrapper'> {/* Needed to push PageFooter to the bottom of the screen */} 
+        <PageHeader />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/category/:category' element={<Category />} />
+          <Route path='/product/:id' element={<Product />} />
+          <Route path='/faq' element={<Faq />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/login-and-registration' element={isLoggedIn ? <Navigate to='/profile' /> : <LoginAndRegistration />} />
+          <Route path='/profile' element={isLoggedIn ? <Profile /> : <Navigate to='/login-and-registration' />} />
+          <Route path='/shopping-cart' element={<ShoppingCart />} />
+          <Route path='/checkout' element={<Checkout />} />
+          <Route path='*' element={<PageNotFound />} />
+        </Routes>
+      </div>
       <PageFooter />
     </>
   );
