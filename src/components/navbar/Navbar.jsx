@@ -91,9 +91,12 @@ const Navbar = () => {
                     <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Login</NavLink>}
                 <NavLink type='link' linkTo='/shopping-cart' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>
                     <TiShoppingCart />
-                    <div className='shopping-cart-badge'>
-                        {itemsInCart}
-                    </div>
+                    {
+                        itemsInCart > 0 &&
+                        <div className='shopping-cart-badge'>
+                            {itemsInCart}
+                        </div>
+                    }
                 </NavLink>
             </ul>
         </nav>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Context
 import { ShoppingCartContext } from '../../context/shoppingCartContext';
@@ -6,6 +7,7 @@ import { ShoppingCartContext } from '../../context/shoppingCartContext';
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';
 import ProductCard from '../../components/product-card/ProductCard';
+import Button from '../../components/button/Button';
 
 // Style
 import './shopping-cart.css';
@@ -16,6 +18,7 @@ const ShoppingCart = () => {
     const [amountOfItems, setAmountOfItems] = useState(0);
     const [itemToUpdate, setItemToUpdate] = useState(0);
 
+    const navigate = useNavigate();
     let productsTotal = 0;
 
     // Set amountOfItems and itemToUpdate
@@ -77,19 +80,29 @@ const ShoppingCart = () => {
                         <div className='products-and-shipping'>
                             <div className='products'>
                                 <p>Products</p>
-                                <p>{productsTotal}</p>
+                                <p>
+                                    {productsTotal}
+                                </p>
                             </div>
                             <div className='shipping'>
                                 <p>Shipping</p>
-                                <p>{productsTotal >= 20 ? 0 : 9.99}</p>
+                                <p>
+                                    {productsTotal >= 20 ? 0 : 9.99}
+                                </p>
                             </div>
                         </div>
                         <div className='total'>
                             <p>Total</p>
-                            <p>{productsTotal + (productsTotal >= 20 ? 0 : 9.99)}</p>
+                            <p>
+                                {productsTotal + (productsTotal >= 20 ? 0 : 9.99)}
+                            </p>
                         </div>
                         <footer>
-                            <p>Checkout</p>
+                            <Button 
+                                type='button' 
+                                buttonText='Proceed to checkout' 
+                                onClick={() => navigate('/checkout')} 
+                            />
                         </footer>
                 </article>
             </div>
