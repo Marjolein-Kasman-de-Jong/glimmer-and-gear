@@ -20,12 +20,27 @@ const ChooseAmountMenu = ({ amountOfItems, setAmountOfItems, setAmountOfItemsAnd
 
     return (
         <form>
-            <select name='choose-amount-menu' id='choose-amount-menu' value={amountOfItems} onChange={handleAmountChange}>
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='3'>3</option>
-                <option value='4'>4</option>
-                <option value='5'>5</option>
+            <select
+                name='choose-amount-menu'
+                id='choose-amount-menu'
+                value={amountOfItems}
+                onChange={handleAmountChange}
+            >
+                <option value='1'>
+                    1
+                </option>
+                <option value='2'>
+                    2
+                </option>
+                <option value='3'>
+                    3
+                </option>
+                <option value='4'>
+                    4
+                </option>
+                <option value='5'>
+                    5
+                </option>
             </select>
         </form>
     );
