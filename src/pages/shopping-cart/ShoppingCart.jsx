@@ -13,13 +13,12 @@ import Button from '../../components/button/Button';
 import './shopping-cart.css';
 
 const ShoppingCart = () => {
-    const { shoppingCart, updateCart, removeItem } = useContext(ShoppingCartContext);
+    const { shoppingCart, productsTotal, shipping, grandTotal, updateCart, removeItem } = useContext(ShoppingCartContext);
 
     const [amountOfItems, setAmountOfItems] = useState(0);
     const [itemToUpdate, setItemToUpdate] = useState(0);
 
     const navigate = useNavigate();
-    let productsTotal = 0;
 
     // Set amountOfItems and itemToUpdate
     function setAmountOfItemsAndId(id, amountOfItems) {
@@ -52,8 +51,7 @@ const ShoppingCart = () => {
                     {
                         shoppingCart.map((item) => {
                             const price = item.price * item.amount;
-                            productsTotal += price;
-                            
+
                             return (
                                 <ProductCard
                                     key={item.itemId}
@@ -74,36 +72,36 @@ const ShoppingCart = () => {
                     }
                 </div>
                 <article className='summary-container'>
-                        <header>
-                            <h3>Summary</h3>
-                        </header>
-                        <div className='products-and-shipping'>
-                            <div className='products'>
-                                <p>Products</p>
-                                <p>
-                                    {productsTotal}
-                                </p>
-                            </div>
-                            <div className='shipping'>
-                                <p>Shipping</p>
-                                <p>
-                                    {productsTotal >= 20 ? 0 : 9.99}
-                                </p>
-                            </div>
-                        </div>
-                        <div className='total'>
-                            <p>Total</p>
+                    <header>
+                        <h3>Summary</h3>
+                    </header>
+                    <div className='products-and-shipping'>
+                        <div className='products'>
+                            <p>Products</p>
                             <p>
-                                {productsTotal + (productsTotal >= 20 ? 0 : 9.99)}
+                                {productsTotal}
                             </p>
                         </div>
-                        <footer>
-                            <Button 
-                                type='button' 
-                                buttonText='Proceed to checkout' 
-                                onClick={() => navigate('/checkout')} 
-                            />
-                        </footer>
+                        <div className='shipping'>
+                            <p>Shipping</p>
+                            <p>
+                                {shipping}
+                            </p>
+                        </div>
+                    </div>
+                    <div className='total'>
+                        <p>Total</p>
+                        <p>
+                            {grandTotal}
+                        </p>
+                    </div>
+                    <footer>
+                        <Button
+                            type='button'
+                            buttonText='Proceed to checkout'
+                            onClick={() => navigate('/checkout')}
+                        />
+                    </footer>
                 </article>
             </div>
         </main>

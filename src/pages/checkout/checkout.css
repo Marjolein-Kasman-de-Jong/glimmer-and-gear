@@ -1,0 +1,37 @@
+.shipping-address-container,
+.order-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--light-grey);
+}
+
+.name,
+.address,
+.ordered-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.name p:first-of-type,
+.address p:first-of-type {
+    width: 30%;
+}
+
+.name p:last-of-type,
+.address p:last-of-type {
+    width: 70%;
+}
+
+.ordered-item p:first-of-type {
+    width: 70%;
+}
+
+.ordered-item p:last-of-type {
+    width: 20%;
+    text-align: right;
+}
+

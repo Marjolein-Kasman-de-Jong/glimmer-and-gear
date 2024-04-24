@@ -5,6 +5,9 @@ export const ShoppingCartContext = createContext(null);
 function shoppingCartContextProvider({ children }) {
     const [shoppingCart, setShoppingCart] = useState([]);
     const [itemsInCart, setItemsInCart] = useState(0);
+    const [productsTotal, setProductsTotal] = useState(0);
+    const [shipping, setShipping] = useState(0);
+    const [grandTotal, setGrandTotal] = useState(0);
 
     // Keep track of number of items in cart
     useEffect(() => {
@@ -31,10 +34,32 @@ function shoppingCartContextProvider({ children }) {
         setShoppingCart(updatedCart);
     }
 
+    // Calculate products total
+    useEffect(() => {
+        let total = 0;
+        shoppingCart.map((item) => {
+            total += item.price * item.amount
+        })
+        setProductsTotal(total);
+    }, [shoppingCart])
+
+    // Calculate shipping
+    useEffect(() => {
+        productsTotal > 20 ? setShipping(0) : setShipping(9.99)
+    }, [productsTotal])
+
+    // Calculate grand total
+    useEffect(() => {
+        setGrandTotal(productsTotal + shipping);
+    }, [productsTotal, shipping])
+
     return (
         <ShoppingCartContext.Provider value={{
             shoppingCart,
             itemsInCart,
+            productsTotal,
+            shipping,
+            grandTotal,
             addToCart,
             updateCart,
             removeItem
