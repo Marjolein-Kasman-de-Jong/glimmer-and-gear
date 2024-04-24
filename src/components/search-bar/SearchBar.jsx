@@ -4,9 +4,6 @@ import axios from 'axios';
 // Components
 import NavLink from '../nav-link/NavLink';
 
-// Constants
-import categories from '../../constants/categories';
-
 // Icons
 import { SlMagnifier } from 'react-icons/sl';
 
@@ -28,7 +25,7 @@ const SearchBar = () => {
                 });
                 setAllProducts(response.data);
             } catch (error) {
-                console.log(error);
+                console.error(error);
             }
         }
         getAllProducts();
@@ -40,7 +37,8 @@ const SearchBar = () => {
     // Show/hide search results based on query length and existence of search results
     useEffect(() => {
         const searchResults = allProducts.some(product =>
-            product.title.toLowerCase().includes(query.toLowerCase())
+            product.title.toLowerCase()
+                .includes(query.toLowerCase())
         );
         if (query.length > 0 && !searchResults) {
             toggleShowSearchResults(false);
@@ -57,15 +55,24 @@ const SearchBar = () => {
                 setQuery('');
                 toggleShowSearchResults(false);
             }
-        })
+        });
     }, [])
 
     return (
         <aside className='search-bar'>
+            {/* Search field */}
             <form action='#'>
-                <input type='text' name='search-field' id='search-field' placeholder='What are you looking for?' value={query} onChange={(e) => setQuery(e.target.value)} />
+                <input
+                    type='text'
+                    name='search-field'
+                    id='search-field'
+                    placeholder='What are you looking for?'
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                />
                 <SlMagnifier className='search-icon' />
             </form>
+            {/* Search results */}
             {
                 showSearchResults &&
                 <ul className='search-results'>
@@ -74,11 +81,15 @@ const SearchBar = () => {
                             allProducts.map((product) => {
                                 if (product.title.toLowerCase().includes(query.toLowerCase())) {
                                     return (
-                                        <NavLink key={product.id} type='search-result' linkTo={`/product/${product.id}`} onClick={() => { setQuery('') }}>
-                                            {/* <NavLink key={product.id} type='search-result' linkTo={`/product/${product.id}?category=${product.category}`} onClick={() => { setQuery('') }}></NavLink> */}
+                                        <NavLink
+                                            key={product.id}
+                                            type='search-result'
+                                            linkTo={`/product/${product.id}`}
+                                            onClick={() => { setQuery('') }}
+                                        >
                                             {product.title}
                                         </NavLink>
-                                    )
+                                    );
                                 }
                             })
                         )
@@ -90,4 +101,3 @@ const SearchBar = () => {
 }
 
 export default SearchBar;
-

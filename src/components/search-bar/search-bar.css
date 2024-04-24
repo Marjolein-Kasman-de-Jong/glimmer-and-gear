@@ -1,3 +1,5 @@
+/* Search field */
+
 .search-bar {
     margin: 50px auto 50px auto;
     position: relative;
@@ -34,19 +36,21 @@
     right: 20px;
 }
 
+/* Search results */
+
 .search-results {
     width: 100%;
     max-width: 400px;
     padding: 15px;
     position: absolute;
     top: 50px;
+    z-index: 20;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border: 1px solid var(--light-grey);
     list-style-type: none;
+    border: 1px solid var(--light-grey);
     background-color: white;
-    z-index: 20;
 }
 
 .search-results a {
