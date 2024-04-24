@@ -4,6 +4,7 @@
 .link:visited,
 .category-link,
 .category-link:visited {
+    position: relative; 
     font-weight: 600;
     color: var(--black);
     line-height: 100%;
@@ -11,7 +12,6 @@
     text-decoration: none;
     border: none;
     background-color: transparent;
-    position: relative; /* Veroorzaakt dit geen problemen? */
 
     @media screen and (max-width: 600px) {
         font-size: 1.125rem;

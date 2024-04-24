@@ -6,7 +6,11 @@ import './nav-link.css';
 const NavLink = ({ type, linkTo, onClick, children }) => {
     return (
         <li>
-            <Link to={linkTo} className={type} onClick={onClick}>
+            <Link
+                to={linkTo}
+                className={type}
+                onClick={onClick}
+            >
                 {children}
             </Link>
         </li>
