@@ -8,6 +8,9 @@ import { ShoppingCartContext } from '../../context/shoppingCartContext';
 import HamburgerMenu from '../hamburger-menu/HamburgerMenu';
 import NavLink from '../nav-link/NavLink';
 
+// Constants
+import categories from '../../constants/categories';
+
 // Icons
 import { TiShoppingCart } from 'react-icons/ti';
 
@@ -45,7 +48,7 @@ const Navbar = () => {
     // Only trigger onMouseEnter and onMouseLeave if screenWidth > 600
     function hideAndShowDropdownContent(value) {
         if (screenWidth > 600) {
-            toggleDropdownContent(value)
+            toggleDropdownContent(value);
         }
     }
 
@@ -87,10 +90,13 @@ const Navbar = () => {
                         {
                             dropdownContent &&
                             <ul className="dropdown-content">
-                                <NavLink type='category-link' linkTo='/category/mens-clothing' screenWidth={screenWidth} onClick={(e) => handleMenuItemClick(e)}>Men's clothing</NavLink>
-                                <NavLink type='category-link' linkTo='/category/womens-clothing' screenWidth={screenWidth} onClick={(e) => handleMenuItemClick(e)}>Women's clothing</NavLink>
-                                <NavLink type='category-link' linkTo='/category/electronics' screenWidth={screenWidth} onClick={(e) => handleMenuItemClick(e)}>Electronics</NavLink>
-                                <NavLink type='category-link' linkTo='/category/jewelry' screenWidth={screenWidth} onClick={(e) => handleMenuItemClick(e)}>Jewelry</NavLink>
+                                {
+                                    categories.map((item) => {
+                                        return (
+                                            <NavLink key={item.category} type='category-link' linkTo={`/category/${item.category}`} screenWidth={screenWidth} onClick={(e) => handleMenuItemClick(e)}>{item.title}</NavLink>
+                                        );
+                                    })
+                                }
                             </ul>
                         }
                     </li>
