@@ -15,13 +15,12 @@ import { TiShoppingCart } from 'react-icons/ti';
 import './navbar.css';
 
 const Navbar = () => {
-    const [leftMenuItems, toggleLeftMenuItems] = useState(false);
-    const [dropdownContent, toggleDropdownContent] = useState(false);
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
     const { itemsInCart } = useContext(ShoppingCartContext);
     const { isLoggedIn, logout } = useContext(AuthContext);
 
+    const [leftMenuItems, toggleLeftMenuItems] = useState(false);
+    const [dropdownContent, toggleDropdownContent] = useState(false);
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
     // Monitor screen width
     const handleChange = () => {
@@ -43,41 +42,60 @@ const Navbar = () => {
         }
     }, [screenWidth])
 
-    // Show/hide left menu items when hamburger menu is clicked
-    function toggleLeftMenu() {
-        toggleLeftMenuItems(!leftMenuItems);
+    // Only trigger onMouseEnter and onMouseLeave if screenWidth > 600
+    function hideAndShowDropdownContent(value) {
+        if (screenWidth > 600) {
+            toggleDropdownContent(value)
+        }
     }
 
-    // Toggle dropdown menu
-    function toggleDropdownMenu() {
-        toggleDropdownContent(!dropdownContent);
+    // Handle click on navbar item
+    function handleNavBarItemClick(e) {
+        if (e.target.className === 'hamburger-menu-bar') {
+            toggleLeftMenuItems(!leftMenuItems);
+        } else if (screenWidth <= 600) {
+            toggleLeftMenuItems(false);
+        }
+        toggleDropdownContent(false);
+    }
+
+    // Handle click on menu item
+    function handleMenuItemClick(e) {
+        if (e.target.textContent === 'Categories') {
+            toggleDropdownContent(!dropdownContent);
+        } else {
+            toggleDropdownContent(false);
+        }
+        if (e.target.textContent != 'Categories' && screenWidth <= 600) {
+            toggleLeftMenuItems(false);
+        }
     }
 
     return (
         <nav>
             {/* Hamburger menu */}
-            <HamburgerMenu onClick={toggleLeftMenu} />
+            <HamburgerMenu onClick={(e) => handleNavBarItemClick(e)} />
             {/* Left menu */}
             {
                 leftMenuItems &&
                 <ul className='left-menu'>
-                    <li className='dropdown' onMouseEnter={() => toggleDropdownContent(true)} onMouseLeave={() => toggleDropdownContent(false)}>
-                        <button type='button' className='link' onClick={toggleDropdownMenu}>
+                    <li className='dropdown' onMouseEnter={() => hideAndShowDropdownContent(true)} onMouseLeave={() => hideAndShowDropdownContent(false)}>
+                        <button type='button' className='link' onClick={(e) => handleMenuItemClick(e)}>
                             Categories
                         </button>
                         {/* Dropdown menu */}
                         {
                             dropdownContent &&
                             <ul className="dropdown-content">
-                                <NavLink type='category-link' linkTo='/category/mens-clothing' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Men's clothing</NavLink>
-                                <NavLink type='category-link' linkTo='/category/womens-clothing' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Women's clothing</NavLink>
-                                <NavLink type='category-link' linkTo='/category/electronics' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Electronics</NavLink>
-                                <NavLink type='category-link' linkTo='/category/jewelry' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Jewelry</NavLink>
+                                <NavLink type='category-link' linkTo='/category/mens-clothing' screenWidth={screenWidth} onClick={(e) => handleMenuItemClick(e)}>Men's clothing</NavLink>
+                                <NavLink type='category-link' linkTo='/category/womens-clothing' screenWidth={screenWidth} onClick={(e) => handleMenuItemClick(e)}>Women's clothing</NavLink>
+                                <NavLink type='category-link' linkTo='/category/electronics' screenWidth={screenWidth} onClick={(e) => handleMenuItemClick(e)}>Electronics</NavLink>
+                                <NavLink type='category-link' linkTo='/category/jewelry' screenWidth={screenWidth} onClick={(e) => handleMenuItemClick(e)}>Jewelry</NavLink>
                             </ul>
                         }
                     </li>
-                    <NavLink type='link' linkTo='/faq' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>FAQs</NavLink>
-                    <NavLink type='link' linkTo='/contact' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Contact</NavLink>
+                    <NavLink type='link' linkTo='/faq' screenWidth={screenWidth} onClick={(e) => handleMenuItemClick(e)}>FAQs</NavLink>
+                    <NavLink type='link' linkTo='/contact' screenWidth={screenWidth} onClick={(e) => handleMenuItemClick(e)}>Contact</NavLink>
                 </ul>
             }
             {/* Right menu */}
@@ -88,8 +106,8 @@ const Navbar = () => {
                         <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={logout}>Logout</NavLink>
                     </>
                     :
-                    <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>Login</NavLink>}
-                <NavLink type='link' linkTo='/shopping-cart' screenWidth={screenWidth} onClick={toggleLeftMenuItems}>
+                    <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={(e) => handleNavBarItemClick(e)}>Login</NavLink>}
+                <NavLink type='link' linkTo='/shopping-cart' screenWidth={screenWidth} onClick={(e) => handleNavBarItemClick(e)}>
                     <TiShoppingCart />
                     {
                         itemsInCart > 0 &&
