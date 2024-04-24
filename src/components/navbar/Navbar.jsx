@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 // Context
 import { AuthContext } from '../../context/AuthContext';
@@ -82,8 +82,16 @@ const Navbar = () => {
             {
                 leftMenuItems &&
                 <ul className='left-menu'>
-                    <li className='dropdown' onMouseEnter={() => hideAndShowDropdownContent(true)} onMouseLeave={() => hideAndShowDropdownContent(false)}>
-                        <button type='button' className='link' onClick={(e) => handleMenuItemClick(e)}>
+                    <li
+                        className='dropdown'
+                        onMouseEnter={() => hideAndShowDropdownContent(true)}
+                        onMouseLeave={() => hideAndShowDropdownContent(false)}
+                    >
+                        <button
+                            type='button'
+                            className='link'
+                            onClick={(e) => handleMenuItemClick(e)}
+                        >
                             Categories
                         </button>
                         {/* Dropdown menu */}
@@ -93,27 +101,75 @@ const Navbar = () => {
                                 {
                                     categories.map((item) => {
                                         return (
-                                            <NavLink key={item.category} type='category-link' linkTo={`/category/${item.category}`} screenWidth={screenWidth} onClick={(e) => handleMenuItemClick(e)}>{item.title}</NavLink>
+                                            <NavLink
+                                                key={item.category}
+                                                type='category-link'
+                                                linkTo={`/category/${item.category}`}
+                                                screenWidth={screenWidth}
+                                                onClick={(e) => handleMenuItemClick(e)}
+                                            >
+                                                {item.title}
+                                            </NavLink>
                                         );
                                     })
                                 }
                             </ul>
                         }
                     </li>
-                    <NavLink type='link' linkTo='/faq' screenWidth={screenWidth} onClick={(e) => handleMenuItemClick(e)}>FAQs</NavLink>
-                    <NavLink type='link' linkTo='/contact' screenWidth={screenWidth} onClick={(e) => handleMenuItemClick(e)}>Contact</NavLink>
+                    <NavLink
+                        type='link'
+                        linkTo='/faq'
+                        screenWidth={screenWidth}
+                        onClick={(e) => handleMenuItemClick(e)}
+                    >
+                        FAQs
+                    </NavLink>
+                    <NavLink
+                        type='link'
+                        linkTo='/contact'
+                        screenWidth={screenWidth}
+                        onClick={(e) => handleMenuItemClick(e)}
+                    >
+                        Contact
+                    </NavLink>
                 </ul>
             }
             {/* Right menu */}
             <ul className='right-menu'>
                 {isLoggedIn ?
                     <>
-                        <NavLink type='link' linkTo='/profile' screenWidth={screenWidth}>User profile</NavLink>
-                        <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={logout}>Logout</NavLink>
+                        <NavLink
+                            type='link'
+                            linkTo='/profile'
+                            screenWidth={screenWidth}
+                        >
+                            User profile
+                        </NavLink>
+                        <NavLink
+                            type='link'
+                            linkTo='/login-and-registration'
+                            screenWidth={screenWidth}
+                            onClick={logout}
+                        >
+                            Logout
+                        </NavLink>
                     </>
                     :
-                    <NavLink type='link' linkTo='/login-and-registration' screenWidth={screenWidth} onClick={(e) => handleNavBarItemClick(e)}>Login</NavLink>}
-                <NavLink type='link' linkTo='/shopping-cart' screenWidth={screenWidth} onClick={(e) => handleNavBarItemClick(e)}>
+                    <NavLink
+                        type='link'
+                        linkTo='/login-and-registration'
+                        screenWidth={screenWidth}
+                        onClick={(e) => handleNavBarItemClick(e)}
+                    >
+                        Login
+                    </NavLink>
+                }
+                <NavLink
+                    type='link'
+                    linkTo='/shopping-cart'
+                    screenWidth={screenWidth}
+                    onClick={(e) => handleNavBarItemClick(e)}
+                >
                     <TiShoppingCart />
                     {
                         itemsInCart > 0 &&
