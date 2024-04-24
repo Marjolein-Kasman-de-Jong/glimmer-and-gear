@@ -1,7 +1,4 @@
-import {useState, useEffect} from 'react';
-
-// Style
-import './sort-option-menu.css';
+import { useState, useEffect } from 'react';
 
 const SortOptionMenu = ({ setSortOption }) => {
     // Standard sortType
@@ -23,11 +20,26 @@ const SortOptionMenu = ({ setSortOption }) => {
 
     return (
         <form>
-            <select name='sort-option-menu' id='sort-option-menu' value={sortType} onChange={handleSortOptionChange}>
-                <option value='' disabled>Sort by</option>
-                <option value='price-l-h'>{`price (low > high)`}</option>
-                <option value='price-h-l'>{`price (high > low)`}</option>
-                <option value='rating'>{`rating`}</option>
+            <select
+                name='sort-option-menu'
+                id='sort-option-menu'
+                value={sortType}
+                onChange={handleSortOptionChange}
+            >
+                <option
+                    value=''
+                    disabled>
+                    Sort by
+                </option>
+                <option value='price-l-h'>
+                    {`price (low > high)`}
+                </option>
+                <option value='price-h-l'>
+                    {`price (high > low)`}
+                </option>
+                <option value='rating'>
+                    {`rating`}
+                </option>
             </select>
         </form>
     );
