@@ -11,13 +11,20 @@ const Titlebar = () => {
         <div className='titlebar'>
             {/* Logo */}
             <NavLink to='/'>
-                <img src={logo} alt='Glimmer & Gear logo' />
+                <img
+                    src={logo}
+                    alt='Glimmer & Gear logo'
+                />
             </NavLink>
             {/* Shop name and tagline */}
             <NavLink to='/'>
                 <hgroup>
-                    <h1>glimmer & gear</h1>
-                    <p className='titlebar-p'>shine with style, thrive with tech</p>
+                    <h1>
+                        glimmer & gear
+                    </h1>
+                    <p className='titlebar-p'>
+                        shine with style, thrive with tech
+                    </p>
                 </hgroup>
             </NavLink>
         </div>
