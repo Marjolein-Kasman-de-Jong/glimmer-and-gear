@@ -1,8 +1,5 @@
 import { useEffect } from 'react';
 
-// Style
-import './choose-amount-menu.css';
-
 const ChooseAmountMenu = ({ amountOfItems, setAmountOfItems, setAmountOfItemsAndId, id }) => {
     // Select standard amount on first render to prevent amount === 0 being set to shoppingCart if handleAmountChange() isn't triggered
     useEffect(() => {

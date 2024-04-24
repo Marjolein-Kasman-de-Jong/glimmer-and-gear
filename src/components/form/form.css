@@ -1,13 +1,11 @@
+/* Login and registration form */
+
 .login-registration-form {
     padding: 50px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-}
-
-.profile {
-    padding: 0;
 }
 
 .login,
@@ -25,18 +23,30 @@
     height: 1px;
 }
 
+/* Login form */
+
 .login:after {
     right: 0;
 }
 
+/* Registration form */
+
 .registration:after {
     left: 0;
+}
+
+/* Profile form */
+
+.profile {
+    padding: 0;
 }
 
 .profile-button-container {
     display: flex;
     gap: 10px;
 }
+
+/* Success/error messages */
 
 .statusCode-200,
 .statusCode-204 {

@@ -5,12 +5,13 @@ import Button from '../button/Button';
 // Constants
 import loginItems from '../../constants/loginItems';
 import registrationItems from '../../constants/registrationItems';
+import profileItems from '../../constants/profileItems';
 
 // Style
 import './form.css';
 
 const Form = ({ form, formState, handleChange, handleClick, errorMessages, statusCode, statusMessage }) => {
-    const profileItems = ['username', 'email', 'info'];
+    // const profileItems = ['username', 'email', 'info'];
 
     return (
         <form className={`login-registration-form ${form}`} action=''>
@@ -18,7 +19,12 @@ const Form = ({ form, formState, handleChange, handleClick, errorMessages, statu
                 form === 'login' ?
                     // Login form
                     <>
-                        {statusMessage && <p className={`statusCode-${statusCode}`}>{statusMessage}</p>}
+                        {
+                            statusMessage &&
+                            <p className={`statusCode-${statusCode}`}>
+                                {statusMessage}
+                            </p>
+                        }
                         {
                             loginItems.map((loginItem) => {
                                 return <FormItem
@@ -28,7 +34,7 @@ const Form = ({ form, formState, handleChange, handleClick, errorMessages, statu
                                     formState={formState}
                                     handleChange={handleChange}
                                     errorMessages={errorMessages}
-                                />
+                                />;
                             })
                         }
                     </>
@@ -36,7 +42,12 @@ const Form = ({ form, formState, handleChange, handleClick, errorMessages, statu
                     form === 'registration' ?
                         // Registration form
                         <>
-                            {statusMessage && <p className={`statusCode-${statusCode}`}>{statusMessage}</p>}
+                            {
+                                statusMessage &&
+                                <p className={`statusCode-${statusCode}`}>
+                                    {statusMessage}
+                                </p>
+                            }
                             {
                                 registrationItems.map((registrationItem) => {
                                     return <FormItem
@@ -46,14 +57,13 @@ const Form = ({ form, formState, handleChange, handleClick, errorMessages, statu
                                         formState={formState}
                                         handleChange={handleChange}
                                         errorMessages={errorMessages}
-                                    />
+                                    />;
                                 })
                             }
                         </>
                         :
                         // Profile form
                         <>
-                            {/* {statusMessage && <p className={`statusCode-${statusCode}`}>{statusMessage}</p>} */}
                             {
                                 profileItems.map((profileItem) => {
                                     return <FormItem
@@ -63,7 +73,7 @@ const Form = ({ form, formState, handleChange, handleClick, errorMessages, statu
                                         formState={formState}
                                         handleChange={handleChange}
                                         errorMessages={errorMessages}
-                                    />
+                                    />;
                                 })
                             }
                         </>
