@@ -34,15 +34,14 @@
     @media screen and (max-width: 912px) {
         height: unset;
         flex-direction: column;
-        
     }
 }
 
 /* Product card image container */
 
 .product-card-image-container {
-    height: 60%;
     width: 100%;
+    height: 60%;
 }
 
 .shopping-cart .product-card-image-container {
