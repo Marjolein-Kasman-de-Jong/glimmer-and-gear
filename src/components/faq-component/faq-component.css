@@ -8,6 +8,8 @@
     border-bottom: 1px solid var(--black);
 }
 
+/* Quenstion */
+
 .question {
     width: 100%;
     padding: 20px;
@@ -30,6 +32,8 @@
     width: 20px;
     height: 20px;
 }
+
+/* Answer */
 
 .answer {
     padding: 10px 20px 30px 20px;
