@@ -1,8 +1,11 @@
-import { useState, useEffect, useContext } from 'react';
+import { useContext } from 'react';
 
 // Context
 import { AuthContext } from '../../context/AuthContext';
 import { ShoppingCartContext } from '../../context/shoppingCartContext';
+
+// Components
+import Button from '../../components/button/Button';
 
 // Style
 import './checkout.css';
@@ -58,6 +61,7 @@ const Checkout = () => {
                         </div>
                     </div>
                 </article>
+                <Button type='button' buttonText='Confirm order and choose payment option' onClick={() => alert('We haven\'t learned how to add payment options yet. ;-))')}/>
             </div>
         </main>
     );
