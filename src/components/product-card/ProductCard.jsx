@@ -16,7 +16,7 @@ const ProductCard = ({ category, page, product, amountOfItems, setAmountOfItems,
     const icon = <SlTrash className='trash' />;
 
     return (
-        <NavLink className='product-card-navlink' to={page === 'shopping-cart' ? '/shopping-cart' : `/product/${id}?category=${category}`}>
+        <NavLink className='product-card-navlink' to={`/product/${id}?category=${category}`}>
             <article className={`product-card ${page}`}>
                 {/* Product card image container */}
                 <div className='product-card-image-container'>
@@ -30,7 +30,9 @@ const ProductCard = ({ category, page, product, amountOfItems, setAmountOfItems,
                 </div>
                 {/* Product card text container */}
                 <div className='product-card-text-container'>
-                    <h3 className='product-card-product-name'>{title}</h3>
+                    <header>
+                        <h3 className='product-card-product-name'>{title}</h3>
+                    </header>
                     <p className='product-card-price'>{price.toFixed(2)}</p>
                     {
                         page === 'shopping-cart' &&

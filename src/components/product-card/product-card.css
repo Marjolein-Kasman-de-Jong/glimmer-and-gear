@@ -87,6 +87,10 @@
     gap: 20px;
 }
 
+.product-card-text-container header {
+    margin-bottom: unset;
+}
+
 .shopping-cart .product-card-text-container {
     width: 60%;
 }
