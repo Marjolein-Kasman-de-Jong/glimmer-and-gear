@@ -22,3 +22,26 @@
     justify-items: center;
     align-items: center;
 }
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-item-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-item-wrapper p {
+    width: 125px;
+}
+
+.social-link {
+    font-size: 1.5rem;
+    color: var(--black);
+    text-decoration: none;
+}
