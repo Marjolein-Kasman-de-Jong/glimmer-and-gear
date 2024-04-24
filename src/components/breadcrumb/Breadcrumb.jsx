@@ -1,16 +1,16 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from 'react-router-dom';
 
 // Icons
-import { SlHome } from "react-icons/sl";
+import { SlHome } from 'react-icons/sl';
 
 // Style
 import './breadcrumb.css';
 
 const Breadcrumb = () => {
+    let currentLink = '';
+
     // Get current location
     const location = useLocation(null);
-
-    let currentLink = '';
 
     // Split current location into an array
     let crumbs = location.pathname.split('/');
@@ -23,20 +23,27 @@ const Breadcrumb = () => {
     crumbs = crumbs.map((crumb) => {
         // Add array items to currentLink
         currentLink += `/${crumb}`;
-
         // Create crumbs
         if (crumb === 'category' || crumb === 'product') {
             // Return item without link for crumbs with no associated content
             return (
-                <div className='crumb' key={crumb}>
+                <div
+                    className='crumb'
+                    key={crumb}
+                >
                     {crumb}
                 </div>
             );
         } else {
             // Return item with link for crumbs with associated content
             return (
-                <div className='crumb' key={crumb}>
-                    <Link to={currentLink}>{crumb}</Link>
+                <div
+                    className='crumb'
+                    key={crumb}
+                >
+                    <Link to={currentLink}>
+                        {crumb}
+                    </Link>
                 </div>
             );
         }
