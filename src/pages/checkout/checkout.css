@@ -49,8 +49,8 @@
     text-align: right;
 }
 
-.shipping,
-.total {
+.order .shipping,
+.order .total {
     display: flex;
     justify-content: space-between;
 }

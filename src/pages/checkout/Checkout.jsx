@@ -43,7 +43,7 @@ const Checkout = () => {
                                     <div className='ordered-item'>
                                         <p>{item.itemName}</p>
                                         <p>{item.amount}</p>
-                                        <p>{item.price * item.amount}</p>
+                                        <p>{(item.price * item.amount).toFixed(2)}</p>
                                     </div>
                                 );
                             })
@@ -54,7 +54,7 @@ const Checkout = () => {
                         </div>
                         <div className='total'>
                             <p>Total</p>
-                            <p>{grandTotal}</p>
+                            <p>{grandTotal.toFixed(2)}</p>
                         </div>
                     </div>
                 </article>

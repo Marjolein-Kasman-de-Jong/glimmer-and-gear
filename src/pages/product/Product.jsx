@@ -147,7 +147,7 @@ const Product = () => {
                             <article className='single-product'>
                                 <div className='single-product-image-container'>
                                     <img src={productData?.data?.image} alt={productData?.data?.title} />
-                                    <p>{productData?.data?.price}</p>
+                                    <p>{(productData?.data?.price)?.toFixed(2)}</p>
                                     <TiStar className='rating-star' />
                                     <p className='rating'>{productData?.data?.rating?.rate}</p>
                                 </div>

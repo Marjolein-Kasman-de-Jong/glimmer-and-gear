@@ -77,7 +77,7 @@ const ShoppingCart = () => {
                         <div className='products'>
                             <p>Products</p>
                             <p>
-                                {productsTotal}
+                                {productsTotal.toFixed(2)}
                             </p>
                         </div>
                         <div className='shipping'>
@@ -90,7 +90,7 @@ const ShoppingCart = () => {
                     <div className='total'>
                         <p>Total</p>
                         <p>
-                            {grandTotal}
+                            {grandTotal.toFixed(2)}
                         </p>
                     </div>
                     <footer>

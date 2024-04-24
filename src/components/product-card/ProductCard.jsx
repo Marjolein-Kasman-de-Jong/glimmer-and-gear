@@ -31,7 +31,7 @@ const ProductCard = ({ category, page, product, amountOfItems, setAmountOfItems,
                 {/* Product card text container */}
                 <div className='product-card-text-container'>
                     <h3 className='product-card-product-name'>{title}</h3>
-                    <p className='product-card-price'>{price}</p>
+                    <p className='product-card-price'>{price.toFixed(2)}</p>
                     {
                         page === 'shopping-cart' &&
                         <div className='amount-and-trash-container'>
