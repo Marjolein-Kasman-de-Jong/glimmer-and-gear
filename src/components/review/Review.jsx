@@ -8,9 +8,9 @@ import { TiStar } from 'react-icons/ti';
 import './review.css';
 
 const Review = ({ review }) => {
-    // Create an array for rating-container to map
     let stars = [];
 
+    // Create an array for rating-container to map
     for (let i = 0; i < review.rating; i++) {
         stars.push(i);
     }
@@ -22,15 +22,21 @@ const Review = ({ review }) => {
                 {
                     stars.map((star) => {
                         return <TiStar key={star} />;
-                    })                    
+                    })
                 }
             </div>
             {/* Review */}
-            <p>{review.content}</p>
+            <p>
+                {review.content}
+            </p>
             {/* Review data */}
             <div className='review-info'>
-                <p className='review-author'>{review.author}</p>
-                <time className='review-date'>{getDateString(review.reviewDate)}</time>
+                <p className='review-author'>
+                    {review.author}
+                </p>
+                <time className='review-date'>
+                    {getDateString(review.reviewDate)}
+                </time>
             </div>
         </blockquote>
     );
