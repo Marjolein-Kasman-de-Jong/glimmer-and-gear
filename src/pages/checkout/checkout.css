@@ -1,3 +1,10 @@
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
 .shipping-address-container,
 .order-container {
     width: 100%;
@@ -6,6 +13,13 @@
     display: flex;
     flex-direction: column;
     border: 1px solid var(--light-grey);
+}
+
+.shipping-address,
+.order {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .name,
@@ -35,3 +49,8 @@
     text-align: right;
 }
 
+.shipping,
+.total {
+    display: flex;
+    justify-content: space-between;
+}

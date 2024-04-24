@@ -39,13 +39,11 @@ const Checkout = () => {
                     <div className='order'>
                         {
                             shoppingCart.map((item) => {
-                                const price = item.price * item.amount;
-
                                 return (
                                     <div className='ordered-item'>
                                         <p>{item.itemName}</p>
                                         <p>{item.amount}</p>
-                                        <p>{item.amount * item.price}</p>
+                                        <p>{item.price * item.amount}</p>
                                     </div>
                                 );
                             })

@@ -50,8 +50,6 @@ const ShoppingCart = () => {
                 <div className='item-container'>
                     {
                         shoppingCart.map((item) => {
-                            const price = item.price * item.amount;
-
                             return (
                                 <ProductCard
                                     key={item.itemId}
@@ -62,7 +60,7 @@ const ShoppingCart = () => {
                                     product={{
                                         id: item.itemId,
                                         title: item.itemName,
-                                        price: price,
+                                        price: item.price * item.amount,
                                         image: item.image,
                                         amount: item.amount
                                     }}
