@@ -52,7 +52,7 @@ const Contact = () => {
                         <img src={email} alt='Woman working on a laptop computer' />
                     </div>
                     <div className='email'>
-                        <p>customerservice@glimmerandgear.com</p>
+                        <p>customerservice@<wbr />glimmerandgear<wbr />.com</p>
                     </div>
                 </div>
             </div>

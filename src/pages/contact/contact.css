@@ -13,6 +13,14 @@
     gap: 20px;
 }
 
+.email-container {
+    align-items: center;
+
+    @media screen and (max-width: 912px) {
+        flex-direction: column-reverse;
+    }
+}
+
 .socials,
 .email,
 .contact-image-wrapper {
@@ -44,4 +52,13 @@
     font-size: 1.5rem;
     color: var(--black);
     text-decoration: none;
+}
+
+.email {
+    padding: 20px;
+}
+
+.email p {
+    font-size: 1.5rem;
+    text-align: center;
 }
