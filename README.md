@@ -2,10 +2,10 @@
 
 ## Table of contents
 
-[About this project](#About_this_project)<br>
-[Requirements](#Requirements)<br>
-[Installation](#Installation)<br>
-[Getting started](#Getting_started)
+* [About this project](#About_this_project)<br>
+* [Requirements](#Requirements)<br>
+* [Installation](#Installation)<br>
+* [Getting started](#Getting_started)
 
 ![alt text](https://github.com/Marjolein-Kasman-de-Jong/glimmer-and-gear/blob/main/src/assets/glimmerandgear.png "screenshot")
 
