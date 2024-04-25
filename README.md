@@ -4,6 +4,7 @@
 ### Table of contents
 
 About this project
+Requirements
 
 ![alt text](https://github.com/Marjolein-Kasman-de-Jong/glimmer-and-gear/blob/main/src/assets/glimmerandgear.png "screenshot")
 
@@ -21,3 +22,15 @@ This project was made as a final assignment for the [NOVI bootcamp Web Developer
 * remove some or all products from their shopping cart
 * see an overview of their order, including total product price and shipping costs
 * see the shop's faq and contact information
+
+#### Requirements
+
+##### IDE
+
+This project was built using Visual Studio Code.
+
+#### API
+
+
+
+
