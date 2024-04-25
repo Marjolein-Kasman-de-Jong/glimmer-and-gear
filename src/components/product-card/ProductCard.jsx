@@ -16,34 +16,61 @@ const ProductCard = ({ category, page, product, amountOfItems, setAmountOfItems,
     const icon = <SlTrash className='trash' />;
 
     return (
-        <NavLink className='product-card-navlink' to={`/product/${id}?category=${category}`}>
-            <article className={`product-card ${page}`}>
-                {/* Product card image container */}
-                <div className='product-card-image-container'>
-                    {
-                        rating && <TiStar className='product-card-rating-star' />
-                    }
-                    {
-                        rating && <p className='product-card-product-rating'>{rating.rate}</p>
-                    }
-                    <img className='product-card-product-image' src={product?.image} alt={title} />
-                </div>
-                {/* Product card text container */}
-                <div className='product-card-text-container'>
-                    <header>
-                        <h3 className='product-card-product-name'>{title}</h3>
-                    </header>
-                    <p className='product-card-price'>{price.toFixed(2)}</p>
-                    {
-                        page === 'shopping-cart' &&
-                        <div className='amount-and-trash-container'>
-                            <ChooseAmountMenu amountOfItems={amountOfItems} setAmountOfItemsAndId={setAmountOfItemsAndId} id={id} />
-                            <Button type='button' icon={icon} onClick={handleClick} id={id} />
-                        </div>
-                    }
-                </div>
-            </article>
-        </NavLink>
+        <article className={`product-card ${page}`}>
+            {/* Product card image container */}
+            <NavLink
+                className='product-card-navlink product-card-image-container'
+                to={`/product/${id}?category=${category}`}
+            >
+                {
+                    rating &&
+                    <TiStar className='product-card-rating-star' />
+                }
+                {
+                    rating &&
+                    <p className='product-card-product-rating'>
+                        {rating.rate}
+                    </p>
+                }
+                <img
+                    className='product-card-product-image'
+                    src={product?.image}
+                    alt={title}
+                />
+            </NavLink>
+            {/* Product card text container */}
+            <div className='product-card-text-container'>
+            <NavLink
+                className='product-card-navlink'
+                to={`/product/${id}?category=${category}`}
+            >
+                <header>
+                    <h3 className='product-card-product-name'>
+                        {title}
+                    </h3>
+                </header>
+                <p className='product-card-price'>
+                    {price.toFixed(2)}
+                </p>
+                </NavLink>
+                {
+                    page === 'shopping-cart' &&
+                    <div className='amount-and-trash-container'>
+                        <ChooseAmountMenu
+                            amountOfItems={amountOfItems}
+                            setAmountOfItemsAndId={setAmountOfItemsAndId}
+                            id={id}
+                        />
+                        <Button
+                            type='button'
+                            icon={icon}
+                            onClick={handleClick}
+                            id={id}
+                        />
+                    </div>
+                }
+            </div>
+        </article>
     );
 }
 
