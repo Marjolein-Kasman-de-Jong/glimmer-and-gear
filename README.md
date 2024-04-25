@@ -42,6 +42,6 @@ The [NOVI Educational Backend](https://novi.datavortex.nl/) was provided by NOVI
 1. Download and install [Node.js](https://nodejs.org/en).
 2. Download and install the latest version of npm:
 
-'''
+```
 npm install -g npm@latest
-'''
+```
