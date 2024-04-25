@@ -3,9 +3,9 @@
 
 ### Table of contents
 
-About this project
-Requirements
-Installation
+About this project<br>
+Requirements<br>
+Installation<br>
 Getting started
 
 ![alt text](https://github.com/Marjolein-Kasman-de-Jong/glimmer-and-gear/blob/main/src/assets/glimmerandgear.png "screenshot")
@@ -70,14 +70,14 @@ npm install
 
 ##### Available npm commands
 
-`npm run dev`
+`npm run dev`<br>
 Runs the app in development mode.
 
-`npm run build`
+`npm run build`<br>
 Triggers the build process.
 
-`npm run lint`
+`npm run lint`<br>
 Starts the linting process.
 
-`npm run preview`
-Runs a preview based on the built.
+`npm run preview`<br>
+Runs a preview based on a build.
