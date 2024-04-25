@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 
 // Context
 import { AuthContext } from '../../context/AuthContext';
-import { ShoppingCartContext } from '../../context/shoppingCartContext';
+import { ShoppingCartContext } from '../../context/ShoppingCartContext';
 
 // Components
 import HamburgerMenu from '../hamburger-menu/HamburgerMenu';

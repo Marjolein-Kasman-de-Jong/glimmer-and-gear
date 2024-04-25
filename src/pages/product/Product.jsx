@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
 // Context
-import { ShoppingCartContext } from '../../context/shoppingCartContext';
+import { ShoppingCartContext } from '../../context/ShoppingCartContext';
 
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';

@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Context
-import { ShoppingCartContext } from '../../context/shoppingCartContext';
+import { ShoppingCartContext } from '../../context/ShoppingCartContext';
 
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';

@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 export const ShoppingCartContext = createContext(null);
 
@@ -38,14 +38,14 @@ function shoppingCartContextProvider({ children }) {
     useEffect(() => {
         let total = 0;
         shoppingCart.map((item) => {
-            total += item.price * item.amount
+            total += item.price * item.amount;
         })
         setProductsTotal(total);
     }, [shoppingCart])
 
     // Calculate shipping
     useEffect(() => {
-        productsTotal > 20 ? setShipping(0) : setShipping(9.99)
+        productsTotal > 20 ? setShipping(0) : setShipping(9.99);
     }, [productsTotal])
 
     // Calculate grand total
