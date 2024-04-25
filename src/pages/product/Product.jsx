@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -135,34 +135,57 @@ const Product = () => {
             {/* Single product section */}
             <section className='single-product-section'>
                 <header>
-                    <h2>{productData?.data?.title}</h2>
+                    <h2>
+                        {productData?.data?.title}
+                    </h2>
                 </header>
                 {
                     loading ?
-                        <p>Loading...</p>
+                        <p>
+                            Loading...
+                        </p>
                         :
                         error ?
-                            <p>Product not found.</p>
+                            <p>
+                                Product not found.
+                            </p>
                             :
                             <article className='single-product'>
                                 <div className='single-product-image-container'>
-                                    <img src={productData?.data?.image} alt={productData?.data?.title} />
-                                    <p>{(productData?.data?.price)?.toFixed(2)}</p>
+                                    <img
+                                        src={productData?.data?.image}
+                                        alt={productData?.data?.title}
+                                    />
+                                    <p>
+                                        {(productData?.data?.price)?.toFixed(2)}
+                                    </p>
                                     <TiStar className='rating-star' />
-                                    <p className='rating'>{productData?.data?.rating?.rate}</p>
+                                    <p className='rating'>
+                                        {productData?.data?.rating?.rate}
+                                    </p>
                                 </div>
                                 <div className='single-product-text-container'>
-                                    <p>{productData?.data?.description}</p>
+                                    <p>
+                                        {productData?.data?.description}
+                                    </p>
                                     {
                                         alreadyInCart ?
                                             <div className='go-to-cart-container'>
-                                                <p>This item is in your shopping cart.</p>
-                                                <Link to='/shopping-cart'>{`>> See shopping cart`}</Link>
+                                                <p>
+                                                    This item is in your shopping cart.
+                                                </p>
+                                                <Link to='/shopping-cart'>
+                                                    {`>> See shopping cart`}
+                                                </Link>
                                             </div>
                                             :
                                             <div className='add-to-cart-container'>
                                                 <ChooseAmountMenu setAmountOfItems={setAmountOfItems} />
-                                                <Button type='button' buttonText='Add to cart' onClick={() => handleClick()} />
+                                                <Button
+                                                    type='button'
+                                                    buttonText='Add to cart'
+                                                    onClick={() => handleClick()}
+                                                />
                                             </div>
                                     }
                                 </div>
@@ -172,26 +195,36 @@ const Product = () => {
             {/* More in this category section */}
             <section className='more-in-this-category-section'>
                 <header>
-                    <h3 className='more-in-this-category-title'>More in this category</h3>
+                    <h3 className='more-in-this-category-title'>
+                        More in this category
+                    </h3>
                 </header>
                 {
                     loading ?
-                        <p>Loading...</p>
+                        <p>
+                            Loading...
+                        </p>
                         :
                         error ?
-                            <p>No products found.</p>
+                            <p>
+                                No products found.
+                            </p>
                             :
                             <div className='more-products-container'>
                                 {
                                     productList?.map((product) => {
-                                        return <ProductCard key={product.id} category={category} product={product} />
+                                        return <ProductCard
+                                            key={product.id}
+                                            category={category}
+                                            product={product}
+                                        />;
                                     })
                                 }
                             </div>
                 }
             </section>
         </main>
-    )
+    );
 }
 
 export default Product;

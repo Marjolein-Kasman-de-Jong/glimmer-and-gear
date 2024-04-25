@@ -8,9 +8,9 @@
     align-items: center;
 
     @media screen and (max-width: 912px) {
-        height: unset;
         width: 100%;
         max-width: 400px;
+        height: unset;
         flex-direction: column;
         gap: 20px;
     }
@@ -102,12 +102,12 @@
 }
 
 .go-to-cart-container {
+    padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     color: var(--green);
     border: 3px solid var(--green);
-    padding: 10px;
 }
 
 .go-to-cart-container a,
