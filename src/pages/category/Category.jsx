@@ -11,7 +11,7 @@ import ProductCard from '../../components/product-card/ProductCard';
 import categories from '../../constants/categories';
 
 // Style
-import './category.css'
+import './category.css';
 
 const Category = () => {
     const [productList, setProductList] = useState([]);
@@ -29,7 +29,6 @@ const Category = () => {
 
     useEffect(() => {
         const controller = new AbortController();
-
         async function getProductList(url) {
             setLoading(true);
             try {
@@ -44,9 +43,7 @@ const Category = () => {
             }
             setLoading(false);
         }
-
         categoryData && getProductList(categoryData.apiEndpoint);
-
         return function cleanup() {
             controller.abort();
         }
@@ -56,7 +53,6 @@ const Category = () => {
     useEffect(() => {
         //  Copy productList because React doesn't detect that array is being changed in-place
         const sortedProductList = [...productList];
-
         // Sort products
         if (sortOption === 'price-l-h') {
             sortedProductList.sort((a, b) => {
@@ -71,7 +67,6 @@ const Category = () => {
                 return b.rating.rate - a.rating.rate;
             })
         }
-
         // Use setProductList with sorted copy of original array, so React detects that array has changed and re-renders .products-container
         setProductList(sortedProductList);
     }, [sortOption])
@@ -80,8 +75,13 @@ const Category = () => {
         <main>
             <SearchBar />
             <header className='category-page-header'>
-                <h2>{categoryData.title}</h2>
-                <SortOptionMenu sortOption={sortOption} setSortOption={setSortOption} />
+                <h2>
+                    {categoryData.title}
+                </h2>
+                <SortOptionMenu
+                    sortOption={sortOption}
+                    setSortOption={setSortOption}
+                />
             </header>
             {
                 loading ?
@@ -93,7 +93,11 @@ const Category = () => {
                         <div className='category-page-products-container'>
                             {
                                 productList?.map((product) => {
-                                    return <ProductCard key={product.id} category={category} product={product} />
+                                    return <ProductCard
+                                        key={product.id}
+                                        category={category}
+                                        product={product}
+                                    />;
                                 })
                             }
                         </div>
