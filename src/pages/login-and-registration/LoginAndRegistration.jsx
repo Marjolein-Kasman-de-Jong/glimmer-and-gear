@@ -14,10 +14,10 @@ import createUser from '../../helpers/createUser';
 import './login-and-registration.css';
 
 const LoginAndRegistration = () => {
-    const [activeTab, toggleActiveTab] = useState(true); 
-    const [errorMessages, setErrorMessages] = useState({}); 
-    const [statusCode, setStatusCode] = useState(''); 
-    const [statusMessage, setStatusMessage] = useState('');  
+    const [activeTab, toggleActiveTab] = useState(true);
+    const [errorMessages, setErrorMessages] = useState({});
+    const [statusCode, setStatusCode] = useState('');
+    const [statusMessage, setStatusMessage] = useState('');
     const [formState, setFormState] = useState({
         username: '',
         email: '',
@@ -31,7 +31,6 @@ const LoginAndRegistration = () => {
     function handleChange(e) {
         const changedFieldName = e.target.name;
         const newValue = e.target.value;
-
         setFormState({
             ...formState,
             [changedFieldName]: newValue,
@@ -47,7 +46,7 @@ const LoginAndRegistration = () => {
         // Login
         if (activeTab) {
             login(formState, setStatusCode);
-        // Create account
+            // Create account
         } else if (Object.keys(errors).length === 0) {
             createUser(formState, setStatusCode);
         }
@@ -60,11 +59,17 @@ const LoginAndRegistration = () => {
                 setStatusMessage('');
                 break;
             case 200:
-                activeTab ? setStatusMessage('Login successful') : setStatusMessage('Registration successful');
+                activeTab ?
+                    setStatusMessage('Login successful')
+                    :
+                    setStatusMessage('Registration successful');
                 break;
             case 'error':
-                activeTab ? setStatusMessage('Login failed') : setStatusMessage('Registration failed');
-                break
+                activeTab ?
+                    setStatusMessage('Login failed')
+                    :
+                    setStatusMessage('Registration failed');
+                break;
         }
     }, [activeTab, statusCode]);
 
@@ -83,14 +88,27 @@ const LoginAndRegistration = () => {
     return (
         <main>
             <header>
-                <h2>Login/registration</h2>
+                <h2>
+                    Login/registration
+                </h2>
             </header>
-
             <div className='tabs-container'>
                 {/* Tab titles */}
                 <div className='tab-button-container'>
-                    <button type='button' className='tab-button' onClick={() => { toggleActiveTab(true) }}>I have an account</button>
-                    <button type='button' className='tab-button' onClick={() => { toggleActiveTab(false) }}>I am a new customer</button>
+                    <button
+                        type='button'
+                        className='tab-button'
+                        onClick={() => { toggleActiveTab(true) }}
+                    >
+                        I have an account
+                    </button>
+                    <button
+                        type='button'
+                        className='tab-button'
+                        onClick={() => { toggleActiveTab(false) }}
+                    >
+                        I am a new customer
+                    </button>
                 </div>
                 {
                     activeTab ?
