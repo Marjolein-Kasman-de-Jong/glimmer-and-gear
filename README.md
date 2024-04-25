@@ -1,5 +1,5 @@
 # Glimmer & Gear
-## NOVI Bootcamp Web Developer (Frontend) - Eindopdracht
+## NOVI Bootcamp Web Developer (Frontend) - Final assignment
 
 ### Table of contents
 
@@ -37,4 +37,11 @@ The project uses [fakeStoreApi](https://fakestoreapi.com/docs). No API keys are 
 
 The [NOVI Educational Backend](https://novi.datavortex.nl/) was provided by NOVI Hogeschool. No API keys are needed. 
 
+#### Installation
 
+1. Download and install [Node.js](https://nodejs.org/en).
+2. Download and install the latest version of npm:
+
+'''
+npm install -g npm@latest
+'''
