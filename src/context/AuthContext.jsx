@@ -48,7 +48,7 @@ function AuthContextProvider({ children }) {
                 setStatusCode && setStatusCode(response.status);
             };
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     }
 
@@ -91,7 +91,7 @@ function AuthContextProvider({ children }) {
             });
             // Set status code
             setStatusCode('error');
-            console.log(error);
+            console.error(error);
         }
     }
 
