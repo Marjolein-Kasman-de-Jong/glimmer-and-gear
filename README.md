@@ -5,6 +5,8 @@
 
 About this project
 Requirements
+Installation
+Getting started
 
 ![alt text](https://github.com/Marjolein-Kasman-de-Jong/glimmer-and-gear/blob/main/src/assets/glimmerandgear.png "screenshot")
 
@@ -58,3 +60,24 @@ or
 git@github.com:Marjolein-Kasman-de-Jong/glimmer-and-gear.git
 ```
 
+4. Install npm packages:
+
+```
+npm install
+```
+
+#### Getting started
+
+##### Available npm commands
+
+`npm run dev`
+Runs the app in development mode.
+
+`npm run build`
+Triggers the build process.
+
+`npm run lint`
+Starts the linting process.
+
+`npm run preview`
+Runs a preview based on the built.
