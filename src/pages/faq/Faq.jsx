@@ -1,18 +1,18 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 // Components
 import SearchBar from '../../components/search-bar/SearchBar';
-import FaqComponent from '../../components/faq-component/FaqComponent'
+import FaqComponent from '../../components/faq-component/FaqComponent';
 
 // Constants
-import faqs from '../../constants/faqs'
+import faqs from '../../constants/faqs';
 
 // Style
-import './faq.css'
+import './faq.css';
 
 const Faq = () => {
     // Monitor index of opened faq
-    const [activeIndex, setActiveIndex] = useState(null)
+    const [activeIndex, setActiveIndex] = useState(null);
 
     function handleToggle(index) {
         if (activeIndex === index) {
@@ -28,7 +28,9 @@ const Faq = () => {
         <main>
             <SearchBar />
             <header>
-                <h2>Frequently asked questions</h2>
+                <h2>
+                    Frequently asked questions
+                </h2>
             </header>
             <div className='faq-container'>
                 {
@@ -37,7 +39,7 @@ const Faq = () => {
                             key={faq.id}
                             faq={faq}
                             isActive={activeIndex === index}
-                            onClick={() => handleToggle(index)} />
+                            onClick={() => handleToggle(index)} />;
                     })
                 }
             </div>
