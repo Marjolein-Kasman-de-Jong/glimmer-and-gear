@@ -45,7 +45,9 @@ const ShoppingCart = () => {
     return (
         <main>
             <SearchBar />
-            <h2>Shopping Cart</h2>
+            <h2>
+                Shopping Cart
+            </h2>
             <div className='shopping-cart-container'>
                 <div className='item-container'>
                     {
@@ -71,24 +73,32 @@ const ShoppingCart = () => {
                 </div>
                 <article className='summary-container'>
                     <header>
-                        <h3>Summary</h3>
+                        <h3>
+                            Summary
+                        </h3>
                     </header>
                     <div className='products-and-shipping'>
                         <div className='products'>
-                            <p>Products</p>
+                            <p>
+                                Products
+                            </p>
                             <p>
                                 {productsTotal.toFixed(2)}
                             </p>
                         </div>
                         <div className='shipping'>
-                            <p>Shipping</p>
+                            <p>
+                                Shipping
+                            </p>
                             <p>
                                 {shipping}
                             </p>
                         </div>
                     </div>
                     <div className='total'>
-                        <p>Total</p>
+                        <p>
+                            Total
+                        </p>
                         <p>
                             {grandTotal.toFixed(2)}
                         </p>
