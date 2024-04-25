@@ -21,28 +21,40 @@ const Home = () => {
             <section className='image-section'>
                 {
                     randomImages.map((randomImage) => {
-                        return <RandomProductImage key={randomImage.id} src={randomImage} />;
+                        return <RandomProductImage
+                            key={randomImage.id}
+                            src={randomImage}
+                        />;
                     })
                 }
             </section>
             <section className='usp-section'>
                 {
                     usps.map((usp) => {
-                        return <Usp key={usp} text={usp} />;
+                        return <Usp
+                            key={usp}
+                            text={usp}
+                        />;
                     })
                 }
             </section>
             <section className='category-section'>
                 {
                     categories.map((category) => {
-                        return <CategoryTile key={category.title} category={category} />;
+                        return <CategoryTile
+                            key={category.title}
+                            category={category}
+                        />;
                     })
                 }
             </section>
             <section className="review-section">
                 {
                     reviews.map((review) => {
-                        return <Review key={review.id} review={review} />;                         
+                        return <Review
+                            key={review.id}
+                            review={review}
+                        />;
                     })
                 }
             </section>
