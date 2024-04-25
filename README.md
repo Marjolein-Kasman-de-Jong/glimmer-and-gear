@@ -1,12 +1,11 @@
 # Glimmer & Gear
-## NOVI Bootcamp Web Developer (Frontend) - Final assignment
 
 ## Table of contents
 
-About this project<br>
-Requirements<br>
-Installation<br>
-Getting started
+[About this project](#About_this_project)<br>
+[Requirements](#Requirements)<br>
+[Installation](#Installation)<br>
+[Getting started](#Getting_started)
 
 ![alt text](https://github.com/Marjolein-Kasman-de-Jong/glimmer-and-gear/blob/main/src/assets/glimmerandgear.png "screenshot")
 
@@ -37,7 +36,7 @@ The project uses [fakeStoreApi](https://fakestoreapi.com/docs). No API keys are 
 
 #### Backend
 
-The [NOVI Educational Backend](https://novi.datavortex.nl/) was provided by NOVI Hogeschool. No API keys are needed. 
+The [NOVI Educational Backend](https://novi.datavortex.nl/) was provided by [NOVI Hogeschool](https://www.novi.nl/?utm_term=novi%20hogeschool&utm_campaign=SDIM+-+NOVI+-+Branded++-+22-12-2023&utm_source=adwords&utm_medium=ppc&hsa_acc=4280163138&hsa_cam=20882328921&hsa_grp=157473255015&hsa_ad=685547414547&hsa_src=g&hsa_tgt=aud-1929441721854:kwd-853861328135&hsa_kw=novi%20hogeschool&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjw_qexBhCoARIsAFgBlesmYcB3FUcXIxt_UghxIsCzDt7_GbSVXnr1MyhFws0Fahj6eG1AcxkaAms2EALw_wcB). No API keys are needed. 
 
 ### Installation
 
