@@ -25,12 +25,16 @@ This project was made as a final assignment for the [NOVI bootcamp Web Developer
 
 #### Requirements
 
-##### IDE
+##### Runtime environment
 
-This project was built using Visual Studio Code.
+To install and run this project on your local machine, Node.js is required. You can get Node.js [here](https://nodejs.org/en).
 
-#### API
+##### API
 
+The project uses [fakeStoreApi](https://fakestoreapi.com/docs). No API keys are needed.
 
+##### Backend
+
+The [NOVI Educational Backend](https://novi.datavortex.nl/) was provided by NOVI Hogeschool. No API keys are needed. 
 
 
