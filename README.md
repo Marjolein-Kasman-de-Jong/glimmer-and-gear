@@ -1,4 +1,9 @@
 # Glimmer & Gear
 ## NOVI Bootcamp Web Developer (Frontend) - Eindopdracht
 
-Work in progress.
+### Table of contents
+
+About this project
+
+#### About this project
+

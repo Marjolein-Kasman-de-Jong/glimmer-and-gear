@@ -114,7 +114,7 @@ const Product = () => {
                 setProductList(filteredProductList);
                 setError(false);
             } catch (error) {
-                console.log(error);
+                console.error(error);
                 setError(true);
             }
             setLoading(false);
