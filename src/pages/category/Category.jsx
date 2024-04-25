@@ -38,7 +38,7 @@ const Category = () => {
                 setProductList(response.data);
                 setError(false);
             } catch (error) {
-                console.log(error);
+                console.error(error);
                 setError(true);
             }
             setLoading(false);
