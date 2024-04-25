@@ -6,7 +6,7 @@
 * [Requirements](#Requirements)<br>
 * [Installation](#Installation)<br>
 * [Getting started](#Getting_started)
-
+<br><br>
 ![alt text](https://github.com/Marjolein-Kasman-de-Jong/glimmer-and-gear/blob/main/src/assets/glimmerandgear.png "screenshot")
 
 ### About this project
