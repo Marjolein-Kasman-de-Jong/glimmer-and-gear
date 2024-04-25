@@ -14,7 +14,7 @@ import UserProfile from '../../components/user-profile/UserProfile';
 import validateForm from '../../helpers/validateForm';
 
 // Style
-import './profile.css'
+import './profile.css';
 
 const Profile = () => {
     const { username, email, password, info, toggleNeedsUpdate } = useContext(AuthContext);
@@ -33,7 +33,6 @@ const Profile = () => {
     function handleChange(e) {
         const changedFieldName = e.target.name;
         const newValue = e.target.value;
-
         setFormState({
             ...formState,
             [changedFieldName]: newValue,
@@ -43,7 +42,6 @@ const Profile = () => {
     // Update user profile
     const storedToken = localStorage.getItem('token');
     let decodedStoredToken;
-
     async function updateUserProfile() {
         try {
             if (storedToken) {
@@ -60,7 +58,7 @@ const Profile = () => {
             toggleNeedsUpdate(true);
         } catch (error) {
             setStatusCode('error');
-            console.log(error);
+            console.error(error);
         }
     }
 
@@ -73,7 +71,7 @@ const Profile = () => {
         // Discard changes
         if (e.target.textContent === 'Discard changes') {
             toggleEdit(!edit);
-        // Update user profile
+            // Update user profile
         } else if (Object.keys(errors).length === 0) {
             updateUserProfile();
             toggleEdit(!edit);
@@ -91,7 +89,7 @@ const Profile = () => {
                 break;
             case 'error':
                 setStatusMessage('User profile update failed');
-                break
+                break;
         }
     }, [statusCode])
 
@@ -99,18 +97,34 @@ const Profile = () => {
         <main>
             <SearchBar />
             <header>
-                <h2>User profile</h2>
+                <h2>
+                    User profile
+                </h2>
             </header>
             {
                 edit ?
-
-                    <Form form='profile' formState={formState} handleChange={handleChange} handleClick={handleClick} errorMessages={errorMessages} statusCode={statusCode} statusMessage={statusMessage} />
+                    <Form
+                        form='profile'
+                        formState={formState}
+                        handleChange={handleChange}
+                        handleClick={handleClick}
+                        errorMessages={errorMessages}
+                        statusCode={statusCode}
+                        statusMessage={statusMessage}
+                    />
                     :
-                    <UserProfile statusCode={statusCode} statusMessage={statusMessage} username={username} email={email} info={info} edit={edit} toggleEdit={toggleEdit} />
+                    <UserProfile
+                        statusCode={statusCode}
+                        statusMessage={statusMessage}
+                        username={username}
+                        email={email}
+                        info={info}
+                        edit={edit}
+                        toggleEdit={toggleEdit}
+                    />
             }
         </main>
     );
 }
 
 export default Profile;
-
