@@ -40,8 +40,21 @@ The [NOVI Educational Backend](https://novi.datavortex.nl/) was provided by NOVI
 #### Installation
 
 1. Download and install [Node.js](https://nodejs.org/en).
-2. Download and install the latest version of npm:
+2. Download and install the latest version of [npm](https://www.npmjs.com/):
 
 ```
 npm install -g npm@latest
 ```
+
+3. Clone the Glimmer & Gear repository:
+
+```
+https://github.com/Marjolein-Kasman-de-Jong/glimmer-and-gear.git
+```
+
+or 
+
+```
+git@github.com:Marjolein-Kasman-de-Jong/glimmer-and-gear.git
+```
+
