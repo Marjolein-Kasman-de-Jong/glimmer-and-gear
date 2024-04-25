@@ -1,7 +1,7 @@
-import checkForCapital from "./checkForCapital";
-import checkForNumber from "./checkForNumber";
-import checkForAtSign from "./checkForAtSign";
-import checkForDot from "./checkForDot";
+import checkForCapital from './checkForCapital';
+import checkForNumber from './checkForNumber';
+import checkForAtSign from './checkForAtSign';
+import checkForDot from './checkForDot';
 
 function validateForm({ username, email, password }, form) {
     const errorMessages = {};
@@ -24,7 +24,7 @@ function validateForm({ username, email, password }, form) {
     const atSign = checkForAtSign(email);
     const dot = checkForDot(email);
     if (form != 'login' && (!atSign || !dot)) {
-        errorMessages['emailError'] = 'Email must contain an at sign and a dot.'
+        errorMessages['emailError'] = 'Email must contain an at sign and a dot.';
     }
 
     return errorMessages;
