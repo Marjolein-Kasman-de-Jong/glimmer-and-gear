@@ -51,24 +51,27 @@ const ShoppingCart = () => {
             <div className='shopping-cart-container'>
                 <div className='item-container'>
                     {
-                        shoppingCart.map((item) => {
-                            return (
-                                <ProductCard
-                                    key={item.itemId}
-                                    amountOfItems={item.amount}
-                                    setAmountOfItemsAndId={setAmountOfItemsAndId}
-                                    handleClick={handleClick}
-                                    page='shopping-cart'
-                                    product={{
-                                        id: item.itemId,
-                                        title: item.itemName,
-                                        price: item.price * item.amount,
-                                        image: item.image,
-                                        amount: item.amount
-                                    }}
-                                />
-                            );
-                        })
+                            shoppingCart.length > 0 ?
+                            shoppingCart.map((item) => {
+                                return (
+                                    <ProductCard
+                                        key={item.itemId}
+                                        amountOfItems={item.amount}
+                                        setAmountOfItemsAndId={setAmountOfItemsAndId}
+                                        handleClick={handleClick}
+                                        page='shopping-cart'
+                                        product={{
+                                            id: item.itemId,
+                                            title: item.itemName,
+                                            price: item.price * item.amount,
+                                            image: item.image,
+                                            amount: item.amount
+                                        }}
+                                    />
+                                );
+                            })
+                            :
+                            <p>Shopping cart is empty.</p>
                     }
                 </div>
                 <article className='summary-container'>
