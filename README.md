@@ -1,3 +1,6 @@
+Figma project: https://www.figma.com/file/g7RU3ZvXTtLgaGgkqK9oOA/GlimmerAndGear?type=design&mode=design&t=hTepxbxF3RwRLn8C-1
+GitHub repository: https://github.com/Marjolein-Kasman-de-Jong/glimmer-and-gear
+
 # Glimmer & Gear
 
 ## Table of contents
