@@ -32,7 +32,7 @@ function App() {
         <PageHeader />
         <Routes>
           <Route
-            path='/home'
+            path='/glimmer-and-gear'
             element={<Home />}
           />
           <Route
