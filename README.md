@@ -1,3 +1,5 @@
+IMPORTANT!!! Creating an account or using the test account is no longer possible, because the project doesn't have access to the NOVI backend anymore, since I am no longer registered to NOVI as a student.
+
 Figma project: https://www.figma.com/file/g7RU3ZvXTtLgaGgkqK9oOA/GlimmerAndGear?type=design&mode=design&t=hTepxbxF3RwRLn8C-1<br>
 GitHub repository: https://github.com/Marjolein-Kasman-de-Jong/glimmer-and-gear
 
