@@ -32,7 +32,7 @@ function App() {
         <PageHeader />
         <Routes>
           <Route
-            path='/'
+            path='/home'
             element={<Home />}
           />
           <Route
